@@ -1,0 +1,307 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Contacts API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Contacts
+paths:
+  /contacts:
+    get:
+      operationId: ListContacts
+      responses:
+        '200':
+          description: A list of contacts was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/Contact'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - id: contact123
+                    nickname: John Doe
+                    contactType: business
+                    contactId: business123
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - No contacts associated with this user were found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the contacts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: 'Retrieve a list of contacts for the authenticated user, each containing details such as the contact ID, nickname, contact type, and timestamps.
+
+        - This endpoint allows searching for contacts by nickname or other attributes.
+
+        - The results can be paginated using the limit and offset parameters.'
+      summary: Get Contacts
+      tags:
+      - Contacts
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: Optional search string to filter contacts by nickname or other attributes.
+        in: query
+        name: searchString
+        required: false
+        schema:
+          type: string
+        example: John
+      - description: Optional limit for the number of contacts to retrieve.
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        example: 10
+      - description: Optional offset for pagination.
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+        example: 0
+      - description: 'Optional field to sort contacts by. Available fields: createdAt, updatdAt.'
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiWrapperOrderBy'
+      - description: Optional direction to sort contacts by.
+        in: query
+        name: order
+        required: false
+        schema:
+          default: desc
+          type: string
+          enum:
+          - asc
+          - desc
+    post:
+      operationId: CreateContact
+      responses:
+        '200':
+          description: The contact was created successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    id: contact123
+                    nickname: John Doe
+                    contactType: business
+                    contactId: business123
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to create the contact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - The specified business ID does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict - Contact with the same nickname already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to create the contact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Create a new contact for the authenticated user.
+      summary: Create Contact
+      tags:
+      - Contacts
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        description: The contact details, including nickname, description, and contact ID.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                contactId:
+                  type: string
+                description:
+                  type: string
+                nickname:
+                  type: string
+              required:
+              - contactId
+              - description
+              - nickname
+              type: object
+              description: The contact details, including nickname, description, and contact ID.
+            example:
+              nickname: John Doe
+              description: Business contact
+              contactId: business123
+  /contacts/{id}:
+    delete:
+      operationId: DeleteContact
+      responses:
+        '200':
+          description: The contact was deleted successfully.
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Delete an existing contact by its ID.
+      summary: Delete Contact
+      tags:
+      - Contacts
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the contact to delete.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    Contact:
+      properties:
+        id:
+          type: string
+        nickname:
+          type: string
+        contactType:
+          type: string
+          enum:
+          - wallet
+          - user
+          - business
+        contactId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - nickname
+      - contactType
+      - contactId
+      - createdAt
+      - updatedAt
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

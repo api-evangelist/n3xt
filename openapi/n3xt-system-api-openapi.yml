@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals System API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: System
+paths:
+  /status:
+    get:
+      operationId: Status
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                required:
+                - message
+                - status
+                type: object
+      description: Check the health and status of the API server
+      tags:
+      - System
+      security: []
+      parameters: []
+  /status/full:
+    get:
+      operationId: FullStatus
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: string
+                required:
+                - message
+                - status
+                type: object
+        '502':
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - System
+      security: []
+      parameters: []
+components:
+  schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

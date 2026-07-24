@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Transfers API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Transfers
+paths:
+  /transfers/internal:
+    post:
+      operationId: Internal Transfer
+      responses:
+        '202':
+          description: The internal transfer was created successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    id:
+                      type: string
+                  required:
+                  - id
+                  type: object
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: payment123
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Allows the authenticated user to create an instant intra business transfer.
+      summary: Internal Transfer
+      tags:
+      - Transfers
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        description: The request body containing the payment details.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternalTransferRequest'
+              description: The request body containing the payment details.
+            example:
+              amount: '100.0'
+              senderWalletId: wallet123
+              recipientWalletId: wallet456
+              description: Internal transfer
+components:
+  schemas:
+    InternalTransferRequest:
+      properties:
+        amount:
+          type: string
+        senderWalletId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderWalletId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

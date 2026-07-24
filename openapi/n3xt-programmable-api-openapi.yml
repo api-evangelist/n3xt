@@ -1,0 +1,510 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Programmable API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Programmable
+paths:
+  /payments/programmable/{id}:
+    get:
+      operationId: Get Programmable Payment
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Bad Request - Invalid ID supplied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Programmable payment not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieves a programmable payment by its ID.
+      summary: Get Programmable Payment
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the programmable payment (moneyflow).
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+  /payments/programmable:
+    get:
+      operationId: List Programmable Payments
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Lists all programmable payments for the authenticated user's business.
+      summary: List Programmable Payments
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The maximum number of programmable payments to return (optional).
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: The offset for pagination (optional).
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: 'Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).'
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiWrapperOrderBy'
+      - description: 'Sort direction. Available values: asc, desc. (optional).'
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    post:
+      operationId: Create Programmable Payment Request
+      responses:
+        '202':
+          description: Request Accepted
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    id:
+                      type: string
+                  required:
+                  - id
+                  type: object
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: moneyflow-uuid-goes-here
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Creates a programmable payment request.
+      summary: Create Programmable Payment Request
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: 'Specifies who initiates the payment: ''recipient'' or ''payer'''
+        in: query
+        name: initiator
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The request body.
+        required: true
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - $ref: '#/components/schemas/RecipientRequestPayload'
+              - $ref: '#/components/schemas/PayerRequestPayload'
+              description: The request body.
+  /payments/programmable/{id}/fulfillment:
+    put:
+      operationId: Fulfill Programmable Payment
+      responses:
+        '202':
+          description: Fulfillment request accepted
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Bad Request - Invalid ID supplied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Programmable payment not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Fulfill a programmable payment delivery.
+      summary: Fulfill Programmable Payment Delivery
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the programmable payment.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+  /payments/programmable/{id}/cancellation:
+    put:
+      operationId: Cancel Programmable Payment
+      responses:
+        '202':
+          description: Cancellation request accepted
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Bad Request - Invalid ID supplied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Programmable payment not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Cancel a programmable payment.
+      summary: Cancel Programmable Payment
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the programmable payment to cancel.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+  /payments/programmable/request/{id}:
+    patch:
+      operationId: Update Payment Request Status
+      responses:
+        '202':
+          description: The request status was updated successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                  - status: accepted
+                    senderWalletId: wallet123
+                  - status: declined
+                  - status: cancelled
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Update the status of a payment/fulfillment/cancellation request.
+      summary: Update Request Status
+      tags:
+      - Programmable
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the request to update.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: 'The type of request: ''payment'', ''fulfillment'', or ''cancellation''.'
+        in: query
+        name: requestType
+        required: true
+        schema:
+          type: string
+          enum:
+          - payment
+          - fulfillment
+          - cancellation
+      requestBody:
+        description: The request body containing the status update.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                recipientWalletId:
+                  type: string
+                senderWalletId:
+                  type: string
+                reason:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - accepted
+                  - declined
+                  - cancelled
+              required:
+              - status
+              type: object
+              description: The request body containing the status update.
+            examples:
+              Example 1:
+                value:
+                  status: accepted
+                  senderWalletId: wallet456
+              Example 2:
+                value:
+                  status: declined
+              Example 3:
+                value:
+                  status: cancelled
+components:
+  schemas:
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    RecipientRequestPayload:
+      description: Request body for creating a recipient-initiated programmable payment.
+      properties:
+        counterPartyId:
+          type: string
+          description: The business ID of the counterparty.
+          format: uuid
+        recipientWalletId:
+          type: string
+          description: The wallet ID of the recipient.
+          format: uuid
+        recipientBusinessId:
+          type: string
+          description: The business ID of the recipient.
+          format: uuid
+        amount:
+          type: string
+          description: The amount of the payment.
+        feeAmount:
+          type: string
+          description: The fee amount for the payment.
+        description:
+          type: string
+          description: A description for the payment.
+      required:
+      - counterPartyId
+      - recipientWalletId
+      - amount
+      type: object
+      additionalProperties: false
+    PayerRequestPayload:
+      description: Request body for creating a payer-initiated programmable payment.
+      properties:
+        counterPartyId:
+          type: string
+          description: The business ID of the counterparty.
+          format: uuid
+        senderWalletId:
+          type: string
+          description: The wallet ID of the sender.
+          format: uuid
+        senderBusinessId:
+          type: string
+          description: The business ID of the sender.
+          format: uuid
+        amount:
+          type: string
+          description: The amount of the payment.
+        feeAmount:
+          type: string
+          description: The fee amount for the payment.
+        description:
+          type: string
+          description: A description for the payment.
+      required:
+      - counterPartyId
+      - senderWalletId
+      - amount
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

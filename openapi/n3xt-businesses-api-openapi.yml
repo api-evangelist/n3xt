@@ -1,0 +1,189 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Businesses API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Businesses
+paths:
+  /businesses:
+    get:
+      operationId: Get Businesses
+      responses:
+        '200':
+          description: A list of businesses was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/Business'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - id: 2BA06F3E-0BE3-4E2A-9119-BB0578A761C5
+                    publicName: PepsiCo Limited
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Businesses
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: query
+        name: searchString
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          format: double
+          type: number
+  /businesses/{id}:
+    get:
+      operationId: Get Business by ID
+      responses:
+        '200':
+          description: Business retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/Business'
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: 2BA06F3E-0BE3-4E2A-9119-BB0578A761C5
+                    publicName: PepsiCo Limited
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Businesses
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    Business:
+      properties:
+        id:
+          type: string
+        publicName:
+          type: string
+      required:
+      - id
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

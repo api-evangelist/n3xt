@@ -1,0 +1,206 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals AuditTrail API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: AuditTrail
+paths:
+  /audit-trail:
+    get:
+      operationId: List
+      responses:
+        '200':
+          description: Audit trail was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/AuditTrailResponse'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - id: '12345'
+                    actorType: system
+                    actorId: '67890'
+                    businessId: '54321'
+                    walletId: '98765'
+                    targetEventType: onboarding_kyc
+                    targetEventId: abcde
+                    targetEventAction: initiated
+                    metadata:
+                      key: value
+                    createdAt: '2026-07-18T18:50:37.204Z'
+                    eventTimestamp: '2026-07-18T18:50:37.204Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Lists all audit trail records for the authenticated user's business matching the filter criteria.
+      summary: List Audit Trail Records
+      tags:
+      - AuditTrail
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: Filter audit trail records by actor ID.
+        in: query
+        name: actorId
+        required: false
+        schema:
+          type: string
+      - description: Filter audit trail records by wallet ID.
+        in: query
+        name: walletId
+        required: false
+        schema:
+          type: string
+      - description: Filter audit trail records by type (business or wallet).
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+          enum:
+          - business
+          - wallet
+      - description: The maximum number of audit trail records to return (optional).
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: The offset for pagination (optional).
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: 'Sort audit trail records by a field. Available fields: createdAt (optional).'
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+          enum:
+          - createdAt
+      - description: 'Sort direction. Available values: asc, desc. (optional).'
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+components:
+  schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    AuditTrailResponse:
+      properties:
+        id:
+          type: string
+        actorType:
+          type: string
+          nullable: true
+        actorId:
+          type: string
+          nullable: true
+        targetEventType:
+          type: string
+          nullable: true
+        targetEventAction:
+          type: string
+        targetEventId:
+          type: string
+          nullable: true
+        businessId:
+          type: string
+          nullable: true
+        walletId:
+          type: string
+          nullable: true
+        metadata: {}
+        createdAt:
+          type: string
+          format: date-time
+        eventTimestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - actorType
+      - actorId
+      - targetEventType
+      - targetEventAction
+      - targetEventId
+      - businessId
+      - walletId
+      - createdAt
+      - eventTimestamp
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

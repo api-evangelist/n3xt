@@ -1,0 +1,617 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Wallets API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Wallets
+paths:
+  /wallets:
+    get:
+      operationId: Wallets
+      responses:
+        '200':
+          description: The list of wallets was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/WalletResponse'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - id: wallet123
+                    balance: '100.00'
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+                    status: active
+                    ownerId: user123
+                    address: '0x123456789abcdef'
+                    privateKey: private-key
+                    ownerType: user
+                    isApproverEnabled: true
+                    nickname: My Wallet
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the wallets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve a list of wallets associated with the current authenticated user.
+      summary: Get Wallets
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters: []
+  /wallets/{id}:
+    get:
+      operationId: Wallet By Id
+      responses:
+        '200':
+          description: The wallet details were retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/WalletResponse'
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: wallet1234
+                    balance: '100.00'
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+                    status: active
+                    ownerId: user123
+                    address: '0x123456789abcdef'
+                    privateKey: private-key
+                    ownerType: user
+                    isApproverEnabled: true
+                    nickname: My Wallet
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve the details of a specific wallet by its ID.
+      summary: Get Wallet by ID
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the wallet to retrieve.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        example: wallet123
+  /wallets/onboarding-requests/registration-messages:
+    post:
+      operationId: Generate Wallet Registration Message
+      responses:
+        '200':
+          description: The wallet registration message was generated successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
+                - $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Generate a wallet registration message for a public wallet.
+      summary: Generate Wallet Registration Message
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        description: 'The request body: address, chainId.'
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                chainId:
+                  type: number
+                  format: double
+                address:
+                  type: string
+              required:
+              - chainId
+              - address
+              type: object
+              description: 'The request body: address, chainId.'
+            example:
+              address: '0x123456789abcdef'
+              chainId: 1
+  /wallets/public-wallets:
+    post:
+      operationId: Register Public Wallet
+      responses:
+        '200':
+          description: The public wallet was registered successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    address:
+                      type: string
+                    id:
+                      type: string
+                  required:
+                  - address
+                  - id
+                  type: object
+                - $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Provide a signature and a wallet registration message to register a public wallet
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                address:
+                  type: string
+                signature:
+                  type: string
+                chainId:
+                  type: number
+                  format: double
+                nickname:
+                  type: string
+                message:
+                  $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
+                  description: Full EIP-712 payload (same shape as the registration-messages response). Inner SIWE fields are in `message.message`.
+              required:
+              - address
+              - signature
+              - chainId
+              - nickname
+              - message
+              type: object
+  /wallets/onboarding-requests/{address}:
+    get:
+      operationId: List Public Wallet Onboarding Requests
+      responses:
+        '200':
+          description: The list of onboarding requests was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/OnboardingRequestResponseApi'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Lists onboarding requests for a public wallet address, optionally filtered by status.
+      summary: List wallet onboarding requests
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The wallet address to list onboarding requests for.
+        in: path
+        name: address
+        required: true
+        schema:
+          type: string
+        example: '0x123456789abcdef'
+      - description: Optional status filter.
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+          enum:
+          - pending
+          - received
+          - cancelled
+        example: pending
+  /wallets/onboarding-requests/{requestId}:
+    delete:
+      operationId: Cancel Public Wallet Onboarding Request
+      responses:
+        '202':
+          description: The request to cancel a public wallet onboarding request was accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Cancels a given public wallet onboarding request.
+      tags:
+      - Wallets
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the onboarding request to cancel.
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    OnboardingRequestResponseApi:
+      description: 'Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.
+
+        tsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).'
+      properties:
+        id:
+          type: string
+        address:
+          type: string
+        chainId:
+          type: number
+          format: double
+        status:
+          type: string
+          enum:
+          - pending
+          - received
+          - cancelled
+        createdAt:
+          type: string
+          format: date-time
+        registrationData:
+          $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
+      required:
+      - id
+      - address
+      - chainId
+      - status
+      - createdAt
+      - registrationData
+      type: object
+      additionalProperties: false
+    WalletRegistrationMessageResponseApi:
+      description: 'Mirrors {@link WalletRegistrationMessageResponse } from `@n3xt/common` for REST/OpenAPI only.
+
+        tsoa cannot resolve Zod-derived types (they reference `zWalletRegistrationMessageResponseSchema`).'
+      properties:
+        domain:
+          properties:
+            chainId:
+              type: number
+              format: double
+            version:
+              type: string
+            name:
+              type: string
+          required:
+          - chainId
+          - version
+          - name
+          type: object
+        types:
+          properties:
+            EIP712Domain:
+              items:
+                properties:
+                  type:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - type
+                - name
+                type: object
+              type: array
+            WalletRegistration:
+              items:
+                properties:
+                  type:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - type
+                - name
+                type: object
+              type: array
+          required:
+          - EIP712Domain
+          - WalletRegistration
+          type: object
+        primaryType:
+          type: string
+          enum:
+          - WalletRegistration
+          nullable: false
+        message:
+          properties:
+            issuedAt:
+              type: string
+            nonce:
+              type: string
+            chainId:
+              type: number
+              format: double
+            version:
+              type: string
+            uri:
+              type: string
+            statement:
+              type: string
+            address:
+              type: string
+            domain:
+              type: string
+          required:
+          - issuedAt
+          - nonce
+          - chainId
+          - version
+          - uri
+          - statement
+          - address
+          - domain
+          type: object
+      required:
+      - domain
+      - types
+      - primaryType
+      - message
+      type: object
+      additionalProperties: false
+    WalletResponse:
+      properties:
+        balance:
+          type: string
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          nullable: true
+        ownerId:
+          type: string
+        address:
+          type: string
+        privateKey:
+          type: string
+        ownerType:
+          type: string
+        isApproverEnabled:
+          type: boolean
+        nickname:
+          type: string
+          nullable: true
+      required:
+      - isApproverEnabled
+      - nickname
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

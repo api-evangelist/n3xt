@@ -1,0 +1,784 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Payments API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Payments
+paths:
+  /payments/instant:
+    post:
+      operationId: Instant Payment
+      responses:
+        '202':
+          description: The payment was created successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    id:
+                      type: string
+                  required:
+                  - id
+                  type: object
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: payment123
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: 'Allows the authenticated user to create an instant payment to a business.
+
+        Optionally provide recipientWalletAddress to send to a specific wallet of that business (address must belong to the business).'
+      summary: Instant Payment
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        description: 'The request body: amount, senderWalletId, recipientBusinessId, optional recipientWalletAddress, description.'
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstantPaymentRequest'
+              description: 'The request body: amount, senderWalletId, recipientBusinessId, optional recipientWalletAddress, description.'
+            examples:
+              Example 1:
+                value:
+                  amount: '100.0'
+                  senderWalletId: wallet123
+                  recipientBusinessId: business1234
+                  description: Payment for services
+              Example 2:
+                value:
+                  amount: '100.0'
+                  senderWalletId: wallet123
+                  recipientBusinessId: business1234
+                  recipientWalletAddress: 0x...
+                  description: Payment to specific wallet
+  /payments/request:
+    post:
+      operationId: Create Payment Request
+      responses:
+        '202':
+          description: The payment request was created successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    id: paymentRequest123
+        '400':
+          description: Bad Request - Invalid request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to request a payment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - The specified wallet or business was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to create the payment request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Allows the authenticated user to request a payment from another business.
+      summary: Request Payment
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters: []
+      requestBody:
+        description: The request body containing the payment request details.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestPaymentRequest'
+              description: The request body containing the payment request details.
+            example:
+              amount: '100.0'
+              senderBusinessId: business123
+              recipientWalletId: wallet456
+              description: Payment for services
+    get:
+      operationId: List Payment Requests
+      responses:
+        '200':
+          description: The list of payment requests was retrieved successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                  - id: paymentRequest123
+                    sender: user123
+                    recipient: user456
+                    amount: '100.0'
+                    status: requested
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to access payment requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - No payment requests associated with this user were found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the payment requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Get a list of payment requests filtered by direction (incoming or outgoing).
+      summary: List Payment Requests
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: Filter requests by direction ('incoming' for requests to you, 'outgoing' for requests from you).
+        in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of payment requests to return (optional).
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: The offset for pagination (optional).
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: The status of the payment requests to filter (optional).
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+  /payments/request/{id}:
+    patch:
+      operationId: Update Payment Request Status
+      responses:
+        '202':
+          description: The payment request status was updated successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                  - status: accepted
+                    senderWalletId: wallet123
+                  - status: declined
+                  - status: cancelled
+        '400':
+          description: Bad Request - Invalid request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to update this payment request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - The specified payment request was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while updating the payment request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Update the status of a payment request.
+      summary: Update Payment Request Status
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the payment request to update.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The request body containing the status update.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                recipientWalletId:
+                  type: string
+                senderWalletId:
+                  type: string
+                reason:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - accepted
+                  - declined
+                  - cancelled
+              required:
+              - status
+              type: object
+              description: The request body containing the status update.
+            examples:
+              Example 1:
+                value:
+                  status: accepted
+                  senderWalletId: wallet456
+              Example 2:
+                value:
+                  status: declined
+              Example 3:
+                value:
+                  status: cancelled
+    get:
+      operationId: Get Payment Request by Id
+      responses:
+        '200':
+          description: The payment request details were retrieved successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    id: paymentRequest123
+                    sender: user123
+                    recipient: user456
+                    amount: '100.0'
+                    status: requested
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve a specific payment request by its ID.
+      summary: Get Payment Request by ID
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the payment request to retrieve.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        example: paymentRequest123
+  /payments:
+    get:
+      operationId: List Payments
+      responses:
+        '200':
+          description: The list of payments was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/Payment'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+                    sender: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                    senderBusinessId: b2c3d4e5-f6a7-8901-bcde-f23456789012
+                    senderBusinessName: Acme Corp
+                    senderWalletAddress: '0x1234567890abcdef1234567890abcdef12345678'
+                    recipientBusinessId: d4e5f6a7-b8c9-0123-def4-56789012345a
+                    recipientBusinessName: XYZ Industries
+                    amount: '100.0'
+                    status: completed
+                    description: Invoice payment for services rendered
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T13:45:12.345Z'
+                    totalCount: 25
+                    rowNum: 1
+                  - id: e5f6a7b8-c9d0-1234-5678-9012345678ab
+                    sender: f6a7b8c9-d0e1-2345-6789-0123456789bc
+                    senderBusinessId: a7b8c9d0-e1f2-3456-789a-123456789cde
+                    senderBusinessName: Tech Solutions LLC
+                    senderWalletAddress: '0x9876543210fedcba9876543210fedcba98765432'
+                    recipientBusinessId: c9d0e1f2-a3b4-5678-9abc-3456789def01
+                    recipientBusinessName: Digital Services Inc
+                    amount: '250.75'
+                    status: completed
+                    description: Monthly subscription fee
+                    createdAt: '2023-03-24T10:15:30.123Z'
+                    updatedAt: '2023-03-24T11:22:45.678Z'
+                    totalCount: 25
+                    rowNum: 2
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - No payments associated with this user were found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the payments.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve a list of all payments made by the authenticated user.
+      summary: List Payments
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: 'Comma-separated list of payment statuses to filter by. Available statuses: queued, requested, initiated, lockbox, released, partial, cancelled, declined, completed, failed. Example: "completed,lockbox" (optional).'
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+      - description: Filter payments by specific wallet ID. Must be a valid UUID format (optional).
+        in: query
+        name: walletId
+        required: false
+        schema:
+          type: string
+      - description: Filter payments created after this date (ISO 8601 format) (optional).
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: Filter payments created before this date (ISO 8601 format) (optional).
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - description: Filter payments with transaction amount greater than or equal to this value (optional).
+        in: query
+        name: amountGreaterThan
+        required: false
+        schema:
+          type: string
+      - description: Filter payments with transaction amount less than or equal to this value (optional).
+        in: query
+        name: amountLessThan
+        required: false
+        schema:
+          type: string
+      - description: Filter payments with sender business ID (optional).
+        in: query
+        name: senderBusinessId
+        required: false
+        schema:
+          type: string
+      - description: Filter payments with recipient business ID (optional).
+        in: query
+        name: recipientBusinessId
+        required: false
+        schema:
+          type: string
+      - description: Filter payments where sender or recipient matches business ID (optional).. This is a legacy filter that is no longer supported.
+        in: query
+        name: businessId
+        required: false
+        schema:
+          type: string
+      - description: Filter payments by description (case-insensitive partial match) (optional).
+        in: query
+        name: description
+        required: false
+        schema:
+          type: string
+      - description: 'Sort payments by a field. Available fields: createdAt, updatedAt. (optional).'
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiWrapperOrderBy'
+      - description: 'Sort direction. Available values: asc, desc. Example: "asc" (optional).'
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - description: 'the maximum number of payments returned. Default: 100. Max: 200.(optional).'
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: 'page offset to start from (based on the limit). Default: 0.(optional).'
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+  /payments/{id}:
+    get:
+      operationId: Get Payment by Id
+      responses:
+        '200':
+          description: The payment details were retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/Payment'
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+                    sender: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                    senderBusinessId: b2c3d4e5-f6a7-8901-bcde-f23456789012
+                    senderBusinessName: Acme Corp
+                    senderWalletAddress: '0x1234567890abcdef1234567890abcdef12345678'
+                    recipientBusinessId: d4e5f6a7-b8c9-0123-def4-56789012345a
+                    recipientBusinessName: XYZ Industries
+                    amount: '100.0'
+                    status: completed
+                    description: Invoice payment for services rendered
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T13:45:12.345Z'
+                    totalCount: 1
+                    rowNum: 1
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve the details of a specific payment by its ID.
+      summary: Get Payment by ID
+      tags:
+      - Payments
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the payment to retrieve.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        example: payment123
+components:
+  schemas:
+    RequestPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderBusinessId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderBusinessId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
+    Payment:
+      properties:
+        id:
+          type: string
+        sender:
+          type: string
+        senderBusinessId:
+          type: string
+        senderBusinessName:
+          type: string
+        senderWalletAddress:
+          type: string
+        recipient:
+          type: string
+        recipientBusinessId:
+          type: string
+        recipientBusinessName:
+          type: string
+        recipientWalletAddress:
+          type: string
+        amount:
+          anyOf:
+          - type: string
+          - type: number
+            format: double
+        status:
+          allOf:
+          - $ref: '#/components/schemas/PaymentStatusEnum'
+          nullable: true
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        totalCount:
+          type: number
+          format: double
+        rowNum:
+          type: number
+          format: double
+      required:
+      - id
+      - amount
+      - status
+      - createdAt
+      - updatedAt
+      type: object
+      additionalProperties: false
+    InstantPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderWalletId:
+          type: string
+        recipientBusinessId:
+          type: string
+        recipientWalletAddress:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderWalletId
+      - recipientBusinessId
+      - description
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    PaymentStatusEnum:
+      type: string
+      enum:
+      - queued
+      - requested
+      - initiated
+      - lockbox
+      - released
+      - cancelled
+      - declined
+      - completed
+      - failed
+      - burned
+      - minted
+      - transferred
+      - confirmed
+      - reverted
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

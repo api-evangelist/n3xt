@@ -1,0 +1,403 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Approvals
+paths:
+  /approvals/{id}:
+    get:
+      operationId: GetById
+      responses:
+        '200':
+          description: The approval request was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/ApprovalResponse'
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    approvable:
+                      id: '1234567890'
+                      authorId: user123
+                      status: requested
+                      workflowType: directPay
+                      createdAt: '2026-07-18T18:50:37.206Z'
+                      updatedAt: '2026-07-18T18:50:37.206Z'
+                    data:
+                      moneyFlowId: 0987654321
+                      senderWalletId: user123
+                      recipientWalletId: user456
+                      amount: '100.00'
+        '400':
+          description: Bad Request - Invalid approval ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to access this approval.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - The approval with the specified ID does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the approval.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve a specific approval request by its ID.
+      summary: Get Approval by ID
+      tags:
+      - Approvals
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+    patch:
+      operationId: UpdateStatus
+      responses:
+        '202':
+          description: The request was processed successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    status:
+                      type: string
+                  required:
+                  - status
+                  type: object
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - status: approved
+                  - status: declined
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Update the status of an approval request by its ID.
+      summary: Update Approval Status
+      tags:
+      - Approvals
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The ID of the approval to update.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The request body containing the status update.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - approved
+                  - declined
+              required:
+              - status
+              type: object
+              description: The request body containing the status update.
+  /approvals:
+    get:
+      operationId: List
+      responses:
+        '200':
+          description: The list of approval requests was retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/ApprovalResponse'
+                  type: array
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                  - approvable:
+                      id: '1234567890'
+                      authorId: user123
+                      status: requested
+                      workflowType: directPay
+                      createdAt: '2026-07-18T18:50:37.207Z'
+                      updatedAt: '2026-07-18T18:50:37.207Z'
+                    data:
+                      moneyFlowId: 0987654321
+                      senderWalletId: user123
+                      recipientWalletId: user456
+                      amount: '100.00'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - User does not have permission to access this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - No approvals associated with this user were found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the approvals.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: 'Retrieve a list of approval requests associated with the authenticated user, each containing details such as the request ID, sender ID, recipient ID, amount, status, and timestamps.
+
+        - The status can be one of the following: requested, approved, declined, or cancelled.
+
+        - The list of approval requests is filtered based on the user''s permissions and roles.'
+      summary: List Approval Requests
+      tags:
+      - Approvals
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: Optional filter for the type of workflow.
+        in: query
+        name: workflowType
+        required: false
+        schema:
+          type: string
+          enum:
+          - contact
+          - programmable
+          - requestPayment
+          - directPay
+      - description: Optional filter for approval status (comma-separated values).
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of approval requests to return (optional).
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: The offset for pagination (optional).
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: 'Sort payments by a field. Available fields: createdAt, updatedAt (optional).'
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiWrapperOrderBy'
+      - description: 'Sort direction. Available values: asc, desc. (optional).'
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+components:
+  schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    ApprovalResponse:
+      properties:
+        approvable:
+          properties:
+            updatedAt:
+              type: string
+              format: date-time
+            createdAt:
+              type: string
+              format: date-time
+            workflowType:
+              type: string
+            status:
+              type: string
+              enum:
+              - requested
+              - approved
+              - declined
+              - cancelled
+              - deleted
+              - failed
+            authorId:
+              type: string
+            id:
+              type: string
+          required:
+          - updatedAt
+          - createdAt
+          - workflowType
+          - status
+          - authorId
+          - id
+          type: object
+        data:
+          anyOf:
+          - properties:
+              workflowType:
+                type: string
+              updatedAt:
+                type: string
+                format: date-time
+              createdAt:
+                type: string
+                format: date-time
+              authorId:
+                type: string
+              status:
+                type: string
+                nullable: true
+              amount:
+                type: string
+              recipientWalletId:
+                type: string
+                nullable: true
+              senderWalletId:
+                type: string
+                nullable: true
+              moneyFlowId:
+                type: string
+            type: object
+          - properties:
+              updatedAt:
+                type: string
+                format: date-time
+              createdAt:
+                type: string
+                format: date-time
+              status:
+                type: string
+              avatarUrl:
+                type: string
+              phone:
+                type: string
+              email:
+                type: string
+              name:
+                type: string
+              businessId:
+                type: string
+              userId:
+                type: string
+              id:
+                type: string
+            type: object
+      required:
+      - approvable
+      - data
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)

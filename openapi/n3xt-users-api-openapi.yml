@@ -1,0 +1,197 @@
+openapi: 3.0.0
+info:
+  title: N3XT API Documentation Approvals Users API
+  version: v1.0.1-3514-g824039216
+  description: 'A holistic banking API for businesses.
+
+
+    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+  license:
+    name: ISC
+  contact:
+    name: N3XT Support
+    url: https://helpcenter.n3xt.io/en/
+  termsOfService: https://n3xt.io/legal/website-terms-of-use
+servers:
+- url: https://openapi.n3xt.io
+security:
+- bearerAuth: []
+tags:
+- name: Users
+paths:
+  /users/me:
+    get:
+      operationId: Me
+      responses:
+        '200':
+          description: The user details were retrieved successfully.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/User'
+                - $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                Example 1:
+                  value:
+                    id: user123
+                    stytchId: stytch-abc123
+                    businessId: business456
+                    discoverableId: discoverable789
+                    applicationSettingsId: settings123
+                    fireblocksMetadataId: metadata456
+                    notifiableId: notifiable123
+                    apiUserMetadataId: metadata789
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: An unexpected server error occurred while trying to retrieve the user details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve the current authenticated user's details.
+      summary: Get Current User
+      tags:
+      - Users
+      security:
+      - bearerAuth: []
+      parameters: []
+  /users/{id}:
+    get:
+      operationId: User
+      responses:
+        '200':
+          description: The user details were retrieved successfully.
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    id: user123
+                    stytchId: stytch-abc123
+                    businessId: business456
+                    discoverableId: discoverable789
+                    applicationSettingsId: settings123
+                    fireblocksMetadataId: metadata456
+                    notifiableId: notifiable123
+                    apiUserMetadataId: metadata789
+                    createdAt: '2023-03-24T12:34:56.789Z'
+                    updatedAt: '2023-03-24T12:34:56.789Z'
+        '400':
+          description: Bad Request - Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Insufficient permissions to perform this action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found - Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity - Validation failed for the request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - An unexpected error occurred while processing the request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: Retrieve details for a specific user by ID.
+      summary: Get User by ID
+      tags:
+      - Users
+      security:
+      - bearerAuth: []
+      parameters:
+      - description: The UUID of the user to retrieve.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        example: user123
+components:
+  schemas:
+    User:
+      properties:
+        id:
+          type: string
+        stytchId:
+          type: string
+        businessId:
+          type: string
+        discoverableId:
+          type: string
+        applicationSettingsId:
+          type: string
+        fireblocksMetadataId:
+          type: string
+        notifiableId:
+          type: string
+        apiUserMetadataId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - stytchId
+      - businessId
+      - discoverableId
+      - applicationSettingsId
+      - fireblocksMetadataId
+      - notifiableId
+      - apiUserMetadataId
+      - createdAt
+      - updatedAt
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      name: Authorization
+      in: header
+      description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)
