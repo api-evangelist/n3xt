@@ -1,0 +1,967 @@
+{
+  "info": {
+    "_postman_id": "271d04bf-654b-4f50-a566-9977ef22ae47",
+    "name": "N3XT API Documentation Approvals Ndd Routes API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:36.000Z",
+    "updatedAt": "2026-07-28T02:15:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-271d04bf-654b-4f50-a566-9977ef22ae47"
+  },
+  "item": [
+    {
+      "name": "ndd",
+      "item": [
+        {
+          "name": "tokenize",
+          "item": [
+            {
+              "name": "NDD Mint to a specified public wallet",
+              "id": "8ca6e9e4-07f6-4b8b-9e48-5e435cc78d8c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ndd/tokenize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ndd",
+                    "tokenize"
+                  ]
+                },
+                "description": "Allows the authenticated user to create an NDD mint transaction."
+              },
+              "response": [
+                {
+                  "id": "7cbf455b-e617-4bbd-8d6c-9c53476e4b88",
+                  "name": "The NDD mint was created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-7cbf455b-e617-4bbd-8d6c-9c53476e4b88"
+                },
+                {
+                  "id": "7c033b20-9b33-43b5-a6e6-449eb73e3a5e",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-7c033b20-9b33-43b5-a6e6-449eb73e3a5e"
+                },
+                {
+                  "id": "4da585e5-cefa-41a9-a157-8dc286e1670c",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-4da585e5-cefa-41a9-a157-8dc286e1670c"
+                },
+                {
+                  "id": "7b9edeba-a75d-4047-b9a5-5a1a72b7c51f",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-7b9edeba-a75d-4047-b9a5-5a1a72b7c51f"
+                },
+                {
+                  "id": "ac90867b-1549-4005-840d-ab8d3bfc52dc",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-ac90867b-1549-4005-840d-ab8d3bfc52dc"
+                },
+                {
+                  "id": "6b9f056b-ecb7-44ec-b42d-dfbc89dc5a75",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-6b9f056b-ecb7-44ec-b42d-dfbc89dc5a75"
+                },
+                {
+                  "id": "ddb5d780-d900-44c2-b69c-372f71faa2bb",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-ddb5d780-d900-44c2-b69c-372f71faa2bb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:36.000Z",
+              "updatedAt": "2026-07-28T02:15:36.000Z",
+              "uid": "35240-8ca6e9e4-07f6-4b8b-9e48-5e435cc78d8c"
+            }
+          ],
+          "id": "4974e32c-ad16-4b4b-8403-f08455cfcc3a",
+          "createdAt": "2026-07-28T02:15:36.000Z",
+          "updatedAt": "2026-07-28T02:15:36.000Z",
+          "uid": "35240-4974e32c-ad16-4b4b-8403-f08455cfcc3a"
+        },
+        {
+          "name": "redeem",
+          "item": [
+            {
+              "name": "NDD Burn from a specified public wallet",
+              "id": "e25faa30-b03a-4737-8fe8-54c73ff3871f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ndd/redeem",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ndd",
+                    "redeem"
+                  ]
+                },
+                "description": "Allows the authenticated user to create an NDD burn transaction."
+              },
+              "response": [
+                {
+                  "id": "2cbde0b8-9b83-4e51-9f68-929e44dbc1bd",
+                  "name": "The NDD burn was created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-2cbde0b8-9b83-4e51-9f68-929e44dbc1bd"
+                },
+                {
+                  "id": "dcdb637a-ad00-4478-a33a-5a81ce669c3b",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-dcdb637a-ad00-4478-a33a-5a81ce669c3b"
+                },
+                {
+                  "id": "cd38908f-1343-498b-851f-8d32fca1af64",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-cd38908f-1343-498b-851f-8d32fca1af64"
+                },
+                {
+                  "id": "5b46bbf9-07b9-45c6-913b-080ece2e1cd8",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-5b46bbf9-07b9-45c6-913b-080ece2e1cd8"
+                },
+                {
+                  "id": "38f937f0-8060-40ce-b8db-ec233d2cce7a",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-38f937f0-8060-40ce-b8db-ec233d2cce7a"
+                },
+                {
+                  "id": "f3ac3935-28a5-4501-b8eb-b78839e030ee",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-f3ac3935-28a5-4501-b8eb-b78839e030ee"
+                },
+                {
+                  "id": "5bc12195-e92a-41b1-8c98-6defa0fc74b6",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"recipientWalletId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ndd/redeem",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ndd",
+                        "redeem"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:36.000Z",
+                  "updatedAt": "2026-07-28T02:15:36.000Z",
+                  "uid": "35240-5bc12195-e92a-41b1-8c98-6defa0fc74b6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:36.000Z",
+              "updatedAt": "2026-07-28T02:15:36.000Z",
+              "uid": "35240-e25faa30-b03a-4737-8fe8-54c73ff3871f"
+            }
+          ],
+          "id": "fbf2b88a-aeba-41a2-8b3f-a270a8b3edac",
+          "createdAt": "2026-07-28T02:15:36.000Z",
+          "updatedAt": "2026-07-28T02:15:36.000Z",
+          "uid": "35240-fbf2b88a-aeba-41a2-8b3f-a270a8b3edac"
+        }
+      ],
+      "id": "cb8a3417-d332-4fcb-972f-3b9b0b10ce74",
+      "createdAt": "2026-07-28T02:15:36.000Z",
+      "updatedAt": "2026-07-28T02:15:36.000Z",
+      "uid": "35240-cb8a3417-d332-4fcb-972f-3b9b0b10ce74"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/n3xt-openapi-original.json
+docs:
+- https://authn.n3xt.io/.well-known/openid-configuration
+- https://n3xt.io/security
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Authorization server at authn.n3xt.io publishes RFC 8414
+    oauth-authorization-server metadata; token endpoint issues bearer JWTs.
+- id: oidc
+  conforms: true
+  evidence: >-
+    openid-configuration discovery document published with jwks_uri and
+    id_token signing (RS256).
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    n3xt.io/.well-known/security.txt present (Contact, Policy, Expires, Canonical).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use a custom error envelope with a single message field, not
+    application/problem+json.
+- id: eip-712
+  conforms: true
+  evidence: >-
+    Public wallet registration uses EIP-712 typed-data signing
+    (WalletRegistrationMessageResponseApi).
+- id: soc2
+  conforms: true
+  evidence: SOC 2 certification listed on the N3XT trust center.
+- id: iso-27001
+  conforms: true
+  evidence: ISO 27001 certification listed on the N3XT trust center.
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: json-api
+  conforms: false

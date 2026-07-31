@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://helpcenter.n3xt.io/en/articles/14825750-api-getting-started-test-environments-beta-omega
+notes: >-
+  N3XT provides two named non-production test environments, Beta and Omega, for
+  building and testing against the N3XT API before going live. Each has its own
+  API host, Swagger UI, and OAuth authorization server. Test credentials are not
+  hardcoded/published: developers obtain their own client_id and client_secret
+  from Settings > API Keys within each environment. No public magic test card /
+  account values are documented.
+test_vs_live:
+  separation: per-environment hosts + per-environment OAuth projects
+  credential_source: Settings > API Keys (per environment)
+  access_token_ttl_seconds: 3600
+environments:
+- name: beta
+  api_base: https://openapi.beta.n3xt.io
+  swagger_ui: https://openapi.beta.n3xt.io/docs/#
+  token_url: https://authn.beta.n3xt.io/v1/public/{project}/oauth2/token
+- name: omega
+  api_base: https://openapi.omega.n3xt.io
+  swagger_ui: https://openapi.omega.n3xt.io/docs/#
+  token_url: https://authn.omega.n3xt.io/v1/public/{project}/oauth2/token
+production:
+  api_base: https://openapi.n3xt.io
+  swagger_ui: https://openapi.n3xt.io/docs/#
+  token_url: https://authn.n3xt.io/v1/public/{project}/oauth2/token

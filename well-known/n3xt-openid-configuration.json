@@ -1,0 +1,40 @@
+{
+    "authorization_endpoint": "https://authn.n3xt.io",
+    "code_challenge_methods_supported": [
+        "S256"
+    ],
+    "end_session_endpoint": "https://authn.n3xt.io",
+    "grant_types_supported": [
+        "authorization_code"
+    ],
+    "id_token_signing_alg_values_supported": [
+        "RS256"
+    ],
+    "issuer": "https://authn.n3xt.io",
+    "jwks_uri": "https://authn.n3xt.io/.well-known/jwks.json",
+    "request_id": "request-id-live-ae995a7a-cbcc-45d1-aa88-b29e464e5cb2",
+    "response_types_supported": [
+        "code"
+    ],
+    "scopes_supported": [
+        "openid",
+        "profile",
+        "email",
+        "phone",
+        "offline_access",
+        "full_access",
+        "mcp:read",
+        "mcp:write"
+    ],
+    "status_code": 200,
+    "subject_types_supported": [
+        "public"
+    ],
+    "token_endpoint": "https://authn.n3xt.io/v1/oauth2/token",
+    "token_endpoint_auth_methods_supported": [
+        "client_secret_basic",
+        "client_secret_post",
+        "none"
+    ],
+    "userinfo_endpoint": "https://authn.n3xt.io/v1/oauth2/userinfo"
+}

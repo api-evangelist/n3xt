@@ -1,0 +1,63 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://n3xt.io/llms.txt
+notes: >-
+  N3XT operates a hosted, remote MCP server at mcp.n3xt.io. The /mcp endpoint
+  responds 401 (OAuth-protected) and the N3XT authorization server publishes
+  dedicated `mcp:read` and `mcp:write` OAuth scopes, confirming a first-party
+  MCP surface over the banking API. Access is via OAuth 2.0 (authorization_code
+  / client_credentials) at authn.n3xt.io. The tool list below is a candidate
+  mapping derived from the public OpenAPI operations; N3XT does not publish a
+  verbatim tool manifest.
+server:
+  name: n3xt
+  transport: http
+  url: https://mcp.n3xt.io/mcp
+  auth:
+    type: oauth2
+    issuer: https://authn.n3xt.io
+    scopes: [mcp:read, mcp:write]
+tools:
+- name: list_wallets
+  description: List wallets for the authenticated business.
+  source_operation: openapi/n3xt-openapi-original.json#Wallets
+- name: get_wallet
+  description: Retrieve a wallet by ID.
+  source_operation: openapi/n3xt-openapi-original.json#Wallet By Id
+- name: get_me
+  description: Retrieve the current authenticated user.
+  source_operation: openapi/n3xt-openapi-original.json#Me
+- name: instant_payment
+  description: Send an instant USD payment between businesses.
+  source_operation: openapi/n3xt-openapi-original.json#Instant Payment
+- name: create_payment_request
+  description: Create a payment request to be paid by a counterparty.
+  source_operation: openapi/n3xt-openapi-original.json#Create Payment Request
+- name: list_payments
+  description: List payments with filters and pagination.
+  source_operation: openapi/n3xt-openapi-original.json#List Payments
+- name: get_payment
+  description: Retrieve a payment by ID.
+  source_operation: openapi/n3xt-openapi-original.json#Get Payment by Id
+- name: create_programmable_payment
+  description: Create a programmable (conditional) payment request.
+  source_operation: openapi/n3xt-openapi-original.json#Create Programmable Payment Request
+- name: internal_transfer
+  description: Transfer funds internally between wallets.
+  source_operation: openapi/n3xt-openapi-original.json#Internal Transfer
+- name: ndd_mint
+  description: Mint N3XT Digital Dollars (NDD).
+  source_operation: openapi/n3xt-openapi-original.json#NDD Mint
+- name: ndd_redeem
+  description: Burn / redeem N3XT Digital Dollars (NDD).
+  source_operation: openapi/n3xt-openapi-original.json#NDD Burn
+- name: list_contacts
+  description: List saved contacts.
+  source_operation: openapi/n3xt-openapi-original.json#ListContacts
+- name: list_audit_trail
+  description: List audit-trail events for the business.
+  source_operation: openapi/n3xt-openapi-original.json#List
+- name: list_approvals
+  description: List pending approvals.
+  source_operation: openapi/n3xt-openapi-original.json#List

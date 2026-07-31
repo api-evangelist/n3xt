@@ -1,0 +1,879 @@
+{
+  "info": {
+    "_postman_id": "8fcd705c-7963-4bf0-bd42-f4cde34d42cd",
+    "name": "N3XT API Documentation Approvals Businesses API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:34.000Z",
+    "updatedAt": "2026-07-28T02:15:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8fcd705c-7963-4bf0-bd42-f4cde34d42cd"
+  },
+  "item": [
+    {
+      "name": "businesses",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Business by ID",
+              "id": "b0668273-1749-4afd-bd3d-258412fec3e6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0368108a-9c68-4097-8e69-5785e18542c2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c8d5f718-fa92-4db2-993f-96b2596cfd20",
+                  "name": "Business retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"publicName\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-c8d5f718-fa92-4db2-993f-96b2596cfd20"
+                },
+                {
+                  "id": "99574cb2-4226-4169-a533-33ac7151a608",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-99574cb2-4226-4169-a533-33ac7151a608"
+                },
+                {
+                  "id": "6257b24f-5cb5-4ab1-9221-73ff0230d3e9",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-6257b24f-5cb5-4ab1-9221-73ff0230d3e9"
+                },
+                {
+                  "id": "808c3201-0ac1-4435-97ca-d38f726b718a",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-808c3201-0ac1-4435-97ca-d38f726b718a"
+                },
+                {
+                  "id": "36820991-a7d7-4f24-89b4-70335f9dda25",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-36820991-a7d7-4f24-89b4-70335f9dda25"
+                },
+                {
+                  "id": "e5339e46-f83a-434c-a903-4bcd649b1880",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-e5339e46-f83a-434c-a903-4bcd649b1880"
+                },
+                {
+                  "id": "f7ce7f04-f37a-4142-bbbb-83b6d77af413",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/businesses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "businesses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:34.000Z",
+                  "updatedAt": "2026-07-28T02:15:34.000Z",
+                  "uid": "35240-f7ce7f04-f37a-4142-bbbb-83b6d77af413"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-b0668273-1749-4afd-bd3d-258412fec3e6"
+            }
+          ],
+          "id": "e95b59ed-7f52-4fb7-aaa4-bcb964afb802",
+          "createdAt": "2026-07-28T02:15:34.000Z",
+          "updatedAt": "2026-07-28T02:15:34.000Z",
+          "uid": "35240-e95b59ed-7f52-4fb7-aaa4-bcb964afb802"
+        },
+        {
+          "name": "Get Businesses",
+          "id": "8c82fc81-c75d-4111-b82d-88ca5bd18c00",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "businesses"
+              ],
+              "query": [
+                {
+                  "key": "searchString",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4af66873-bf37-41f7-8633-ee0896a0ad04",
+              "name": "A list of businesses was retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"publicName\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"publicName\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-4af66873-bf37-41f7-8633-ee0896a0ad04"
+            },
+            {
+              "id": "1846b97b-60c9-47d2-ba7b-31f1f4126906",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-1846b97b-60c9-47d2-ba7b-31f1f4126906"
+            },
+            {
+              "id": "836e6865-90b7-42dd-964c-9a2104a9cc68",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-836e6865-90b7-42dd-964c-9a2104a9cc68"
+            },
+            {
+              "id": "a0c09270-2ce3-4642-b752-4cf26efb20e5",
+              "name": "Forbidden - Insufficient permissions to perform this action.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-a0c09270-2ce3-4642-b752-4cf26efb20e5"
+            },
+            {
+              "id": "be152f6a-799b-44a8-8b0f-ba354a2cfe6d",
+              "name": "Not Found - Requested resource was not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-be152f6a-799b-44a8-8b0f-ba354a2cfe6d"
+            },
+            {
+              "id": "b3c2a362-fb92-4886-a945-f8b922e076e9",
+              "name": "Unprocessable Entity - Validation failed for the request body.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-b3c2a362-fb92-4886-a945-f8b922e076e9"
+            },
+            {
+              "id": "3a0009c8-cc7d-4a78-9908-43b76be9f54c",
+              "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/businesses?searchString=<string>&limit=<double>&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "businesses"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:34.000Z",
+              "updatedAt": "2026-07-28T02:15:34.000Z",
+              "uid": "35240-3a0009c8-cc7d-4a78-9908-43b76be9f54c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:34.000Z",
+          "updatedAt": "2026-07-28T02:15:34.000Z",
+          "uid": "35240-8c82fc81-c75d-4111-b82d-88ca5bd18c00"
+        }
+      ],
+      "id": "427dd12a-27ec-4164-b734-9e0b424f2ff9",
+      "createdAt": "2026-07-28T02:15:34.000Z",
+      "updatedAt": "2026-07-28T02:15:34.000Z",
+      "uid": "35240-427dd12a-27ec-4164-b734-9e0b424f2ff9"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

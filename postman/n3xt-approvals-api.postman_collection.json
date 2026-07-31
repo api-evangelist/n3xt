@@ -1,0 +1,1401 @@
+{
+  "info": {
+    "_postman_id": "52e8c3f8-9b5c-4f09-a2c4-29029105c3b9",
+    "name": "N3XT API Documentation Approvals API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:32.000Z",
+    "updatedAt": "2026-07-28T02:15:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-52e8c3f8-9b5c-4f09-a2c4-29029105c3b9"
+  },
+  "item": [
+    {
+      "name": "approvals",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Approval by ID",
+              "id": "40fe7436-d697-4052-8ef4-b16a89e82ac7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ab093cbd-7e85-470d-8d14-81b82adb2930",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve a specific approval request by its ID."
+              },
+              "response": [
+                {
+                  "id": "3ab76761-dc95-4a38-8e65-10dced0f23e9",
+                  "name": "The approval request was retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"approvable\": {\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"workflowType\": \"<string>\",\n    \"status\": \"approved\",\n    \"authorId\": \"<string>\",\n    \"id\": \"<string>\"\n  },\n  \"data\": {\n    \"workflowType\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"authorId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"amount\": \"<string>\",\n    \"recipientWalletId\": \"<string>\",\n    \"senderWalletId\": \"<string>\",\n    \"moneyFlowId\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-3ab76761-dc95-4a38-8e65-10dced0f23e9"
+                },
+                {
+                  "id": "538c09b7-e429-4598-ac50-544806267015",
+                  "name": "Bad Request - Invalid approval ID.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-538c09b7-e429-4598-ac50-544806267015"
+                },
+                {
+                  "id": "96b67236-9728-4d12-81b1-b2bb020207b2",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-96b67236-9728-4d12-81b1-b2bb020207b2"
+                },
+                {
+                  "id": "0df1f9bc-18bd-4c95-bfa4-7278d1f541d4",
+                  "name": "Forbidden - User does not have permission to access this approval.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-0df1f9bc-18bd-4c95-bfa4-7278d1f541d4"
+                },
+                {
+                  "id": "a02bb367-8c0b-452b-86c2-1aa32b637172",
+                  "name": "Not Found - The approval with the specified ID does not exist.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-a02bb367-8c0b-452b-86c2-1aa32b637172"
+                },
+                {
+                  "id": "318035bd-779e-4d27-a372-6e4dd200edeb",
+                  "name": "An unexpected server error occurred while trying to retrieve the approval.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-318035bd-779e-4d27-a372-6e4dd200edeb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-40fe7436-d697-4052-8ef4-b16a89e82ac7"
+            },
+            {
+              "name": "Update Approval Status",
+              "id": "d53f8b11-b1f7-4c4f-a186-464f3f7e6c86",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"approved\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/approvals/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c8b3e26a-9f69-4f35-9d5b-a3b1b16d265a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the approval to update."
+                    }
+                  ]
+                },
+                "description": "Update the status of an approval request by its ID."
+              },
+              "response": [
+                {
+                  "id": "f4a787a4-e371-4b6b-94dd-6426bfdc0b82",
+                  "name": "The request was processed successfully.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-f4a787a4-e371-4b6b-94dd-6426bfdc0b82"
+                },
+                {
+                  "id": "34e7aa3c-ab0b-4a05-af83-2dfb9f9511d1",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-34e7aa3c-ab0b-4a05-af83-2dfb9f9511d1"
+                },
+                {
+                  "id": "0a3b7bec-588b-4242-bd36-5f7279f00332",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-0a3b7bec-588b-4242-bd36-5f7279f00332"
+                },
+                {
+                  "id": "1bd07ce3-7cfe-4900-b319-a91c78495e7d",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-1bd07ce3-7cfe-4900-b319-a91c78495e7d"
+                },
+                {
+                  "id": "206df9d2-883e-4909-b7d4-b363890d4b4c",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-206df9d2-883e-4909-b7d4-b363890d4b4c"
+                },
+                {
+                  "id": "85df47a6-af4a-41b8-b7c9-4df5633b48d8",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-85df47a6-af4a-41b8-b7c9-4df5633b48d8"
+                },
+                {
+                  "id": "f4087411-5ab4-45a4-a59d-8083a09785c5",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"approved\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:32.000Z",
+                  "updatedAt": "2026-07-28T02:15:32.000Z",
+                  "uid": "35240-f4087411-5ab4-45a4-a59d-8083a09785c5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-d53f8b11-b1f7-4c4f-a186-464f3f7e6c86"
+            }
+          ],
+          "id": "010075d1-760c-4638-aa6d-d0f0ba3573a7",
+          "createdAt": "2026-07-28T02:15:32.000Z",
+          "updatedAt": "2026-07-28T02:15:32.000Z",
+          "uid": "35240-010075d1-760c-4638-aa6d-d0f0ba3573a7"
+        },
+        {
+          "name": "List Approval Requests",
+          "id": "51af704c-0923-494b-8edb-3449bb8f4465",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "approvals"
+              ],
+              "query": [
+                {
+                  "description": "Optional filter for the type of workflow.",
+                  "key": "workflowType",
+                  "value": "requestPayment"
+                },
+                {
+                  "description": "Optional filter for approval status (comma-separated values).",
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of approval requests to return (optional).",
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "description": "The offset for pagination (optional).",
+                  "key": "offset",
+                  "value": "<double>"
+                },
+                {
+                  "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                  "key": "orderBy",
+                  "value": "updatedAt"
+                },
+                {
+                  "description": "Sort direction. Available values: asc, desc. (optional).",
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            },
+            "description": "Retrieve a list of approval requests associated with the authenticated user, each containing details such as the request ID, sender ID, recipient ID, amount, status, and timestamps.\n- The status can be one of the following: requested, approved, declined, or cancelled.\n- The list of approval requests is filtered based on the user's permissions and roles."
+          },
+          "response": [
+            {
+              "id": "c9da63cf-f8dd-4e17-9637-dd48920104f0",
+              "name": "The list of approval requests was retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"approvable\": {\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"workflowType\": \"<string>\",\n      \"status\": \"failed\",\n      \"authorId\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"data\": {\n      \"workflowType\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"authorId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"recipientWalletId\": \"<string>\",\n      \"senderWalletId\": \"<string>\",\n      \"moneyFlowId\": \"<string>\"\n    }\n  },\n  {\n    \"approvable\": {\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"workflowType\": \"<string>\",\n      \"status\": \"deleted\",\n      \"authorId\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"data\": {\n      \"workflowType\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"authorId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"recipientWalletId\": \"<string>\",\n      \"senderWalletId\": \"<string>\",\n      \"moneyFlowId\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-c9da63cf-f8dd-4e17-9637-dd48920104f0"
+            },
+            {
+              "id": "3ae2588a-6a13-49f2-8a53-5d485440f814",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-3ae2588a-6a13-49f2-8a53-5d485440f814"
+            },
+            {
+              "id": "ef8585b7-821a-47d2-bc39-e326a6939a52",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-ef8585b7-821a-47d2-bc39-e326a6939a52"
+            },
+            {
+              "id": "21f1c05f-1001-4a3c-a700-2b63809ff14c",
+              "name": "Forbidden - User does not have permission to access this resource.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-21f1c05f-1001-4a3c-a700-2b63809ff14c"
+            },
+            {
+              "id": "4bb72e13-0d59-4fdc-b305-cd891d0906ac",
+              "name": "Not Found - No approvals associated with this user were found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-4bb72e13-0d59-4fdc-b305-cd891d0906ac"
+            },
+            {
+              "id": "c94fcffc-3097-4270-9166-726ddc57e81f",
+              "name": "An unexpected server error occurred while trying to retrieve the approvals.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals?workflowType=requestPayment&status=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional filter for the type of workflow.",
+                      "key": "workflowType",
+                      "value": "requestPayment"
+                    },
+                    {
+                      "description": "Optional filter for approval status (comma-separated values).",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of approval requests to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:32.000Z",
+              "updatedAt": "2026-07-28T02:15:32.000Z",
+              "uid": "35240-c94fcffc-3097-4270-9166-726ddc57e81f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:32.000Z",
+          "updatedAt": "2026-07-28T02:15:32.000Z",
+          "uid": "35240-51af704c-0923-494b-8edb-3449bb8f4465"
+        }
+      ],
+      "id": "2924f74b-734f-4f8c-9a23-fcd333390d10",
+      "createdAt": "2026-07-28T02:15:32.000Z",
+      "updatedAt": "2026-07-28T02:15:32.000Z",
+      "uid": "35240-2924f74b-734f-4f8c-9a23-fcd333390d10"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

@@ -1,26 +1,282 @@
 aid: n3xt
-name: n3xt
-description: 'n3xt is a company surfaced as a portfolio company of paradigm and added to the API Evangelist
-  network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting the enrichment pipeline.'
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/n3xt.png
+name: N3XT
+description: >-
+  N3XT is a Wyoming state-chartered Special Purpose Depository Institution (SPDI)
+  offering instant, 24/7/365 USD payment settlement for business-to-business
+  transactions on blockchain rails. Its full-reserve narrow-bank model backs
+  every deposit 1:1 with cash and short-term U.S. Treasuries (no lending), and
+  it issues the N3XT Digital Dollar (NDD) — a bank-regulated tokenized deposit
+  with an on-chain KYC/KYB Identity Passport (NDDID). The N3XT API is a holistic
+  banking API for businesses covering wallets and public-wallet onboarding,
+  instant and programmable payments, payment requests, internal transfers, NDD
+  mint/redeem, contacts, approvals and audit trail. It ships OAuth 2.0
+  authentication, Beta/Omega test environments, and a first-party hosted MCP
+  server for AI/agent access.
 url: https://raw.githubusercontent.com/api-evangelist/n3xt/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - paradigm
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-real-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Crypto
-apis: []
+- Banking
+- Payments
+- Stablecoin
+- Fintech
+- Blockchain
+- API
+- MCP
+apis:
+- aid: n3xt:n3xt-approvals-api
+  name: N3XT Approvals API
+  description: The Approvals API from N3XT — 2 operation(s) for approvals.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Approvals
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-approvals-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-audittrail-api
+  name: N3XT AuditTrail API
+  description: The AuditTrail API from N3XT — 1 operation(s) for audittrail.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - AuditTrail
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-audittrail-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-businesses-api
+  name: N3XT Businesses API
+  description: The Businesses API from N3XT — 2 operation(s) for businesses.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Businesses
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-businesses-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-contacts-api
+  name: N3XT Contacts API
+  description: The Contacts API from N3XT — 2 operation(s) for contacts.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-ndd-routes-api
+  name: N3XT Ndd Routes API
+  description: The Ndd Routes API from N3XT — 2 operation(s) for ndd routes.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Ndd Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-ndd-routes-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-payments-api
+  name: N3XT Payments API
+  description: The Payments API from N3XT — 5 operation(s) for payments.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-payments-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-programmable-api
+  name: N3XT Programmable API
+  description: The Programmable API from N3XT — 5 operation(s) for programmable.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Programmable
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-programmable-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-system-api
+  name: N3XT System API
+  description: The System API from N3XT — 2 operation(s) for system.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-system-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-transfers-api
+  name: N3XT Transfers API
+  description: The Transfers API from N3XT — 1 operation(s) for transfers.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-transfers-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-users-api
+  name: N3XT Users API
+  description: The Users API from N3XT — 2 operation(s) for users.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-users-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-wallets-api
+  name: N3XT Wallets API
+  description: The Wallets API from N3XT — 6 operation(s) for wallets.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Wallets
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-wallets-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/n3xt/overview
+# --- identity / link properties (searched) ---
 - type: Website
   url: https://n3xt.io
+- type: DeveloperPortal
+  url: https://helpcenter.n3xt.io/
+- type: Documentation
+  url: https://helpcenter.n3xt.io/
+- type: APIReference
+  url: https://openapi.n3xt.io/docs/
+- type: GettingStarted
+  url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- type: Support
+  url: https://helpcenter.n3xt.io/en/
+- type: Blog
+  url: https://n3xt.io/blog
+- type: SignUp
+  url: https://app.n3xt.io/application
+- type: Login
+  url: https://app.n3xt.io/login
+- type: TermsOfService
+  url: https://n3xt.io/legal/website-terms-of-use
+- type: PrivacyPolicy
+  url: https://trust.n3xt.io/resources?s=igp2bvcb2ox3cjeerru9qs&name=privacy-policy
+- type: StatusPage
+  url: https://status.n3xt.io/
+# --- security / compliance ---
+- type: TrustCenter
+  url: security/n3xt-trust-center.yml
+- type: Compliance
+  url: https://n3xt.io/security
+- type: Security
+  url: https://trust.n3xt.io/resources?s=a3mbqw7jbnczlhbn9hfm16&name=vulnerability-disclosure-program
+- type: VulnerabilityDisclosure
+  url: security/n3xt-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/n3xt-domain-security.yml
+- type: SecurityTxt
+  url: well-known/n3xt-security.txt
+# --- auth ---
+- type: Authentication
+  url: authentication/n3xt-authentication.yml
+- type: OAuthScopes
+  url: scopes/n3xt-scopes.yml
+# --- agent / discovery surfaces ---
+- type: MCPServer
+  url: mcp/n3xt-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/n3xt-well-known.yml
+- type: LLMsTxt
+  url: llms/n3xt-llms.txt
+# --- artifacts ---
+- type: Overlay
+  url: overlays/n3xt-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/n3xt-conformance.yml
+- type: ErrorCatalog
+  url: errors/n3xt-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/n3xt-lifecycle.yml
+- type: Sandbox
+  url: sandbox/n3xt-sandbox.yml
+- type: Conventions
+  url: conventions/n3xt-conventions.yml
+- type: DataModel
+  url: data-model/n3xt-data-model.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

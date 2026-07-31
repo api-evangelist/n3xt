@@ -1,0 +1,238 @@
+{
+  "info": {
+    "_postman_id": "6e070b70-7eac-42a2-b6ce-4b87e230ae9b",
+    "name": "N3XT API Documentation Approvals System API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:39.000Z",
+    "updatedAt": "2026-07-28T02:15:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e070b70-7eac-42a2-b6ce-4b87e230ae9b"
+  },
+  "item": [
+    {
+      "name": "status",
+      "item": [
+        {
+          "name": "full",
+          "item": [
+            {
+              "name": "Full Status",
+              "id": "73b0cf09-f861-4a4a-8981-bf4f6d32b685",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status/full",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status",
+                    "full"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bb1b523a-4f8e-43cc-adc1-7fafed77d3cc",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/status/full",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "status",
+                        "full"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:40.000Z",
+                  "updatedAt": "2026-07-28T02:15:40.000Z",
+                  "uid": "35240-bb1b523a-4f8e-43cc-adc1-7fafed77d3cc"
+                },
+                {
+                  "id": "a2c4dd8b-61c2-409a-9e96-f4f694769d3a",
+                  "name": "Bad Gateway",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/status/full",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "status",
+                        "full"
+                      ]
+                    }
+                  },
+                  "status": "Bad Gateway",
+                  "code": 502,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:40.000Z",
+                  "updatedAt": "2026-07-28T02:15:40.000Z",
+                  "uid": "35240-a2c4dd8b-61c2-409a-9e96-f4f694769d3a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:40.000Z",
+              "updatedAt": "2026-07-28T02:15:40.000Z",
+              "uid": "35240-73b0cf09-f861-4a4a-8981-bf4f6d32b685"
+            }
+          ],
+          "id": "78843094-220d-4845-b5ad-6cf015191a8c",
+          "createdAt": "2026-07-28T02:15:40.000Z",
+          "updatedAt": "2026-07-28T02:15:40.000Z",
+          "uid": "35240-78843094-220d-4845-b5ad-6cf015191a8c"
+        },
+        {
+          "name": "Status",
+          "id": "0158aecb-af44-4e7e-80e1-352e0b87883e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ]
+            },
+            "description": "Check the health and status of the API server"
+          },
+          "response": [
+            {
+              "id": "b57129c4-b7a8-42f9-b33b-cf4a985fe976",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:40.000Z",
+              "updatedAt": "2026-07-28T02:15:40.000Z",
+              "uid": "35240-b57129c4-b7a8-42f9-b33b-cf4a985fe976"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:40.000Z",
+          "updatedAt": "2026-07-28T02:15:40.000Z",
+          "uid": "35240-0158aecb-af44-4e7e-80e1-352e0b87883e"
+        }
+      ],
+      "id": "86e7c160-b6e6-4609-b66c-7fe9446c1a7c",
+      "createdAt": "2026-07-28T02:15:40.000Z",
+      "updatedAt": "2026-07-28T02:15:40.000Z",
+      "uid": "35240-86e7c160-b6e6-4609-b66c-7fe9446c1a7c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

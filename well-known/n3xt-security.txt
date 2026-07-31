@@ -1,0 +1,5 @@
+Contact: https://docs.google.com/forms/d/e/1FAIpQLScG4W-eQ93TcObMj__g9XPvmB6zumTEywCERHHiTvsW31RTgQ/viewform
+Expires: 2027-08-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://n3xt.io/.well-known/security.txt
+Policy: https://trust.n3xt.io/resources?s=a3mbqw7jbnczlhbn9hfm16&name=vulnerability-disclosure-program

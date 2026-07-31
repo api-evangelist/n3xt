@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for N3XT API
+  version: 1.0.0
+extends: openapi/n3xt-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-api-category: banking-payments
+    x-auth-model: oauth2-client-credentials-bearer-jwt
+    x-mcp-server: https://mcp.n3xt.io/mcp
+    x-status-page: https://status.n3xt.io/
+    x-error-format: custom-error-envelope
+- target: $.servers
+  update:
+  - url: https://openapi.n3xt.io
+    description: Production
+  - url: https://openapi.beta.n3xt.io
+    description: Beta test environment
+  - url: https://openapi.omega.n3xt.io
+    description: Omega test environment
+- target: $.tags
+  update:
+  - name: Wallets
+    description: Wallet management and public-wallet onboarding.
+  - name: Payments
+    description: Instant payments and payment requests.
+  - name: Programmable
+    description: Programmable (conditional) payment money-flows.
+  - name: System
+    description: Health and status endpoints.

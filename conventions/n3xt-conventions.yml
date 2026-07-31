@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/n3xt-openapi-original.json
+docs: https://helpcenter.n3xt.io/en/articles/12601288-swagger-api-guide
+authentication:
+  style: bearer-jwt
+  header: Authorization
+  scheme: Bearer
+  token_source: OAuth 2.0 client_credentials at authn.n3xt.io (see authentication/)
+  ref: authentication/n3xt-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No Idempotency-Key header or idempotency parameter is documented in the
+    OpenAPI or the API getting-started guide. Payment creation endpoints return
+    202 Accepted with an async status model rather than an idempotent replay
+    contract.
+pagination:
+  style: offset
+  params:
+    limit: Maximum number of items to return.
+    offset: Number of items to skip.
+    orderBy: Field to sort by (createdAt | updatedAt).
+    order: Sort direction (asc | desc).
+  note: >-
+    List endpoints (payments, programmable payments, audit-trail, etc.) use
+    offset/limit query parameters. Some payment rows also carry `totalCount`
+    and `rowNum` fields in the response for client-side paging.
+filtering:
+  note: >-
+    List endpoints expose rich query filters, e.g. status, type, direction,
+    startDate/endDate, amountGreaterThan/amountLessThan, walletId, businessId,
+    senderBusinessId, recipientBusinessId, searchString.
+versioning:
+  scheme: none-in-path
+  note: >-
+    The server base is https://openapi.n3xt.io with no version segment in the
+    path. The OpenAPI info.version is a build tag (v1.0.1-3514-g824039216).
+    The OAuth token endpoints are versioned (/v1/oauth2/token).
+error_envelope:
+  media_type: application/json
+  shape: '{ "error": "<message>" }'
+  ref: errors/n3xt-problem-types.yml
+async_model:
+  note: >-
+    Money-movement operations (instant payment, programmable payment create /
+    fulfill / cancel, NDD mint/burn, internal transfer) return 202 Accepted and
+    progress through a status enum (queued, requested, initiated, lockbox,
+    released, cancelled, declined, completed, failed, burned, minted,
+    transferred, confirmed, reverted). Some actions require an approval workflow.
+rate_limiting:
+  note: No rate-limit headers or quotas are documented in the public OpenAPI or docs.

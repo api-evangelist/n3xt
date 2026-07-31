@@ -1,0 +1,5144 @@
+{
+  "openapi": "3.0.0",
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "WalletResponse": {
+        "properties": {
+          "balance": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownerId": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "privateKey": {
+            "type": "string"
+          },
+          "ownerType": {
+            "type": "string"
+          },
+          "isApproverEnabled": {
+            "type": "boolean"
+          },
+          "nickname": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "isApproverEnabled",
+          "nickname"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "WalletRegistrationMessageResponseApi": {
+        "description": "Mirrors {@link WalletRegistrationMessageResponse } from `@n3xt/common` for REST/OpenAPI only.\ntsoa cannot resolve Zod-derived types (they reference `zWalletRegistrationMessageResponseSchema`).",
+        "properties": {
+          "domain": {
+            "properties": {
+              "chainId": {
+                "type": "number",
+                "format": "double"
+              },
+              "version": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chainId",
+              "version",
+              "name"
+            ],
+            "type": "object"
+          },
+          "types": {
+            "properties": {
+              "EIP712Domain": {
+                "items": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "WalletRegistration": {
+                "items": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "EIP712Domain",
+              "WalletRegistration"
+            ],
+            "type": "object"
+          },
+          "primaryType": {
+            "type": "string",
+            "enum": [
+              "WalletRegistration"
+            ],
+            "nullable": false
+          },
+          "message": {
+            "properties": {
+              "issuedAt": {
+                "type": "string"
+              },
+              "nonce": {
+                "type": "string"
+              },
+              "chainId": {
+                "type": "number",
+                "format": "double"
+              },
+              "version": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "issuedAt",
+              "nonce",
+              "chainId",
+              "version",
+              "uri",
+              "statement",
+              "address",
+              "domain"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "domain",
+          "types",
+          "primaryType",
+          "message"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "OnboardingRequestResponseApi": {
+        "description": "Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.\ntsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "chainId": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "received",
+              "cancelled"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "registrationData": {
+            "$ref": "#/components/schemas/WalletRegistrationMessageResponseApi"
+          }
+        },
+        "required": [
+          "id",
+          "address",
+          "chainId",
+          "status",
+          "createdAt",
+          "registrationData"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "User": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stytchId": {
+            "type": "string"
+          },
+          "businessId": {
+            "type": "string"
+          },
+          "discoverableId": {
+            "type": "string"
+          },
+          "applicationSettingsId": {
+            "type": "string"
+          },
+          "fireblocksMetadataId": {
+            "type": "string"
+          },
+          "notifiableId": {
+            "type": "string"
+          },
+          "apiUserMetadataId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "stytchId",
+          "businessId",
+          "discoverableId",
+          "applicationSettingsId",
+          "fireblocksMetadataId",
+          "notifiableId",
+          "apiUserMetadataId",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ApiWrapperOrderBy": {
+        "type": "string",
+        "enum": [
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "RecipientRequestPayload": {
+        "description": "Request body for creating a recipient-initiated programmable payment.",
+        "properties": {
+          "counterPartyId": {
+            "type": "string",
+            "description": "The business ID of the counterparty.",
+            "format": "uuid"
+          },
+          "recipientWalletId": {
+            "type": "string",
+            "description": "The wallet ID of the recipient.",
+            "format": "uuid"
+          },
+          "recipientBusinessId": {
+            "type": "string",
+            "description": "The business ID of the recipient.",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "string",
+            "description": "The amount of the payment."
+          },
+          "feeAmount": {
+            "type": "string",
+            "description": "The fee amount for the payment."
+          },
+          "description": {
+            "type": "string",
+            "description": "A description for the payment."
+          }
+        },
+        "required": [
+          "counterPartyId",
+          "recipientWalletId",
+          "amount"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PayerRequestPayload": {
+        "description": "Request body for creating a payer-initiated programmable payment.",
+        "properties": {
+          "counterPartyId": {
+            "type": "string",
+            "description": "The business ID of the counterparty.",
+            "format": "uuid"
+          },
+          "senderWalletId": {
+            "type": "string",
+            "description": "The wallet ID of the sender.",
+            "format": "uuid"
+          },
+          "senderBusinessId": {
+            "type": "string",
+            "description": "The business ID of the sender.",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "string",
+            "description": "The amount of the payment."
+          },
+          "feeAmount": {
+            "type": "string",
+            "description": "The fee amount for the payment."
+          },
+          "description": {
+            "type": "string",
+            "description": "A description for the payment."
+          }
+        },
+        "required": [
+          "counterPartyId",
+          "senderWalletId",
+          "amount"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "InstantPaymentRequest": {
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "senderWalletId": {
+            "type": "string"
+          },
+          "recipientBusinessId": {
+            "type": "string"
+          },
+          "recipientWalletAddress": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "senderWalletId",
+          "recipientBusinessId",
+          "description"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "RequestPaymentRequest": {
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "senderBusinessId": {
+            "type": "string"
+          },
+          "recipientWalletId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "senderBusinessId",
+          "recipientWalletId",
+          "description"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PaymentStatusEnum": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "requested",
+          "initiated",
+          "lockbox",
+          "released",
+          "cancelled",
+          "declined",
+          "completed",
+          "failed",
+          "burned",
+          "minted",
+          "transferred",
+          "confirmed",
+          "reverted"
+        ]
+      },
+      "Payment": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sender": {
+            "type": "string"
+          },
+          "senderBusinessId": {
+            "type": "string"
+          },
+          "senderBusinessName": {
+            "type": "string"
+          },
+          "senderWalletAddress": {
+            "type": "string"
+          },
+          "recipient": {
+            "type": "string"
+          },
+          "recipientBusinessId": {
+            "type": "string"
+          },
+          "recipientBusinessName": {
+            "type": "string"
+          },
+          "recipientWalletAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number",
+                "format": "double"
+              }
+            ]
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PaymentStatusEnum"
+              }
+            ],
+            "nullable": true
+          },
+          "description": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "rowNum": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "id",
+          "amount",
+          "status",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "NddMintRequest": {
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "senderWalletId": {
+            "type": "string"
+          },
+          "recipientWalletId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "senderWalletId",
+          "recipientWalletId",
+          "description"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "NddBurnRequest": {
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "senderWalletId": {
+            "type": "string"
+          },
+          "recipientWalletId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "senderWalletId",
+          "recipientWalletId",
+          "description"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "InternalTransferRequest": {
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "senderWalletId": {
+            "type": "string"
+          },
+          "recipientWalletId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "senderWalletId",
+          "recipientWalletId",
+          "description"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Contact": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "contactType": {
+            "type": "string",
+            "enum": [
+              "wallet",
+              "user",
+              "business"
+            ]
+          },
+          "contactId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "nickname",
+          "contactType",
+          "contactId",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Business": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "publicName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "AuditTrailResponse": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "actorType": {
+            "type": "string",
+            "nullable": true
+          },
+          "actorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetEventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetEventAction": {
+            "type": "string"
+          },
+          "targetEventId": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessId": {
+            "type": "string",
+            "nullable": true
+          },
+          "walletId": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {},
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eventTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "actorType",
+          "actorId",
+          "targetEventType",
+          "targetEventAction",
+          "targetEventId",
+          "businessId",
+          "walletId",
+          "createdAt",
+          "eventTimestamp"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ApprovalResponse": {
+        "properties": {
+          "approvable": {
+            "properties": {
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "workflowType": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "requested",
+                  "approved",
+                  "declined",
+                  "cancelled",
+                  "deleted",
+                  "failed"
+                ]
+              },
+              "authorId": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "updatedAt",
+              "createdAt",
+              "workflowType",
+              "status",
+              "authorId",
+              "id"
+            ],
+            "type": "object"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "properties": {
+                  "workflowType": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "authorId": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "amount": {
+                    "type": "string"
+                  },
+                  "recipientWalletId": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "senderWalletId": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "moneyFlowId": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "avatarUrl": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "businessId": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "required": [
+          "approvable",
+          "data"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "name": "Authorization",
+        "in": "header",
+        "description": "Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)"
+      }
+    }
+  },
+  "info": {
+    "title": "N3XT API Documentation",
+    "version": "v1.0.1-3514-g824039216",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>",
+    "license": {
+      "name": "ISC"
+    },
+    "contact": {
+      "name": "N3XT Support",
+      "url": "https://helpcenter.n3xt.io/en/"
+    },
+    "termsOfService": "https://n3xt.io/legal/website-terms-of-use"
+  },
+  "paths": {
+    "/wallets": {
+      "get": {
+        "operationId": "Wallets",
+        "responses": {
+          "200": {
+            "description": "The list of wallets was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/WalletResponse"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "wallet123",
+                        "balance": "100.00",
+                        "createdAt": "2023-03-24T12:34:56.789Z",
+                        "updatedAt": "2023-03-24T12:34:56.789Z",
+                        "status": "active",
+                        "ownerId": "user123",
+                        "address": "0x123456789abcdef",
+                        "privateKey": "private-key",
+                        "ownerType": "user",
+                        "isApproverEnabled": true,
+                        "nickname": "My Wallet"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the wallets.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a list of wallets associated with the current authenticated user.",
+        "summary": "Get Wallets",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/wallets/{id}": {
+      "get": {
+        "operationId": "Wallet By Id",
+        "responses": {
+          "200": {
+            "description": "The wallet details were retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/WalletResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "wallet1234",
+                      "balance": "100.00",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T12:34:56.789Z",
+                      "status": "active",
+                      "ownerId": "user123",
+                      "address": "0x123456789abcdef",
+                      "privateKey": "private-key",
+                      "ownerType": "user",
+                      "isApproverEnabled": true,
+                      "nickname": "My Wallet"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve the details of a specific wallet by its ID.",
+        "summary": "Get Wallet by ID",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the wallet to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "wallet123"
+          }
+        ]
+      }
+    },
+    "/wallets/onboarding-requests/registration-messages": {
+      "post": {
+        "operationId": "Generate Wallet Registration Message",
+        "responses": {
+          "200": {
+            "description": "The wallet registration message was generated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/WalletRegistrationMessageResponseApi"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Generate a wallet registration message for a public wallet.",
+        "summary": "Generate Wallet Registration Message",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body: address, chainId.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "chainId": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "address": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "chainId",
+                  "address"
+                ],
+                "type": "object",
+                "description": "The request body: address, chainId."
+              },
+              "example": {
+                "address": "0x123456789abcdef",
+                "chainId": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wallets/public-wallets": {
+      "post": {
+        "operationId": "Register Public Wallet",
+        "responses": {
+          "200": {
+            "description": "The public wallet was registered successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "address",
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Provide a signature and a wallet registration message to register a public wallet",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "signature": {
+                    "type": "string"
+                  },
+                  "chainId": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "nickname": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "$ref": "#/components/schemas/WalletRegistrationMessageResponseApi",
+                    "description": "Full EIP-712 payload (same shape as the registration-messages response). Inner SIWE fields are in `message.message`."
+                  }
+                },
+                "required": [
+                  "address",
+                  "signature",
+                  "chainId",
+                  "nickname",
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wallets/onboarding-requests/{address}": {
+      "get": {
+        "operationId": "List Public Wallet Onboarding Requests",
+        "responses": {
+          "200": {
+            "description": "The list of onboarding requests was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/OnboardingRequestResponseApi"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Lists onboarding requests for a public wallet address, optionally filtered by status.",
+        "summary": "List wallet onboarding requests",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The wallet address to list onboarding requests for.",
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x123456789abcdef"
+          },
+          {
+            "description": "Optional status filter.",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "received",
+                "cancelled"
+              ]
+            },
+            "example": "pending"
+          }
+        ]
+      }
+    },
+    "/wallets/onboarding-requests/{requestId}": {
+      "delete": {
+        "operationId": "Cancel Public Wallet Onboarding Request",
+        "responses": {
+          "202": {
+            "description": "The request to cancel a public wallet onboarding request was accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Cancels a given public wallet onboarding request.",
+        "tags": [
+          "Wallets"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the onboarding request to cancel.",
+            "in": "path",
+            "name": "requestId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/users/me": {
+      "get": {
+        "operationId": "Me",
+        "responses": {
+          "200": {
+            "description": "The user details were retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "user123",
+                      "stytchId": "stytch-abc123",
+                      "businessId": "business456",
+                      "discoverableId": "discoverable789",
+                      "applicationSettingsId": "settings123",
+                      "fireblocksMetadataId": "metadata456",
+                      "notifiableId": "notifiable123",
+                      "apiUserMetadataId": "metadata789",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T12:34:56.789Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the user details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve the current authenticated user's details.",
+        "summary": "Get Current User",
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "User",
+        "responses": {
+          "200": {
+            "description": "The user details were retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "user123",
+                      "stytchId": "stytch-abc123",
+                      "businessId": "business456",
+                      "discoverableId": "discoverable789",
+                      "applicationSettingsId": "settings123",
+                      "fireblocksMetadataId": "metadata456",
+                      "notifiableId": "notifiable123",
+                      "apiUserMetadataId": "metadata789",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T12:34:56.789Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve details for a specific user by ID.",
+        "summary": "Get User by ID",
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The UUID of the user to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "user123"
+          }
+        ]
+      }
+    },
+    "/status": {
+      "get": {
+        "operationId": "Status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "description": "Check the health and status of the API server",
+        "tags": [
+          "System"
+        ],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/status/full": {
+      "get": {
+        "operationId": "FullStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "System"
+        ],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/payments/programmable/{id}": {
+      "get": {
+        "operationId": "Get Programmable Payment",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid ID supplied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Programmable payment not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieves a programmable payment by its ID.",
+        "summary": "Get Programmable Payment",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the programmable payment (moneyflow).",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/payments/programmable": {
+      "get": {
+        "operationId": "List Programmable Payments",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Lists all programmable payments for the authenticated user's business.",
+        "summary": "List Programmable Payments",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The maximum number of programmable payments to return (optional).",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The offset for pagination (optional).",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ApiWrapperOrderBy"
+            }
+          },
+          {
+            "description": "Sort direction. Available values: asc, desc. (optional).",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "Create Programmable Payment Request",
+        "responses": {
+          "202": {
+            "description": "Request Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "moneyflow-uuid-goes-here"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Creates a programmable payment request.",
+        "summary": "Create Programmable Payment Request",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Specifies who initiates the payment: 'recipient' or 'payer'",
+            "in": "query",
+            "name": "initiator",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/RecipientRequestPayload"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PayerRequestPayload"
+                  }
+                ],
+                "description": "The request body."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/programmable/{id}/fulfillment": {
+      "put": {
+        "operationId": "Fulfill Programmable Payment",
+        "responses": {
+          "202": {
+            "description": "Fulfillment request accepted",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid ID supplied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Programmable payment not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Fulfill a programmable payment delivery.",
+        "summary": "Fulfill Programmable Payment Delivery",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the programmable payment.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/payments/programmable/{id}/cancellation": {
+      "put": {
+        "operationId": "Cancel Programmable Payment",
+        "responses": {
+          "202": {
+            "description": "Cancellation request accepted",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid ID supplied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Programmable payment not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Cancel a programmable payment.",
+        "summary": "Cancel Programmable Payment",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the programmable payment to cancel.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/payments/programmable/request/{id}": {
+      "patch": {
+        "operationId": "Update Payment Request Status",
+        "responses": {
+          "202": {
+            "description": "The request status was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "status": "accepted",
+                        "senderWalletId": "wallet123"
+                      },
+                      {
+                        "status": "declined"
+                      },
+                      {
+                        "status": "cancelled"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the status of a payment/fulfillment/cancellation request.",
+        "summary": "Update Request Status",
+        "tags": [
+          "Programmable"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the request to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+            "in": "query",
+            "name": "requestType",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "payment",
+                "fulfillment",
+                "cancellation"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body containing the status update.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "recipientWalletId": {
+                    "type": "string"
+                  },
+                  "senderWalletId": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "accepted",
+                      "declined",
+                      "cancelled"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "type": "object",
+                "description": "The request body containing the status update."
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "status": "accepted",
+                    "senderWalletId": "wallet456"
+                  }
+                },
+                "Example 2": {
+                  "value": {
+                    "status": "declined"
+                  }
+                },
+                "Example 3": {
+                  "value": {
+                    "status": "cancelled"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/instant": {
+      "post": {
+        "operationId": "Instant Payment",
+        "responses": {
+          "202": {
+            "description": "The payment was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "payment123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Allows the authenticated user to create an instant payment to a business.\nOptionally provide recipientWalletAddress to send to a specific wallet of that business (address must belong to the business).",
+        "summary": "Instant Payment",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body: amount, senderWalletId, recipientBusinessId, optional recipientWalletAddress, description.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstantPaymentRequest",
+                "description": "The request body: amount, senderWalletId, recipientBusinessId, optional recipientWalletAddress, description."
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "amount": "100.0",
+                    "senderWalletId": "wallet123",
+                    "recipientBusinessId": "business1234",
+                    "description": "Payment for services"
+                  }
+                },
+                "Example 2": {
+                  "value": {
+                    "amount": "100.0",
+                    "senderWalletId": "wallet123",
+                    "recipientBusinessId": "business1234",
+                    "recipientWalletAddress": "0x...",
+                    "description": "Payment to specific wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/request": {
+      "post": {
+        "operationId": "Create Payment Request",
+        "responses": {
+          "202": {
+            "description": "The payment request was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "paymentRequest123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to request a payment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The specified wallet or business was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to create the payment request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Allows the authenticated user to request a payment from another business.",
+        "summary": "Request Payment",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body containing the payment request details.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPaymentRequest",
+                "description": "The request body containing the payment request details."
+              },
+              "example": {
+                "amount": "100.0",
+                "senderBusinessId": "business123",
+                "recipientWalletId": "wallet456",
+                "description": "Payment for services"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "List Payment Requests",
+        "responses": {
+          "200": {
+            "description": "The list of payment requests was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "paymentRequest123",
+                        "sender": "user123",
+                        "recipient": "user456",
+                        "amount": "100.0",
+                        "status": "requested",
+                        "createdAt": "2023-03-24T12:34:56.789Z",
+                        "updatedAt": "2023-03-24T12:34:56.789Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to access payment requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - No payment requests associated with this user were found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the payment requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Get a list of payment requests filtered by direction (incoming or outgoing).",
+        "summary": "List Payment Requests",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Filter requests by direction ('incoming' for requests to you, 'outgoing' for requests from you).",
+            "in": "query",
+            "name": "direction",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The maximum number of payment requests to return (optional).",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The offset for pagination (optional).",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The status of the payment requests to filter (optional).",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/payments/request/{id}": {
+      "patch": {
+        "operationId": "Update Payment Request Status",
+        "responses": {
+          "202": {
+            "description": "The payment request status was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "status": "accepted",
+                        "senderWalletId": "wallet123"
+                      },
+                      {
+                        "status": "declined"
+                      },
+                      {
+                        "status": "cancelled"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to update this payment request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The specified payment request was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while updating the payment request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the status of a payment request.",
+        "summary": "Update Payment Request Status",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the payment request to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body containing the status update.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "recipientWalletId": {
+                    "type": "string"
+                  },
+                  "senderWalletId": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "accepted",
+                      "declined",
+                      "cancelled"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "type": "object",
+                "description": "The request body containing the status update."
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "status": "accepted",
+                    "senderWalletId": "wallet456"
+                  }
+                },
+                "Example 2": {
+                  "value": {
+                    "status": "declined"
+                  }
+                },
+                "Example 3": {
+                  "value": {
+                    "status": "cancelled"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "Get Payment Request by Id",
+        "responses": {
+          "200": {
+            "description": "The payment request details were retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "paymentRequest123",
+                      "sender": "user123",
+                      "recipient": "user456",
+                      "amount": "100.0",
+                      "status": "requested",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T12:34:56.789Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a specific payment request by its ID.",
+        "summary": "Get Payment Request by ID",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the payment request to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "paymentRequest123"
+          }
+        ]
+      }
+    },
+    "/payments": {
+      "get": {
+        "operationId": "List Payments",
+        "responses": {
+          "200": {
+            "description": "The list of payments was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/Payment"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                        "sender": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                        "senderBusinessId": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+                        "senderBusinessName": "Acme Corp",
+                        "senderWalletAddress": "0x1234567890abcdef1234567890abcdef12345678",
+                        "recipientBusinessId": "d4e5f6a7-b8c9-0123-def4-56789012345a",
+                        "recipientBusinessName": "XYZ Industries",
+                        "amount": "100.0",
+                        "status": "completed",
+                        "description": "Invoice payment for services rendered",
+                        "createdAt": "2023-03-24T12:34:56.789Z",
+                        "updatedAt": "2023-03-24T13:45:12.345Z",
+                        "totalCount": 25,
+                        "rowNum": 1
+                      },
+                      {
+                        "id": "e5f6a7b8-c9d0-1234-5678-9012345678ab",
+                        "sender": "f6a7b8c9-d0e1-2345-6789-0123456789bc",
+                        "senderBusinessId": "a7b8c9d0-e1f2-3456-789a-123456789cde",
+                        "senderBusinessName": "Tech Solutions LLC",
+                        "senderWalletAddress": "0x9876543210fedcba9876543210fedcba98765432",
+                        "recipientBusinessId": "c9d0e1f2-a3b4-5678-9abc-3456789def01",
+                        "recipientBusinessName": "Digital Services Inc",
+                        "amount": "250.75",
+                        "status": "completed",
+                        "description": "Monthly subscription fee",
+                        "createdAt": "2023-03-24T10:15:30.123Z",
+                        "updatedAt": "2023-03-24T11:22:45.678Z",
+                        "totalCount": 25,
+                        "rowNum": 2
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - No payments associated with this user were found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the payments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a list of all payments made by the authenticated user.",
+        "summary": "List Payments",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Comma-separated list of payment statuses to filter by. Available statuses: queued, requested, initiated, lockbox, released, partial, cancelled, declined, completed, failed. Example: \"completed,lockbox\" (optional).",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments by specific wallet ID. Must be a valid UUID format (optional).",
+            "in": "query",
+            "name": "walletId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments created after this date (ISO 8601 format) (optional).",
+            "in": "query",
+            "name": "startDate",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments created before this date (ISO 8601 format) (optional).",
+            "in": "query",
+            "name": "endDate",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments with transaction amount greater than or equal to this value (optional).",
+            "in": "query",
+            "name": "amountGreaterThan",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments with transaction amount less than or equal to this value (optional).",
+            "in": "query",
+            "name": "amountLessThan",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments with sender business ID (optional).",
+            "in": "query",
+            "name": "senderBusinessId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments with recipient business ID (optional).",
+            "in": "query",
+            "name": "recipientBusinessId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments where sender or recipient matches business ID (optional).. This is a legacy filter that is no longer supported.",
+            "in": "query",
+            "name": "businessId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter payments by description (case-insensitive partial match) (optional).",
+            "in": "query",
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Sort payments by a field. Available fields: createdAt, updatedAt. (optional).",
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ApiWrapperOrderBy"
+            }
+          },
+          {
+            "description": "Sort direction. Available values: asc, desc. Example: \"asc\" (optional).",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          },
+          {
+            "description": "the maximum number of payments returned. Default: 100. Max: 200.(optional).",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "page offset to start from (based on the limit). Default: 0.(optional).",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/payments/{id}": {
+      "get": {
+        "operationId": "Get Payment by Id",
+        "responses": {
+          "200": {
+            "description": "The payment details were retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/Payment"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                      "sender": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "senderBusinessId": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+                      "senderBusinessName": "Acme Corp",
+                      "senderWalletAddress": "0x1234567890abcdef1234567890abcdef12345678",
+                      "recipientBusinessId": "d4e5f6a7-b8c9-0123-def4-56789012345a",
+                      "recipientBusinessName": "XYZ Industries",
+                      "amount": "100.0",
+                      "status": "completed",
+                      "description": "Invoice payment for services rendered",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T13:45:12.345Z",
+                      "totalCount": 1,
+                      "rowNum": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve the details of a specific payment by its ID.",
+        "summary": "Get Payment by ID",
+        "tags": [
+          "Payments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the payment to retrieve.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "payment123"
+          }
+        ]
+      }
+    },
+    "/ndd/tokenize": {
+      "post": {
+        "operationId": "NDD Mint",
+        "responses": {
+          "202": {
+            "description": "The NDD mint was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "payment123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Allows the authenticated user to create an NDD mint transaction.",
+        "summary": "NDD Mint to a specified public wallet",
+        "tags": [
+          "Ndd Routes"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body: amount, senderWalletId, recipientWalletId, description.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NddMintRequest",
+                "description": "The request body: amount, senderWalletId, recipientWalletId, description."
+              },
+              "example": {
+                "amount": "100.0",
+                "senderWalletId": "wallet123",
+                "recipientWalletId": "wallet1234",
+                "description": "Minting NDD to public wallet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ndd/redeem": {
+      "post": {
+        "operationId": "NDD Burn",
+        "responses": {
+          "202": {
+            "description": "The NDD burn was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "payment123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Allows the authenticated user to create an NDD burn transaction.",
+        "summary": "NDD Burn from a specified public wallet",
+        "tags": [
+          "Ndd Routes"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body: amount, senderWalletId, recipientWalletId, description.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NddBurnRequest",
+                "description": "The request body: amount, senderWalletId, recipientWalletId, description."
+              },
+              "example": {
+                "amount": "100.0",
+                "senderWalletId": "wallet123",
+                "recipientWalletId": "wallet1234",
+                "description": "Burning NDD from public wallet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transfers/internal": {
+      "post": {
+        "operationId": "Internal Transfer",
+        "responses": {
+          "202": {
+            "description": "The internal transfer was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "payment123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Allows the authenticated user to create an instant intra business transfer.",
+        "summary": "Internal Transfer",
+        "tags": [
+          "Transfers"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The request body containing the payment details.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalTransferRequest",
+                "description": "The request body containing the payment details."
+              },
+              "example": {
+                "amount": "100.0",
+                "senderWalletId": "wallet123",
+                "recipientWalletId": "wallet456",
+                "description": "Internal transfer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "operationId": "ListContacts",
+        "responses": {
+          "200": {
+            "description": "A list of contacts was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/Contact"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "contact123",
+                        "nickname": "John Doe",
+                        "contactType": "business",
+                        "contactId": "business123",
+                        "createdAt": "2023-03-24T12:34:56.789Z",
+                        "updatedAt": "2023-03-24T12:34:56.789Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - No contacts associated with this user were found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the contacts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a list of contacts for the authenticated user, each containing details such as the contact ID, nickname, contact type, and timestamps.\n- This endpoint allows searching for contacts by nickname or other attributes.\n- The results can be paginated using the limit and offset parameters.",
+        "summary": "Get Contacts",
+        "tags": [
+          "Contacts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Optional search string to filter contacts by nickname or other attributes.",
+            "in": "query",
+            "name": "searchString",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "John"
+          },
+          {
+            "description": "Optional limit for the number of contacts to retrieve.",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            },
+            "example": 10
+          },
+          {
+            "description": "Optional offset for pagination.",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            },
+            "example": 0
+          },
+          {
+            "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ApiWrapperOrderBy"
+            }
+          },
+          {
+            "description": "Optional direction to sort contacts by.",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "default": "desc",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "CreateContact",
+        "responses": {
+          "200": {
+            "description": "The contact was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "contact123",
+                      "nickname": "John Doe",
+                      "contactType": "business",
+                      "contactId": "business123",
+                      "createdAt": "2023-03-24T12:34:56.789Z",
+                      "updatedAt": "2023-03-24T12:34:56.789Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to create the contact.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The specified business ID does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - Contact with the same nickname already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to create the contact.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Create a new contact for the authenticated user.",
+        "summary": "Create Contact",
+        "tags": [
+          "Contacts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "The contact details, including nickname, description, and contact ID.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "contactId": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "nickname": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "contactId",
+                  "description",
+                  "nickname"
+                ],
+                "type": "object",
+                "description": "The contact details, including nickname, description, and contact ID."
+              },
+              "example": {
+                "nickname": "John Doe",
+                "description": "Business contact",
+                "contactId": "business123"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "delete": {
+        "operationId": "DeleteContact",
+        "responses": {
+          "200": {
+            "description": "The contact was deleted successfully."
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete an existing contact by its ID.",
+        "summary": "Delete Contact",
+        "tags": [
+          "Contacts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the contact to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/businesses": {
+      "get": {
+        "operationId": "Get Businesses",
+        "responses": {
+          "200": {
+            "description": "A list of businesses was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/Business"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "2BA06F3E-0BE3-4E2A-9119-BB0578A761C5",
+                        "publicName": "PepsiCo Limited"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Businesses"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "searchString",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/businesses/{id}": {
+      "get": {
+        "operationId": "Get Business by ID",
+        "responses": {
+          "200": {
+            "description": "Business retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/Business"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "id": "2BA06F3E-0BE3-4E2A-9119-BB0578A761C5",
+                      "publicName": "PepsiCo Limited"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Businesses"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/audit-trail": {
+      "get": {
+        "operationId": "List",
+        "responses": {
+          "200": {
+            "description": "Audit trail was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/AuditTrailResponse"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "12345",
+                        "actorType": "system",
+                        "actorId": "67890",
+                        "businessId": "54321",
+                        "walletId": "98765",
+                        "targetEventType": "onboarding_kyc",
+                        "targetEventId": "abcde",
+                        "targetEventAction": "initiated",
+                        "metadata": {
+                          "key": "value"
+                        },
+                        "createdAt": "2026-07-18T18:50:37.204Z",
+                        "eventTimestamp": "2026-07-18T18:50:37.204Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Lists all audit trail records for the authenticated user's business matching the filter criteria.",
+        "summary": "List Audit Trail Records",
+        "tags": [
+          "AuditTrail"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Filter audit trail records by actor ID.",
+            "in": "query",
+            "name": "actorId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter audit trail records by wallet ID.",
+            "in": "query",
+            "name": "walletId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter audit trail records by type (business or wallet).",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "business",
+                "wallet"
+              ]
+            }
+          },
+          {
+            "description": "The maximum number of audit trail records to return (optional).",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The offset for pagination (optional).",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "createdAt"
+              ]
+            }
+          },
+          {
+            "description": "Sort direction. Available values: asc, desc. (optional).",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/approvals/{id}": {
+      "get": {
+        "operationId": "GetById",
+        "responses": {
+          "200": {
+            "description": "The approval request was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ApprovalResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "approvable": {
+                        "id": "1234567890",
+                        "authorId": "user123",
+                        "status": "requested",
+                        "workflowType": "directPay",
+                        "createdAt": "2026-07-18T18:50:37.206Z",
+                        "updatedAt": "2026-07-18T18:50:37.206Z"
+                      },
+                      "data": {
+                        "moneyFlowId": "0987654321",
+                        "senderWalletId": "user123",
+                        "recipientWalletId": "user456",
+                        "amount": "100.00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid approval ID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to access this approval.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The approval with the specified ID does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the approval.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a specific approval request by its ID.",
+        "summary": "Get Approval by ID",
+        "tags": [
+          "Approvals"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "UpdateStatus",
+        "responses": {
+          "202": {
+            "description": "The request was processed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "status": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "status"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "status": "approved"
+                      },
+                      {
+                        "status": "declined"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to perform this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation failed for the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the status of an approval request by its ID.",
+        "summary": "Update Approval Status",
+        "tags": [
+          "Approvals"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the approval to update.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body containing the status update.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "approved",
+                      "declined"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "type": "object",
+                "description": "The request body containing the status update."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/approvals": {
+      "get": {
+        "operationId": "List",
+        "responses": {
+          "200": {
+            "description": "The list of approval requests was retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/ApprovalResponse"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "approvable": {
+                          "id": "1234567890",
+                          "authorId": "user123",
+                          "status": "requested",
+                          "workflowType": "directPay",
+                          "createdAt": "2026-07-18T18:50:37.207Z",
+                          "updatedAt": "2026-07-18T18:50:37.207Z"
+                        },
+                        "data": {
+                          "moneyFlowId": "0987654321",
+                          "senderWalletId": "user123",
+                          "recipientWalletId": "user456",
+                          "amount": "100.00"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have permission to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - No approvals associated with this user were found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected server error occurred while trying to retrieve the approvals.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a list of approval requests associated with the authenticated user, each containing details such as the request ID, sender ID, recipient ID, amount, status, and timestamps.\n- The status can be one of the following: requested, approved, declined, or cancelled.\n- The list of approval requests is filtered based on the user's permissions and roles.",
+        "summary": "List Approval Requests",
+        "tags": [
+          "Approvals"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "Optional filter for the type of workflow.",
+            "in": "query",
+            "name": "workflowType",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "contact",
+                "programmable",
+                "requestPayment",
+                "directPay"
+              ]
+            }
+          },
+          {
+            "description": "Optional filter for approval status (comma-separated values).",
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The maximum number of approval requests to return (optional).",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "The offset for pagination (optional).",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional).",
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ApiWrapperOrderBy"
+            }
+          },
+          {
+            "description": "Sort direction. Available values: asc, desc. (optional).",
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://openapi.n3xt.io"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}

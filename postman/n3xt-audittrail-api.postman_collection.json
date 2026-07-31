@@ -1,0 +1,670 @@
+{
+  "info": {
+    "_postman_id": "b4b84db2-02a9-4bca-96df-c5ea5238a2bd",
+    "name": "N3XT API Documentation Approvals AuditTrail API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:33.000Z",
+    "updatedAt": "2026-07-28T02:15:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b4b84db2-02a9-4bca-96df-c5ea5238a2bd"
+  },
+  "item": [
+    {
+      "name": "audit-trail",
+      "item": [
+        {
+          "name": "List Audit Trail Records",
+          "id": "e9fef34e-9104-4cdc-9eba-3c9fa4138862",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-trail"
+              ],
+              "query": [
+                {
+                  "description": "Filter audit trail records by actor ID.",
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter audit trail records by wallet ID.",
+                  "key": "walletId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter audit trail records by type (business or wallet).",
+                  "key": "type",
+                  "value": "wallet"
+                },
+                {
+                  "description": "The maximum number of audit trail records to return (optional).",
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "description": "The offset for pagination (optional).",
+                  "key": "offset",
+                  "value": "<double>"
+                },
+                {
+                  "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                  "key": "orderBy",
+                  "value": "createdAt"
+                },
+                {
+                  "description": "Sort direction. Available values: asc, desc. (optional).",
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            },
+            "description": "Lists all audit trail records for the authenticated user's business matching the filter criteria."
+          },
+          "response": [
+            {
+              "id": "4314a10c-21c0-4698-8ed2-183bb540a66e",
+              "name": "Audit trail was retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"actorType\": \"<string>\",\n    \"actorId\": \"<string>\",\n    \"targetEventType\": \"<string>\",\n    \"targetEventAction\": \"<string>\",\n    \"targetEventId\": \"<string>\",\n    \"businessId\": \"<string>\",\n    \"walletId\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"eventTimestamp\": \"<dateTime>\",\n    \"metadata\": {}\n  },\n  {\n    \"id\": \"<string>\",\n    \"actorType\": \"<string>\",\n    \"actorId\": \"<string>\",\n    \"targetEventType\": \"<string>\",\n    \"targetEventAction\": \"<string>\",\n    \"targetEventId\": \"<string>\",\n    \"businessId\": \"<string>\",\n    \"walletId\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"eventTimestamp\": \"<dateTime>\",\n    \"metadata\": {}\n  }\n]",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-4314a10c-21c0-4698-8ed2-183bb540a66e"
+            },
+            {
+              "id": "d2926be0-7360-476e-8626-4594e0a6ba94",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-d2926be0-7360-476e-8626-4594e0a6ba94"
+            },
+            {
+              "id": "93ffbf56-2d33-47d4-94aa-c572d04c82cc",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-93ffbf56-2d33-47d4-94aa-c572d04c82cc"
+            },
+            {
+              "id": "9e2f49d3-6113-4fc3-ac7a-6c68187d19bc",
+              "name": "Forbidden - Insufficient permissions to perform this action.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-9e2f49d3-6113-4fc3-ac7a-6c68187d19bc"
+            },
+            {
+              "id": "3fe58dc8-3733-45b4-a870-98c140d40f58",
+              "name": "Not Found - Requested resource was not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-3fe58dc8-3733-45b4-a870-98c140d40f58"
+            },
+            {
+              "id": "e776827c-0c34-4442-9542-09a2d0426967",
+              "name": "Unprocessable Entity - Validation failed for the request body.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-e776827c-0c34-4442-9542-09a2d0426967"
+            },
+            {
+              "id": "9eadb83f-e1c2-4002-bfec-77622152a8b6",
+              "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-trail?actorId=<string>&walletId=<string>&type=wallet&limit=<double>&offset=<double>&orderBy=createdAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter audit trail records by actor ID.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by wallet ID.",
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter audit trail records by type (business or wallet).",
+                      "key": "type",
+                      "value": "wallet"
+                    },
+                    {
+                      "description": "The maximum number of audit trail records to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort audit trail records by a field. Available fields: createdAt (optional).",
+                      "key": "orderBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:33.000Z",
+              "updatedAt": "2026-07-28T02:15:33.000Z",
+              "uid": "35240-9eadb83f-e1c2-4002-bfec-77622152a8b6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:33.000Z",
+          "updatedAt": "2026-07-28T02:15:33.000Z",
+          "uid": "35240-e9fef34e-9104-4cdc-9eba-3c9fa4138862"
+        }
+      ],
+      "id": "996a7b40-98fd-4690-984e-d71d7feb8252",
+      "createdAt": "2026-07-28T02:15:33.000Z",
+      "updatedAt": "2026-07-28T02:15:33.000Z",
+      "uid": "35240-996a7b40-98fd-4690-984e-d71d7feb8252"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

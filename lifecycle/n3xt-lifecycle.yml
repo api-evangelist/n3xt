@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/n3xt-openapi-original.json
+versioning:
+  scheme: build-tag
+  current: v1.0.1-3514-g824039216
+  note: >-
+    No version segment in the API base path (https://openapi.n3xt.io).
+    OAuth endpoints are versioned as /v1/. The OpenAPI info.version is a build
+    tag rather than a public semantic API version.
+status_page: https://status.n3xt.io/
+health_endpoints:
+- openapi/n3xt-openapi-original.json#Status
+- openapi/n3xt-openapi-original.json#FullStatus
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+deprecated_operations: []
+environments:
+- name: production
+  api: https://openapi.n3xt.io
+  auth: https://authn.n3xt.io
+- name: beta
+  api: https://openapi.beta.n3xt.io
+  auth: https://authn.beta.n3xt.io
+- name: omega
+  api: https://openapi.omega.n3xt.io
+  auth: https://authn.omega.n3xt.io

@@ -1,0 +1,30 @@
+# N3XT
+
+> Your instant USD payment network for B2B transactions. Full-reserve banking with programmable, 24/7/365 real-time transaction settlement on blockchain rails.
+
+Core capabilities and key features:
+- **Full-Reserve Architecture**: Narrow bank structure operating under a Special Purpose Depository Institution (SPDI) charter. N3XT does not lend customer deposits; all funds are backed 1:1 by cash or short-term U.S. Treasuries, eliminating duration risk and traditional fractional-reserve credit risks.
+- **Tokenized Dollar Deposits**:  Operates on a blockchain based core banking platform that enables the movement of real US dollars on blockchain payment rails.
+- **N3XT Digital Dollar**: The N3XT Digital Dollar (NDD) is a native, bank-regulated tokenized asset backed 1:1 with US dollars and short term U.S. Treasuries. It combining public blockchain speed and programmability with the regulatory safety of a standard bank deposit. 
+- **Closed-Loop Security**: NDD transactions require all counterparties to be fully KYC/KYB verified, holding an on-chain "Identity Passport" (NDDID NFT) to mitigate compliance and fraud risks.
+- **Programmable Payment Logic**: Employs smart contracts and API integrations to let treasury managers, stablecoin issuers, and global logistics enterprises automate payments instantly when pre-defined and coded conditions are met.
+- **Enterprise Ecosystem Integration**: Removes banking portal friction through native integrations with trusted digital asset custodians including Fireblocks and Utila.
+- **Developer Friendly**: API integrations and MCP availability allow customers to take actions within their existing treasury and AI ecosystem..
+
+## Core Resources
+- [Home](https://n3xt.io/): The primary website information page outlining the N3XT real-time B2B financial infrastructure.
+- [About Us](https://n3xt.io/about): Overview of our mission to liberate money and remove reliance on third-party integrations. Includes information about our leadership team.
+- [Digital Dollar](https://n3xt.io/digital-dollar): Detailed guide to the N3XT Digital Dollar (NDD) tokenized asset, its minting process, and enterprise use cases.
+- [Trust Center & Controls](https://trust.n3xt.io/): Real-time compliance monitoring dashboard displaying infrastructure security, penetration tests, and smart contract audit reports.
+
+## Infrastructure Specs
+- [Instant Settlement Rails](https://n3xt.io/): Technical and operational parameters for always-on 24/7 global USD transfers bypassing legacy batch windows.
+- [The Narrow Bank Model](https://n3xt.io/about): Breakdown of our 1:1 full reserve treasury-backed framework and why it structurally operates without the need for FDIC insurance.
+- [On-Chain Identity Onboarding](https://n3xt.io/digital-dollar): Protocols regarding secure client screening, lockbox funding, and the issuance of NDDID Identity Passport NFTs.
+
+## Technical Documentation
+- [Developer Portal](https://helpcenter.n3xt.io/): API reference, payload schemas, authorization methods, and platform integration workflows.
+
+## Optional
+- [Terms of Use](https://n3xt.io/legals/terms-of-use): The legal framework, liability clauses, and user agreements governing the N3XT platform.
+- [Privacy Policy](https://n3xt.io/legals/privacy-policy): Corporate data governance, classification policies, and data handling protocols.

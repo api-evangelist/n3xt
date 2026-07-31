@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/n3xt-openapi-original.json
+docs: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+summary:
+  types:
+  - http
+  - oauth2
+  api_key_in: []
+  oauth2_flows:
+  - clientCredentials
+  - authorizationCode
+notes: >-
+  The N3XT API operations declare a single `bearerAuth` (HTTP bearer / JWT)
+  security scheme. The bearer token is obtained out-of-band from the N3XT
+  authorization server at authn.n3xt.io using OAuth 2.0. Business API clients
+  use the client_credentials grant (client_id + client_secret issued under
+  Settings > API Keys); access tokens are bearer JWTs that expire after 3600s
+  (1 hour). The authorization server also publishes OpenID Connect discovery
+  and an authorization_code flow (used by first-party app sign-in and the MCP
+  server). Separate test authorization projects exist for the Beta and Omega
+  test environments.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer auth -> insert ONLY the token (the word Bearer will automatically be added)
+  sources:
+  - openapi/n3xt-openapi-original.json
+- name: OAuth2
+  type: oauth2
+  source: https://authn.n3xt.io/.well-known/openid-configuration
+  issuer: https://authn.n3xt.io
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://authn.n3xt.io/v1/oauth2/token
+    docs: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+  - flow: authorizationCode
+    authorizationUrl: https://authn.n3xt.io
+    tokenUrl: https://authn.n3xt.io/v1/oauth2/token
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - none
+  access_token_ttl_seconds: 3600
+environments:
+  production:
+    token_url: https://authn.n3xt.io/v1/public/{project}/oauth2/token
+  beta:
+    token_url: https://authn.beta.n3xt.io/v1/public/{project}/oauth2/token
+  omega:
+    token_url: https://authn.omega.n3xt.io/v1/public/{project}/oauth2/token

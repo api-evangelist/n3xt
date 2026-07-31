@@ -1,0 +1,34 @@
+{
+  "provider": "n3xt",
+  "sources": [
+    "n3xt-approvals-api-openapi.yml",
+    "n3xt-audittrail-api-openapi.yml",
+    "n3xt-businesses-api-openapi.yml",
+    "n3xt-contacts-api-openapi.yml",
+    "n3xt-ndd-routes-api-openapi.yml",
+    "n3xt-payments-api-openapi.yml",
+    "n3xt-programmable-api-openapi.yml",
+    "n3xt-system-api-openapi.yml",
+    "n3xt-transfers-api-openapi.yml",
+    "n3xt-users-api-openapi.yml",
+    "n3xt-wallets-api-openapi.yml"
+  ],
+  "outputs": [
+    "n3xt-approvals-api-openapi.yml",
+    "n3xt-audittrail-api-openapi.yml",
+    "n3xt-businesses-api-openapi.yml",
+    "n3xt-contacts-api-openapi.yml",
+    "n3xt-ndd-routes-api-openapi.yml",
+    "n3xt-payments-api-openapi.yml",
+    "n3xt-programmable-api-openapi.yml",
+    "n3xt-system-api-openapi.yml",
+    "n3xt-transfers-api-openapi.yml",
+    "n3xt-users-api-openapi.yml",
+    "n3xt-wallets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

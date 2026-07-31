@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/n3xt-openapi-original.json
+skills:
+- file: n3xt-send-instant-payment.md
+  name: Send an instant USD payment with N3XT
+  api: openapi/n3xt-openapi-original.json
+  operations: [Wallets, Instant Payment, Get Payment by Id]
+- file: n3xt-request-and-fulfill-programmable-payment.md
+  name: Create and fulfill a programmable payment with N3XT
+  api: openapi/n3xt-openapi-original.json
+  operations: [Create Programmable Payment Request, List Programmable Payments, Fulfill Programmable Payment, Cancel Programmable Payment]

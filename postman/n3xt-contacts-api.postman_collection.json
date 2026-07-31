@@ -1,0 +1,1285 @@
+{
+  "info": {
+    "_postman_id": "75523259-70ce-4ae3-b754-294a8dc6511a",
+    "name": "N3XT API Documentation Approvals Contacts API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:35.000Z",
+    "updatedAt": "2026-07-28T02:15:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-75523259-70ce-4ae3-b754-294a8dc6511a"
+  },
+  "item": [
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Delete Contact",
+              "id": "9c8eae60-b9be-4500-9eb7-f76cb78b515c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "568ac44e-0668-4ad7-a0be-fe760d35c992",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the contact to delete."
+                    }
+                  ]
+                },
+                "description": "Delete an existing contact by its ID."
+              },
+              "response": [
+                {
+                  "id": "e85a2db9-34cf-42c6-8027-ea576d62ea6a",
+                  "name": "The contact was deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-e85a2db9-34cf-42c6-8027-ea576d62ea6a"
+                },
+                {
+                  "id": "9a252e8f-d702-4646-bbf6-35e914839e49",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-9a252e8f-d702-4646-bbf6-35e914839e49"
+                },
+                {
+                  "id": "8e6ceb0f-f670-4c88-aae1-a656242ccce0",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-8e6ceb0f-f670-4c88-aae1-a656242ccce0"
+                },
+                {
+                  "id": "3d00e6b2-a1c7-4978-9eae-bcacdde2d063",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-3d00e6b2-a1c7-4978-9eae-bcacdde2d063"
+                },
+                {
+                  "id": "5884538b-f4cd-4167-92d4-2025717bf18f",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-5884538b-f4cd-4167-92d4-2025717bf18f"
+                },
+                {
+                  "id": "e3bd6dd5-6aaf-4215-adbe-22e461e5b867",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-e3bd6dd5-6aaf-4215-adbe-22e461e5b867"
+                },
+                {
+                  "id": "382a4913-0409-4a9e-9227-d21470918033",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:35.000Z",
+                  "updatedAt": "2026-07-28T02:15:35.000Z",
+                  "uid": "35240-382a4913-0409-4a9e-9227-d21470918033"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-9c8eae60-b9be-4500-9eb7-f76cb78b515c"
+            }
+          ],
+          "id": "9f2ffb6b-8283-4320-b8df-3380b8985de9",
+          "createdAt": "2026-07-28T02:15:35.000Z",
+          "updatedAt": "2026-07-28T02:15:35.000Z",
+          "uid": "35240-9f2ffb6b-8283-4320-b8df-3380b8985de9"
+        },
+        {
+          "name": "Get Contacts",
+          "id": "ce0a4782-ce5b-4f87-8d6c-2819b341e17c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ],
+              "query": [
+                {
+                  "description": "Optional search string to filter contacts by nickname or other attributes.",
+                  "key": "searchString",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Optional limit for the number of contacts to retrieve.",
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "description": "Optional offset for pagination.",
+                  "key": "offset",
+                  "value": "<double>"
+                },
+                {
+                  "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                  "key": "orderBy",
+                  "value": "updatedAt"
+                },
+                {
+                  "description": "Optional direction to sort contacts by.",
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            },
+            "description": "Retrieve a list of contacts for the authenticated user, each containing details such as the contact ID, nickname, contact type, and timestamps.\n- This endpoint allows searching for contacts by nickname or other attributes.\n- The results can be paginated using the limit and offset parameters."
+          },
+          "response": [
+            {
+              "id": "51e291ff-d775-4d89-beaf-d073395ed3b3",
+              "name": "A list of contacts was retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional search string to filter contacts by nickname or other attributes.",
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional limit for the number of contacts to retrieve.",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional offset for pagination.",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Optional direction to sort contacts by.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"contactType\": \"user\",\n    \"contactId\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"contactType\": \"wallet\",\n    \"contactId\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-51e291ff-d775-4d89-beaf-d073395ed3b3"
+            },
+            {
+              "id": "9ea0584a-6ea2-4701-b1b8-8ed5bea86a34",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional search string to filter contacts by nickname or other attributes.",
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional limit for the number of contacts to retrieve.",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional offset for pagination.",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Optional direction to sort contacts by.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-9ea0584a-6ea2-4701-b1b8-8ed5bea86a34"
+            },
+            {
+              "id": "0ad6bcfb-d529-486d-a5d4-0b6e3fddad8f",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional search string to filter contacts by nickname or other attributes.",
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional limit for the number of contacts to retrieve.",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional offset for pagination.",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Optional direction to sort contacts by.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-0ad6bcfb-d529-486d-a5d4-0b6e3fddad8f"
+            },
+            {
+              "id": "ecf7e4ff-a292-4617-aa53-c07f6caf75c0",
+              "name": "Not Found - No contacts associated with this user were found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional search string to filter contacts by nickname or other attributes.",
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional limit for the number of contacts to retrieve.",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional offset for pagination.",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Optional direction to sort contacts by.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-ecf7e4ff-a292-4617-aa53-c07f6caf75c0"
+            },
+            {
+              "id": "a703b619-30cf-4e29-8378-62284f351a5b",
+              "name": "An unexpected server error occurred while trying to retrieve the contacts.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?searchString=<string>&limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional search string to filter contacts by nickname or other attributes.",
+                      "key": "searchString",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional limit for the number of contacts to retrieve.",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional offset for pagination.",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Optional field to sort contacts by. Available fields: createdAt, updatdAt.",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Optional direction to sort contacts by.",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-a703b619-30cf-4e29-8378-62284f351a5b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:35.000Z",
+          "updatedAt": "2026-07-28T02:15:35.000Z",
+          "uid": "35240-ce0a4782-ce5b-4f87-8d6c-2819b341e17c"
+        },
+        {
+          "name": "Create Contact",
+          "id": "0dffc1c8-23fe-49f5-9ced-641d409b4c15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contacts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ]
+            },
+            "description": "Create a new contact for the authenticated user."
+          },
+          "response": [
+            {
+              "id": "7acccaa9-6d09-4d71-87c4-0636f0430be3",
+              "name": "The contact was created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-7acccaa9-6d09-4d71-87c4-0636f0430be3"
+            },
+            {
+              "id": "45ce035f-a15c-495f-8ace-743ba0d186be",
+              "name": "Bad Request - Invalid request body.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-45ce035f-a15c-495f-8ace-743ba0d186be"
+            },
+            {
+              "id": "326d993d-3f71-42fd-a4f0-230749b32d49",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-326d993d-3f71-42fd-a4f0-230749b32d49"
+            },
+            {
+              "id": "74d0b7c6-a556-401a-933f-ff7849504440",
+              "name": "Forbidden - User does not have permission to create the contact.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-74d0b7c6-a556-401a-933f-ff7849504440"
+            },
+            {
+              "id": "16e25b39-199c-4587-b40c-e74f37e0f261",
+              "name": "Not Found - The specified business ID does not exist.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-16e25b39-199c-4587-b40c-e74f37e0f261"
+            },
+            {
+              "id": "a17def38-7f8c-43cf-bc76-f8cfc7be001d",
+              "name": "Conflict - Contact with the same nickname already exists.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-a17def38-7f8c-43cf-bc76-f8cfc7be001d"
+            },
+            {
+              "id": "3de92d58-4984-4f53-a3ed-37ccb224111b",
+              "name": "An unexpected server error occurred while trying to create the contact.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"nickname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:35.000Z",
+              "updatedAt": "2026-07-28T02:15:35.000Z",
+              "uid": "35240-3de92d58-4984-4f53-a3ed-37ccb224111b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:35.000Z",
+          "updatedAt": "2026-07-28T02:15:35.000Z",
+          "uid": "35240-0dffc1c8-23fe-49f5-9ced-641d409b4c15"
+        }
+      ],
+      "id": "961b02fb-5f0d-4d09-b700-60ff656d3ead",
+      "createdAt": "2026-07-28T02:15:35.000Z",
+      "updatedAt": "2026-07-28T02:15:35.000Z",
+      "uid": "35240-961b02fb-5f0d-4d09-b700-60ff656d3ead"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

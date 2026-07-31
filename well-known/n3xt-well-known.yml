@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+notes: >-
+  Probed /.well-known/ discovery endpoints across the N3XT hosts. The website
+  publishes a real RFC 9116 security.txt; the authorization server
+  (authn.n3xt.io) publishes OpenID Connect and OAuth 2.0 authorization-server
+  metadata. The API hosts (api./openapi.n3xt.io) return 403 to unauthenticated
+  well-known probes; app.n3xt.io returns SPA soft-redirects (not real
+  documents) and is excluded.
+hosts:
+- host: https://n3xt.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: n3xt-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://authn.n3xt.io
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: n3xt-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: n3xt-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://openapi.n3xt.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+- host: https://api.n3xt.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 403

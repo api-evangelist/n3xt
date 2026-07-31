@@ -1,0 +1,46 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/n3xt-openapi-original.json
+format: custom
+envelope:
+  media_type: application/json
+  schema: ErrorResponse
+  shape: '{ "error": "<human-readable message>" }'
+  note: >-
+    N3XT does not use RFC 9457 application/problem+json. Every non-2xx response
+    returns the ErrorResponse object with a single required `error` string field.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Invalid request parameters or malformed body.
+- status: 401
+  title: Unauthorized
+  meaning: Invalid or missing bearer authentication token.
+- status: 403
+  title: Forbidden
+  meaning: Insufficient permissions to perform this action.
+- status: 404
+  title: Not Found
+  meaning: The requested resource was not found.
+- status: 409
+  title: Conflict
+  meaning: The request conflicts with the current state of the resource.
+- status: 422
+  title: Unprocessable Entity
+  meaning: Validation failed for the request body.
+- status: 500
+  title: Internal Server Error
+  meaning: An unexpected server error occurred while processing the request.
+- status: 502
+  title: Bad Gateway
+  meaning: An upstream dependency (e.g. full status check) was unavailable.
+counts:
+  by_status:
+    '400': 33
+    '401': 33
+    '403': 26
+    '404': 31
+    '409': 1
+    '422': 20
+    '500': 33
+    '502': 1

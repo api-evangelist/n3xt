@@ -1,0 +1,74 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/n3xt-openapi-original.json
+entities:
+- name: Wallet
+  fields: [id, address, balance, status, ownerId, ownerType, isApproverEnabled, nickname, privateKey]
+- name: User
+  fields: [id, stytchId, businessId, discoverableId, applicationSettingsId, fireblocksMetadataId, notifiableId, apiUserMetadataId]
+- name: Business
+  fields: [id, publicName]
+- name: Payment
+  fields: [id, sender, senderBusinessId, senderWalletAddress, recipient, recipientBusinessId, recipientWalletAddress, amount, status, description]
+- name: ProgrammablePayment
+  aka: moneyflow
+  fields: [id, amount, senderWalletId, recipientWalletId, senderBusinessId, recipientBusinessId, counterPartyId, feeAmount, status]
+- name: Contact
+  fields: [id, nickname, contactType, contactId]
+- name: OnboardingRequest
+  fields: [id, address, chainId, status, registrationData]
+- name: AuditTrail
+  fields: [id, actorType, actorId, targetEventType, targetEventAction, targetEventId, businessId, walletId, metadata, eventTimestamp]
+- name: Approval
+  fields: [approvable, data, workflowType, status, authorId, moneyFlowId]
+relationships:
+- from: Wallet
+  to: User
+  type: belongs_to
+  via: ownerId
+  note: ownerType discriminates user | business ownership.
+- from: User
+  to: Business
+  type: belongs_to
+  via: businessId
+- from: Payment
+  to: Business
+  type: belongs_to
+  via: senderBusinessId
+- from: Payment
+  to: Business
+  type: belongs_to
+  via: recipientBusinessId
+- from: ProgrammablePayment
+  to: Wallet
+  type: belongs_to
+  via: senderWalletId
+- from: ProgrammablePayment
+  to: Wallet
+  type: belongs_to
+  via: recipientWalletId
+- from: ProgrammablePayment
+  to: Business
+  type: belongs_to
+  via: counterPartyId
+- from: Contact
+  to: Wallet
+  type: belongs_to
+  via: contactId
+  note: contactType is one of wallet | user | business.
+- from: Approval
+  to: ProgrammablePayment
+  type: belongs_to
+  via: moneyFlowId
+- from: OnboardingRequest
+  to: Wallet
+  type: belongs_to
+  via: address
+- from: AuditTrail
+  to: Business
+  type: belongs_to
+  via: businessId
+- from: AuditTrail
+  to: Wallet
+  type: belongs_to
+  via: walletId

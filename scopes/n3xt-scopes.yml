@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: https://authn.n3xt.io/.well-known/openid-configuration
+docs: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+notes: >-
+  The N3XT OpenAPI declares only a bearerAuth (JWT) scheme with no per-operation
+  scope requirements, so scopes are not derivable from the spec. The N3XT
+  authorization server (authn.n3xt.io) publishes the OAuth 2.0 / OpenID Connect
+  scopes below via its well-known discovery documents. `full_access` is the
+  broad business-API scope; `mcp:read` / `mcp:write` gate the hosted N3XT MCP
+  server at mcp.n3xt.io.
+schemes:
+- name: OAuth2
+  source: https://authn.n3xt.io/.well-known/openid-configuration
+  issuer: https://authn.n3xt.io
+  authorizationUrl: https://authn.n3xt.io
+  tokenUrl: https://authn.n3xt.io/v1/oauth2/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; issue an ID token.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: profile
+  description: Access to the authenticated principal's profile claims.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: email
+  description: Access to the principal's email address claim.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: phone
+  description: Access to the principal's phone number claim.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: offline_access
+  description: Issue a refresh token for long-lived, offline access.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: full_access
+  description: Full access to the N3XT business banking API surface.
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: mcp:read
+  description: Read-only access through the N3XT hosted MCP server (mcp.n3xt.io).
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]
+- scope: mcp:write
+  description: Write / action access through the N3XT hosted MCP server (mcp.n3xt.io).
+  sources: [https://authn.n3xt.io/.well-known/openid-configuration]

@@ -1,0 +1,37 @@
+{
+    "authorization_endpoint": "https://authn.n3xt.io",
+    "client_id_metadata_document_supported": false,
+    "code_challenge_methods_supported": [
+        "S256"
+    ],
+    "grant_types_supported": [
+        "authorization_code",
+        "refresh_token",
+        "urn:ietf:params:oauth:grant-type:jwt-bearer"
+    ],
+    "issuer": "https://authn.n3xt.io",
+    "jwks_uri": "https://authn.n3xt.io/.well-known/jwks.json",
+    "registration_endpoint": "https://authn.n3xt.io/v1/oauth2/register",
+    "request_id": "request-id-live-18028bfe-da4f-43c8-827b-e9f9fdb818b1",
+    "response_types_supported": [
+        "code",
+        "code token"
+    ],
+    "scopes_supported": [
+        "openid",
+        "profile",
+        "email",
+        "phone",
+        "offline_access",
+        "mcp:read",
+        "mcp:write"
+    ],
+    "status_code": 200,
+    "token_endpoint": "https://authn.n3xt.io/v1/oauth2/token",
+    "token_endpoint_auth_methods_supported": [
+        "client_secret_basic",
+        "client_secret_post",
+        "none"
+    ],
+    "userinfo_endpoint": "https://authn.n3xt.io/v1/oauth2/userinfo"
+}

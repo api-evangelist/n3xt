@@ -1,0 +1,2450 @@
+{
+  "info": {
+    "_postman_id": "385f2a65-a82a-4625-b6ff-f8437ea95634",
+    "name": "N3XT API Documentation Approvals Wallets API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:43.000Z",
+    "updatedAt": "2026-07-28T02:15:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-385f2a65-a82a-4625-b6ff-f8437ea95634"
+  },
+  "item": [
+    {
+      "name": "wallets",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Wallet by ID",
+              "id": "6072d514-c9de-4804-a913-38cbf5623340",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c22a51da-46a2-4e2a-8996-f7bdc8c32ff4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the wallet to retrieve."
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of a specific wallet by its ID."
+              },
+              "response": [
+                {
+                  "id": "f6b8b7fc-40da-495b-b88c-b636bf645bdd",
+                  "name": "The wallet details were retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"isApproverEnabled\": \"<boolean>\",\n  \"nickname\": \"<string>\",\n  \"balance\": \"<string>\",\n  \"id\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"address\": \"<string>\",\n  \"privateKey\": \"<string>\",\n  \"ownerType\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-f6b8b7fc-40da-495b-b88c-b636bf645bdd"
+                },
+                {
+                  "id": "84148e47-79d9-4746-8f8c-557ca0b36745",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-84148e47-79d9-4746-8f8c-557ca0b36745"
+                },
+                {
+                  "id": "ade611ed-ba3e-42f3-8cef-f909ab534784",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-ade611ed-ba3e-42f3-8cef-f909ab534784"
+                },
+                {
+                  "id": "f7165b0d-97b4-4075-9392-6f5b186b2f0e",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-f7165b0d-97b4-4075-9392-6f5b186b2f0e"
+                },
+                {
+                  "id": "be11ecc4-e74c-489b-8f3d-11e6b4a68dbd",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-be11ecc4-e74c-489b-8f3d-11e6b4a68dbd"
+                },
+                {
+                  "id": "2c4db48c-100f-4203-911d-cf7ccde08608",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-2c4db48c-100f-4203-911d-cf7ccde08608"
+                },
+                {
+                  "id": "199b6dbf-6988-4136-8f0d-21dc52aa119d",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-199b6dbf-6988-4136-8f0d-21dc52aa119d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-6072d514-c9de-4804-a913-38cbf5623340"
+            }
+          ],
+          "id": "0618180f-edea-43ab-be3c-59fe206d6031",
+          "createdAt": "2026-07-28T02:15:44.000Z",
+          "updatedAt": "2026-07-28T02:15:44.000Z",
+          "uid": "35240-0618180f-edea-43ab-be3c-59fe206d6031"
+        },
+        {
+          "name": "onboarding-requests",
+          "item": [
+            {
+              "name": "registration-messages",
+              "item": [
+                {
+                  "name": "Generate Wallet Registration Message",
+                  "id": "464c0f4c-8c25-4150-acf8-6b9108dc2f05",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "onboarding-requests",
+                        "registration-messages"
+                      ]
+                    },
+                    "description": "Generate a wallet registration message for a public wallet."
+                  },
+                  "response": [
+                    {
+                      "id": "b51f0f70-dbee-4525-916b-b46f0d29dfb3",
+                      "name": "The wallet registration message was generated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"domain\": {\n    \"chainId\": \"<double>\",\n    \"version\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"types\": {\n    \"EIP712Domain\": [\n      {\n        \"type\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"WalletRegistration\": [\n      {\n        \"type\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"primaryType\": \"WalletRegistration\",\n  \"message\": {\n    \"issuedAt\": \"<string>\",\n    \"nonce\": \"<string>\",\n    \"chainId\": \"<double>\",\n    \"version\": \"<string>\",\n    \"uri\": \"<string>\",\n    \"statement\": \"<string>\",\n    \"address\": \"<string>\",\n    \"domain\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-b51f0f70-dbee-4525-916b-b46f0d29dfb3"
+                    },
+                    {
+                      "id": "43b8b540-d27e-40b7-886f-539ee289b2c1",
+                      "name": "Bad Request - Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-43b8b540-d27e-40b7-886f-539ee289b2c1"
+                    },
+                    {
+                      "id": "9799991e-9f8c-4b05-b83e-a7702ef98241",
+                      "name": "Unauthorized - Invalid or missing authentication token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-9799991e-9f8c-4b05-b83e-a7702ef98241"
+                    },
+                    {
+                      "id": "b80090e4-85e3-47e0-ab39-8d92ee93e6c1",
+                      "name": "Forbidden - Insufficient permissions to perform this action.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-b80090e4-85e3-47e0-ab39-8d92ee93e6c1"
+                    },
+                    {
+                      "id": "372212c7-3e18-4802-acd7-ae1cfc6693c0",
+                      "name": "Not Found - Requested resource was not found.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-372212c7-3e18-4802-acd7-ae1cfc6693c0"
+                    },
+                    {
+                      "id": "ffb450f9-e072-4b12-8c71-45368a077723",
+                      "name": "Unprocessable Entity - Validation failed for the request body.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-ffb450f9-e072-4b12-8c71-45368a077723"
+                    },
+                    {
+                      "id": "c0533086-ece6-41da-a4e0-b80a64e2e089",
+                      "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chainId\": \"<double>\",\n  \"address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/registration-messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            "registration-messages"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-c0533086-ece6-41da-a4e0-b80a64e2e089"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-464c0f4c-8c25-4150-acf8-6b9108dc2f05"
+                }
+              ],
+              "id": "3404bde0-f5cf-46b4-9c1e-d941f6c78f68",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-3404bde0-f5cf-46b4-9c1e-d941f6c78f68"
+            },
+            {
+              "name": "{address}",
+              "item": [
+                {
+                  "name": "List wallet onboarding requests",
+                  "id": "83ecc316-d527-451b-81ee-f851bc8071c0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "onboarding-requests",
+                        ":address"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional status filter.",
+                          "key": "status",
+                          "value": "pending"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3379c010-95ad-40fb-8769-20fb073cf85b",
+                          "key": "address",
+                          "value": "<string>",
+                          "description": "(Required) The wallet address to list onboarding requests for."
+                        }
+                      ]
+                    },
+                    "description": "Lists onboarding requests for a public wallet address, optionally filtered by status."
+                  },
+                  "response": [
+                    {
+                      "id": "56541969-9348-41f7-a307-f3a58a3657e8",
+                      "name": "The list of onboarding requests was retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"address\": \"<string>\",\n    \"chainId\": \"<double>\",\n    \"status\": \"pending\",\n    \"createdAt\": \"<dateTime>\",\n    \"registrationData\": {\n      \"domain\": {\n        \"chainId\": \"<double>\",\n        \"version\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"types\": {\n        \"EIP712Domain\": [\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"WalletRegistration\": [\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      \"primaryType\": \"WalletRegistration\",\n      \"message\": {\n        \"issuedAt\": \"<string>\",\n        \"nonce\": \"<string>\",\n        \"chainId\": \"<double>\",\n        \"version\": \"<string>\",\n        \"uri\": \"<string>\",\n        \"statement\": \"<string>\",\n        \"address\": \"<string>\",\n        \"domain\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"address\": \"<string>\",\n    \"chainId\": \"<double>\",\n    \"status\": \"received\",\n    \"createdAt\": \"<dateTime>\",\n    \"registrationData\": {\n      \"domain\": {\n        \"chainId\": \"<double>\",\n        \"version\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"types\": {\n        \"EIP712Domain\": [\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"WalletRegistration\": [\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      \"primaryType\": \"WalletRegistration\",\n      \"message\": {\n        \"issuedAt\": \"<string>\",\n        \"nonce\": \"<string>\",\n        \"chainId\": \"<double>\",\n        \"version\": \"<string>\",\n        \"uri\": \"<string>\",\n        \"statement\": \"<string>\",\n        \"address\": \"<string>\",\n        \"domain\": \"<string>\"\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-56541969-9348-41f7-a307-f3a58a3657e8"
+                    },
+                    {
+                      "id": "b2603c00-2586-4fe3-af3a-174294f94e21",
+                      "name": "Bad Request - Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-b2603c00-2586-4fe3-af3a-174294f94e21"
+                    },
+                    {
+                      "id": "8cd2e54f-edbb-4d5b-b730-98275d29b38c",
+                      "name": "Unauthorized - Invalid or missing authentication token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-8cd2e54f-edbb-4d5b-b730-98275d29b38c"
+                    },
+                    {
+                      "id": "26fc7c56-6635-48d4-b992-1edd961c8e68",
+                      "name": "Forbidden - Insufficient permissions to perform this action.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-26fc7c56-6635-48d4-b992-1edd961c8e68"
+                    },
+                    {
+                      "id": "b9709025-7c79-4f81-bc95-18f0378689d5",
+                      "name": "Not Found - Requested resource was not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-b9709025-7c79-4f81-bc95-18f0378689d5"
+                    },
+                    {
+                      "id": "867962b9-09c1-422e-9bef-b0f9f3191fa0",
+                      "name": "Unprocessable Entity - Validation failed for the request body.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-867962b9-09c1-422e-9bef-b0f9f3191fa0"
+                    },
+                    {
+                      "id": "a79eceda-f03c-4acc-9fbd-2758dccf6299",
+                      "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:address?status=pending",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional status filter.",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "address"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-a79eceda-f03c-4acc-9fbd-2758dccf6299"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-83ecc316-d527-451b-81ee-f851bc8071c0"
+                }
+              ],
+              "id": "cc048776-f011-4c85-862d-a2900a892a4c",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-cc048776-f011-4c85-862d-a2900a892a4c"
+            },
+            {
+              "name": "{requestId}",
+              "item": [
+                {
+                  "name": "Cancel Public Wallet Onboarding Request",
+                  "id": "ad1891cf-5033-4fbd-ae3a-d96fca2aaab1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "onboarding-requests",
+                        ":requestId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bdd9fcfa-74c1-4753-b878-168705680119",
+                          "key": "requestId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the onboarding request to cancel."
+                        }
+                      ]
+                    },
+                    "description": "Cancels a given public wallet onboarding request."
+                  },
+                  "response": [
+                    {
+                      "id": "6c59cf92-7eae-4908-83c8-731b4b7c9cce",
+                      "name": "The request to cancel a public wallet onboarding request was accepted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-6c59cf92-7eae-4908-83c8-731b4b7c9cce"
+                    },
+                    {
+                      "id": "b0d12714-534f-4430-b47e-327df1bb04ce",
+                      "name": "Bad Request - Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-b0d12714-534f-4430-b47e-327df1bb04ce"
+                    },
+                    {
+                      "id": "f2b15ee5-a108-49d4-9f1a-64bc97b9ad1d",
+                      "name": "Unauthorized - Invalid or missing authentication token.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-f2b15ee5-a108-49d4-9f1a-64bc97b9ad1d"
+                    },
+                    {
+                      "id": "e9389bbb-c6e4-4a23-a163-95a603667252",
+                      "name": "Forbidden - Insufficient permissions to perform this action.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-e9389bbb-c6e4-4a23-a163-95a603667252"
+                    },
+                    {
+                      "id": "e69a503b-5715-47eb-b8bd-890b6b395b0a",
+                      "name": "Not Found - Requested resource was not found.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-e69a503b-5715-47eb-b8bd-890b6b395b0a"
+                    },
+                    {
+                      "id": "d96268e1-59e6-43f8-b39c-c65de2131055",
+                      "name": "Unprocessable Entity - Validation failed for the request body.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-d96268e1-59e6-43f8-b39c-c65de2131055"
+                    },
+                    {
+                      "id": "774f6915-915d-4912-8f8b-39aa7aa54c7f",
+                      "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wallets/onboarding-requests/:requestId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallets",
+                            "onboarding-requests",
+                            ":requestId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "requestId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:44.000Z",
+                      "updatedAt": "2026-07-28T02:15:44.000Z",
+                      "uid": "35240-774f6915-915d-4912-8f8b-39aa7aa54c7f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-ad1891cf-5033-4fbd-ae3a-d96fca2aaab1"
+                }
+              ],
+              "id": "52169f0f-a9e7-4ac7-8b76-cd1bf66afd94",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-52169f0f-a9e7-4ac7-8b76-cd1bf66afd94"
+            }
+          ],
+          "id": "641d9efb-c1e8-4cfb-87a1-390c5b31efe4",
+          "createdAt": "2026-07-28T02:15:44.000Z",
+          "updatedAt": "2026-07-28T02:15:44.000Z",
+          "uid": "35240-641d9efb-c1e8-4cfb-87a1-390c5b31efe4"
+        },
+        {
+          "name": "public-wallets",
+          "item": [
+            {
+              "name": "Register Public Wallet",
+              "id": "0bb5e6e8-5a20-42d4-baff-492d836150cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wallets/public-wallets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "public-wallets"
+                  ]
+                },
+                "description": "Provide a signature and a wallet registration message to register a public wallet"
+              },
+              "response": [
+                {
+                  "id": "f4b41d32-410f-47e3-a0fe-7ad0a68b3a27",
+                  "name": "The public wallet was registered successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"address\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-f4b41d32-410f-47e3-a0fe-7ad0a68b3a27"
+                },
+                {
+                  "id": "ab2f3df9-d894-4a37-a5af-0a863cbef2e7",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-ab2f3df9-d894-4a37-a5af-0a863cbef2e7"
+                },
+                {
+                  "id": "0c7f5347-6afe-4639-a364-df0a6628b8ac",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-0c7f5347-6afe-4639-a364-df0a6628b8ac"
+                },
+                {
+                  "id": "b110509c-82a6-4c90-a1c8-f2a54e0cb534",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-b110509c-82a6-4c90-a1c8-f2a54e0cb534"
+                },
+                {
+                  "id": "996c363e-a822-4818-9f5f-a43bb85d1013",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-996c363e-a822-4818-9f5f-a43bb85d1013"
+                },
+                {
+                  "id": "a2dc6010-6a7c-46ae-baf8-8ac232f12054",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-a2dc6010-6a7c-46ae-baf8-8ac232f12054"
+                },
+                {
+                  "id": "b2cfeb88-350f-4440-adfd-f2ea7efa0d80",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"address\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"chainId\": \"<double>\",\n  \"nickname\": \"<string>\",\n  \"message\": {\n    \"domain\": {\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"types\": {\n      \"EIP712Domain\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"WalletRegistration\": [\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"primaryType\": \"WalletRegistration\",\n    \"message\": {\n      \"issuedAt\": \"<string>\",\n      \"nonce\": \"<string>\",\n      \"chainId\": \"<double>\",\n      \"version\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"statement\": \"<string>\",\n      \"address\": \"<string>\",\n      \"domain\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallets/public-wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallets",
+                        "public-wallets"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:44.000Z",
+                  "updatedAt": "2026-07-28T02:15:44.000Z",
+                  "uid": "35240-b2cfeb88-350f-4440-adfd-f2ea7efa0d80"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-0bb5e6e8-5a20-42d4-baff-492d836150cd"
+            }
+          ],
+          "id": "5c2e3639-b6b5-45d8-a67b-ad62b79e7725",
+          "createdAt": "2026-07-28T02:15:44.000Z",
+          "updatedAt": "2026-07-28T02:15:44.000Z",
+          "uid": "35240-5c2e3639-b6b5-45d8-a67b-ad62b79e7725"
+        },
+        {
+          "name": "Get Wallets",
+          "id": "b5b92615-5fcf-4004-bcda-2c8f5ab35c4b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/wallets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wallets"
+              ]
+            },
+            "description": "Retrieve a list of wallets associated with the current authenticated user."
+          },
+          "response": [
+            {
+              "id": "5d0f9645-eeb6-4d25-a81c-fe9ad20a8a4d",
+              "name": "The list of wallets was retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"isApproverEnabled\": \"<boolean>\",\n    \"nickname\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"id\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"address\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"ownerType\": \"<string>\"\n  },\n  {\n    \"isApproverEnabled\": \"<boolean>\",\n    \"nickname\": \"<string>\",\n    \"balance\": \"<string>\",\n    \"id\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"address\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"ownerType\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-5d0f9645-eeb6-4d25-a81c-fe9ad20a8a4d"
+            },
+            {
+              "id": "d11a7233-2b3e-45a8-ba76-1297c9d010fb",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-d11a7233-2b3e-45a8-ba76-1297c9d010fb"
+            },
+            {
+              "id": "4612fad5-1fa8-45b1-9361-3aaf9453f4f8",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-4612fad5-1fa8-45b1-9361-3aaf9453f4f8"
+            },
+            {
+              "id": "39a5c370-9032-4ad3-a632-c689691c8b57",
+              "name": "An unexpected server error occurred while trying to retrieve the wallets.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wallets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:15:44.000Z",
+              "updatedAt": "2026-07-28T02:15:44.000Z",
+              "uid": "35240-39a5c370-9032-4ad3-a632-c689691c8b57"
+            }
+          ],
+          "createdAt": "2026-07-28T02:15:44.000Z",
+          "updatedAt": "2026-07-28T02:15:44.000Z",
+          "uid": "35240-b5b92615-5fcf-4004-bcda-2c8f5ab35c4b"
+        }
+      ],
+      "id": "d60bec54-a72e-4916-a35b-0811169142bf",
+      "createdAt": "2026-07-28T02:15:44.000Z",
+      "updatedAt": "2026-07-28T02:15:44.000Z",
+      "uid": "35240-d60bec54-a72e-4916-a35b-0811169142bf"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}

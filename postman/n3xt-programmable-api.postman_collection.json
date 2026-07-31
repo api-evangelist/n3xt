@@ -1,0 +1,2593 @@
+{
+  "info": {
+    "_postman_id": "189ef6bd-e836-4e64-987f-eb292251fda1",
+    "name": "N3XT API Documentation Approvals Programmable API",
+    "description": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:15:38.000Z",
+    "updatedAt": "2026-07-28T02:15:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-189ef6bd-e836-4e64-987f-eb292251fda1"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "programmable",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "fulfillment",
+                  "item": [
+                    {
+                      "name": "Fulfill Programmable Payment Delivery",
+                      "id": "267464ed-a23a-4cf1-a5ba-7ae6d4376dd3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id",
+                            "fulfillment"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3d87d796-eaeb-419e-86b0-bfe87984a025",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the programmable payment."
+                            }
+                          ]
+                        },
+                        "description": "Fulfill a programmable payment delivery."
+                      },
+                      "response": [
+                        {
+                          "id": "b12d68ff-5066-4da2-abb1-f8ca6d2049e9",
+                          "name": "Fulfillment request accepted",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "fulfillment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-b12d68ff-5066-4da2-abb1-f8ca6d2049e9"
+                        },
+                        {
+                          "id": "19bf65eb-2d62-4406-8d34-705774a058b1",
+                          "name": "Bad Request - Invalid ID supplied.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "fulfillment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-19bf65eb-2d62-4406-8d34-705774a058b1"
+                        },
+                        {
+                          "id": "6e66b9ee-212e-411d-95ea-13362871ae35",
+                          "name": "Unauthorized - Invalid or missing authentication token.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "fulfillment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-6e66b9ee-212e-411d-95ea-13362871ae35"
+                        },
+                        {
+                          "id": "64ac9c70-554a-447a-9db8-f09c9038e137",
+                          "name": "Not Found - Programmable payment not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "fulfillment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-64ac9c70-554a-447a-9db8-f09c9038e137"
+                        },
+                        {
+                          "id": "c708d7c9-3409-45dd-947b-c6467dc79b92",
+                          "name": "Internal Server Error.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/fulfillment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "fulfillment"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-c708d7c9-3409-45dd-947b-c6467dc79b92"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-267464ed-a23a-4cf1-a5ba-7ae6d4376dd3"
+                    }
+                  ],
+                  "id": "060d12f5-3f12-41f2-ade2-de187eef76e4",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-060d12f5-3f12-41f2-ade2-de187eef76e4"
+                },
+                {
+                  "name": "cancellation",
+                  "item": [
+                    {
+                      "name": "Cancel Programmable Payment",
+                      "id": "55bceae2-e380-4891-96a6-22d49adb8c0c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id",
+                            "cancellation"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e6ffe10e-aa49-4862-8874-e58c5a3d3dfd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the programmable payment to cancel."
+                            }
+                          ]
+                        },
+                        "description": "Cancel a programmable payment."
+                      },
+                      "response": [
+                        {
+                          "id": "c9be5fe6-9867-43ff-af45-ee41d528705c",
+                          "name": "Cancellation request accepted",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "cancellation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-c9be5fe6-9867-43ff-af45-ee41d528705c"
+                        },
+                        {
+                          "id": "69ee5916-a0e4-4d19-ac76-ab1f6cee7832",
+                          "name": "Bad Request - Invalid ID supplied.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "cancellation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-69ee5916-a0e4-4d19-ac76-ab1f6cee7832"
+                        },
+                        {
+                          "id": "748a53c5-7521-4f3f-a69d-35d13a0e0989",
+                          "name": "Unauthorized - Invalid or missing authentication token.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "cancellation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-748a53c5-7521-4f3f-a69d-35d13a0e0989"
+                        },
+                        {
+                          "id": "fb741b1f-4062-4c92-ba21-77d4ce452bb0",
+                          "name": "Not Found - Programmable payment not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "cancellation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-fb741b1f-4062-4c92-ba21-77d4ce452bb0"
+                        },
+                        {
+                          "id": "5575144e-576e-431d-ae77-1bfcfefd7ddd",
+                          "name": "Internal Server Error.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/:id/cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                ":id",
+                                "cancellation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-5575144e-576e-431d-ae77-1bfcfefd7ddd"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-55bceae2-e380-4891-96a6-22d49adb8c0c"
+                    }
+                  ],
+                  "id": "ee7e719d-123a-464e-a12d-81ed4e4aed17",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-ee7e719d-123a-464e-a12d-81ed4e4aed17"
+                },
+                {
+                  "name": "Get Programmable Payment",
+                  "id": "3e638ae3-3be9-4a36-bda0-e63407286b31",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dc374b59-845b-461d-8e3d-e796a5957a00",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the programmable payment (moneyflow)."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a programmable payment by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "567c039c-7b53-4e8a-b725-dd3b527ba0b4",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-567c039c-7b53-4e8a-b725-dd3b527ba0b4"
+                    },
+                    {
+                      "id": "e832a845-c871-4dbe-8237-dba45c32004f",
+                      "name": "Bad Request - Invalid ID supplied.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-e832a845-c871-4dbe-8237-dba45c32004f"
+                    },
+                    {
+                      "id": "a8053624-b0a6-435d-9d3b-356369485502",
+                      "name": "Unauthorized - Invalid or missing authentication token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-a8053624-b0a6-435d-9d3b-356369485502"
+                    },
+                    {
+                      "id": "a0569d1d-ed68-4d09-a2de-8d5002620483",
+                      "name": "Not Found - Programmable payment not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-a0569d1d-ed68-4d09-a2de-8d5002620483"
+                    },
+                    {
+                      "id": "227aa1d1-14d5-4769-875f-782b139e2e67",
+                      "name": "Internal Server Error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-227aa1d1-14d5-4769-875f-782b139e2e67"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-3e638ae3-3be9-4a36-bda0-e63407286b31"
+                }
+              ],
+              "id": "4bdcc0a4-550e-4284-a420-42630fd2c378",
+              "createdAt": "2026-07-28T02:15:38.000Z",
+              "updatedAt": "2026-07-28T02:15:38.000Z",
+              "uid": "35240-4bdcc0a4-550e-4284-a420-42630fd2c378"
+            },
+            {
+              "name": "request",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Update Request Status",
+                      "id": "6afd7876-143c-4ed0-bfb8-245d9d422cf5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            "programmable",
+                            "request",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                              "key": "requestType",
+                              "value": "cancellation"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "fdf9be86-6f16-4d2b-9c80-289304f19ee4",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the request to update."
+                            }
+                          ]
+                        },
+                        "description": "Update the status of a payment/fulfillment/cancellation request."
+                      },
+                      "response": [
+                        {
+                          "id": "009ff333-41fc-4547-be74-cea83e18bb6a",
+                          "name": "The request status was updated successfully.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-009ff333-41fc-4547-be74-cea83e18bb6a"
+                        },
+                        {
+                          "id": "45ba02ab-4fcf-475e-8d4c-68538bc01f01",
+                          "name": "Bad Request - Invalid request parameters.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-45ba02ab-4fcf-475e-8d4c-68538bc01f01"
+                        },
+                        {
+                          "id": "9396cb83-fe87-4c57-ac71-2d786b5bbb90",
+                          "name": "Unauthorized - Invalid or missing authentication token.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-9396cb83-fe87-4c57-ac71-2d786b5bbb90"
+                        },
+                        {
+                          "id": "b5a6b21e-2844-4d65-91b4-7fc42530763c",
+                          "name": "Forbidden - Insufficient permissions to perform this action.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-b5a6b21e-2844-4d65-91b4-7fc42530763c"
+                        },
+                        {
+                          "id": "79d71eaf-e481-4b04-886b-c2b3dc9344be",
+                          "name": "Not Found - Requested resource was not found.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-79d71eaf-e481-4b04-886b-c2b3dc9344be"
+                        },
+                        {
+                          "id": "3ba9d27b-4ba3-4a63-b735-556774fcf413",
+                          "name": "Unprocessable Entity - Validation failed for the request body.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-3ba9d27b-4ba3-4a63-b735-556774fcf413"
+                        },
+                        {
+                          "id": "bebff02d-5db9-44f9-8702-753f1d904eed",
+                          "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"cancelled\",\n  \"recipientWalletId\": \"<string>\",\n  \"senderWalletId\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/programmable/request/:id?requestType=cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                "programmable",
+                                "request",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The type of request: 'payment', 'fulfillment', or 'cancellation'.",
+                                  "key": "requestType",
+                                  "value": "cancellation"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:15:38.000Z",
+                          "updatedAt": "2026-07-28T02:15:38.000Z",
+                          "uid": "35240-bebff02d-5db9-44f9-8702-753f1d904eed"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:15:38.000Z",
+                      "updatedAt": "2026-07-28T02:15:38.000Z",
+                      "uid": "35240-6afd7876-143c-4ed0-bfb8-245d9d422cf5"
+                    }
+                  ],
+                  "id": "2201e1e8-8f9c-4516-834d-f8aa3323c3a2",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-2201e1e8-8f9c-4516-834d-f8aa3323c3a2"
+                }
+              ],
+              "id": "5942f5e2-444b-4b31-a04b-5cf6f23fab7a",
+              "createdAt": "2026-07-28T02:15:38.000Z",
+              "updatedAt": "2026-07-28T02:15:38.000Z",
+              "uid": "35240-5942f5e2-444b-4b31-a04b-5cf6f23fab7a"
+            },
+            {
+              "name": "List Programmable Payments",
+              "id": "12d65358-0a97-41c3-9bbc-8e8b4bc9453d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "programmable"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of programmable payments to return (optional).",
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "The offset for pagination (optional).",
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                      "key": "orderBy",
+                      "value": "updatedAt"
+                    },
+                    {
+                      "description": "Sort direction. Available values: asc, desc. (optional).",
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ]
+                },
+                "description": "Lists all programmable payments for the authenticated user's business."
+              },
+              "response": [
+                {
+                  "id": "38b1d9b5-32cc-4957-8013-13273b32309d",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-38b1d9b5-32cc-4957-8013-13273b32309d"
+                },
+                {
+                  "id": "3cf6e753-ec75-4ed3-b762-aa1e05ddbd8d",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-3cf6e753-ec75-4ed3-b762-aa1e05ddbd8d"
+                },
+                {
+                  "id": "40619d1b-4396-4c38-8ba0-9824c4281396",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-40619d1b-4396-4c38-8ba0-9824c4281396"
+                },
+                {
+                  "id": "4c098901-3f60-45aa-bc8c-b058bf0d7d9c",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-4c098901-3f60-45aa-bc8c-b058bf0d7d9c"
+                },
+                {
+                  "id": "884cc4ec-6a64-42ab-a985-0a159f99a4d7",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-884cc4ec-6a64-42ab-a985-0a159f99a4d7"
+                },
+                {
+                  "id": "5a9fe9a6-4f94-4dea-b5b7-e7e33216286d",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-5a9fe9a6-4f94-4dea-b5b7-e7e33216286d"
+                },
+                {
+                  "id": "d5ee256d-a5ba-4ad0-a40e-4c5d098064c5",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?limit=<double>&offset=<double>&orderBy=updatedAt&order=desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of programmable payments to return (optional).",
+                          "key": "limit",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The offset for pagination (optional).",
+                          "key": "offset",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional).",
+                          "key": "orderBy",
+                          "value": "updatedAt"
+                        },
+                        {
+                          "description": "Sort direction. Available values: asc, desc. (optional).",
+                          "key": "order",
+                          "value": "desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-d5ee256d-a5ba-4ad0-a40e-4c5d098064c5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:38.000Z",
+              "updatedAt": "2026-07-28T02:15:38.000Z",
+              "uid": "35240-12d65358-0a97-41c3-9bbc-8e8b4bc9453d"
+            },
+            {
+              "name": "Create Programmable Payment Request",
+              "id": "99131230-be12-4b51-8469-be6d1663a31e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    "programmable"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                      "key": "initiator",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Creates a programmable payment request."
+              },
+              "response": [
+                {
+                  "id": "28216c02-664e-400d-a978-508851d1d3e8",
+                  "name": "Request Accepted",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-28216c02-664e-400d-a978-508851d1d3e8"
+                },
+                {
+                  "id": "33fb0d3d-5bd0-43a4-92a3-29ca171895f7",
+                  "name": "Bad Request - Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-33fb0d3d-5bd0-43a4-92a3-29ca171895f7"
+                },
+                {
+                  "id": "78dbb567-272b-4c8a-b5fe-3d1f03e5494c",
+                  "name": "Unauthorized - Invalid or missing authentication token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-78dbb567-272b-4c8a-b5fe-3d1f03e5494c"
+                },
+                {
+                  "id": "1e0dc9d9-7a1c-42b2-9ac5-e8507818da2e",
+                  "name": "Forbidden - Insufficient permissions to perform this action.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-1e0dc9d9-7a1c-42b2-9ac5-e8507818da2e"
+                },
+                {
+                  "id": "12d5ebe5-26c9-4830-b4f3-dea5d09d81d7",
+                  "name": "Not Found - Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-12d5ebe5-26c9-4830-b4f3-dea5d09d81d7"
+                },
+                {
+                  "id": "22075ae2-c870-47b6-8129-6a4cc8be1569",
+                  "name": "Unprocessable Entity - Validation failed for the request body.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-22075ae2-c870-47b6-8129-6a4cc8be1569"
+                },
+                {
+                  "id": "63e426f5-4540-40d6-9099-25fba861cad5",
+                  "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"counterPartyId\": \"<uuid>\",\n  \"recipientWalletId\": \"<uuid>\",\n  \"amount\": \"<string>\",\n  \"recipientBusinessId\": \"<uuid>\",\n  \"feeAmount\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/programmable?initiator=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        "programmable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Specifies who initiates the payment: 'recipient' or 'payer'",
+                          "key": "initiator",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:15:38.000Z",
+                  "updatedAt": "2026-07-28T02:15:38.000Z",
+                  "uid": "35240-63e426f5-4540-40d6-9099-25fba861cad5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:15:38.000Z",
+              "updatedAt": "2026-07-28T02:15:38.000Z",
+              "uid": "35240-99131230-be12-4b51-8469-be6d1663a31e"
+            }
+          ],
+          "id": "3574043f-ffd0-45d9-8362-d7297b0c2125",
+          "createdAt": "2026-07-28T02:15:38.000Z",
+          "updatedAt": "2026-07-28T02:15:38.000Z",
+          "uid": "35240-3574043f-ffd0-45d9-8362-d7297b0c2125"
+        }
+      ],
+      "id": "5d511995-aee9-4426-a41e-71847bf9fde5",
+      "createdAt": "2026-07-28T02:15:38.000Z",
+      "updatedAt": "2026-07-28T02:15:38.000Z",
+      "uid": "35240-5d511995-aee9-4426-a41e-71847bf9fde5"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://openapi.n3xt.io"
+    }
+  ]
+}
