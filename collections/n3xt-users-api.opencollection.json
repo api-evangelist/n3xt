@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Users API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/users/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current authenticated user's details."
+        },
+        {
+          "info": {
+            "name": "Get User by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "user123",
+                "type": "path",
+                "description": "The UUID of the user to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve details for a specific user by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

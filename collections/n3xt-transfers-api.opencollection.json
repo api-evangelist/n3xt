@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Transfers API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Internal Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/transfers/internal",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Allows the authenticated user to create an instant intra business transfer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals System API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/status"
+          },
+          "docs": "Check the health and status of the API server"
+        },
+        {
+          "info": {
+            "name": "FullStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/status/full"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

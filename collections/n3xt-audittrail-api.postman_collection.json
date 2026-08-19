@@ -1,0 +1,631 @@
+{
+  "item": [
+    {
+      "id": "0206cc33-2aa1-43f1-b258-f959dcaa7859",
+      "name": "AuditTrail",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca111b99-7d5c-42b3-9cad-a338cba54013",
+          "name": "List Audit Trail Records",
+          "request": {
+            "name": "List Audit Trail Records",
+            "description": {
+              "content": "Lists all audit trail records for the authenticated user's business matching the filter criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "audit-trail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "Filter audit trail records by actor ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "walletId",
+                  "value": "<string>",
+                  "description": "Filter audit trail records by wallet ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter audit trail records by type (business or wallet)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>",
+                  "description": "The maximum number of audit trail records to return (optional)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<double>",
+                  "description": "The offset for pagination (optional)."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort audit trail records by a field. Available fields: createdAt (optional)."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Sort direction. Available values: asc, desc. (optional)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f834691-cf55-48f6-b03d-95be5d602d21",
+              "name": "Audit trail was retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"12345\",\n    \"actorType\": \"system\",\n    \"actorId\": \"67890\",\n    \"businessId\": \"54321\",\n    \"walletId\": \"98765\",\n    \"targetEventType\": \"onboarding_kyc\",\n    \"targetEventId\": \"abcde\",\n    \"targetEventAction\": \"initiated\",\n    \"metadata\": {\n      \"key\": \"value\"\n    },\n    \"createdAt\": \"2026-07-18T18:50:37.204Z\",\n    \"eventTimestamp\": \"2026-07-18T18:50:37.204Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a351ef9-c958-45a4-b878-d2e42fa059aa",
+              "name": "Bad Request - Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b8a53b6-4644-481d-ab43-f2cd7233e104",
+              "name": "Unauthorized - Invalid or missing authentication token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de7791de-e79f-4d89-b358-cba388dd95df",
+              "name": "Forbidden - Insufficient permissions to perform this action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f84469d9-5463-4b69-9176-5afa3d38e9e8",
+              "name": "Not Found - Requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffd1df5a-26d6-4f26-a0e4-528b4d61d31b",
+              "name": "Unprocessable Entity - Validation failed for the request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78911fb1-4f5c-4bce-80e8-26cdd0b69878",
+              "name": "Internal Server Error - An unexpected error occurred while processing the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit-trail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "walletId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.n3xt.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "773e9183-9be1-4f62-9100-e54c335ea34a",
+    "name": "N3XT API Documentation Approvals AuditTrail API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A holistic banking API for businesses.\n\nFind the swagger definition file at <a href=\"/docs/swagger.json\">/docs/swagger.json.</a>\n\nContact Support:\n Name: N3XT Support",
+      "type": "text/plain"
+    }
+  }
+}

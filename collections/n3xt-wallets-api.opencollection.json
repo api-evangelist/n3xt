@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Wallets API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wallets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/wallets",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of wallets associated with the current authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Wallet by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/wallets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "wallet123",
+                "type": "path",
+                "description": "The ID of the wallet to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the details of a specific wallet by its ID."
+        },
+        {
+          "info": {
+            "name": "Generate Wallet Registration Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/wallets/onboarding-requests/registration-messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generate a wallet registration message for a public wallet."
+        },
+        {
+          "info": {
+            "name": "Register Public Wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/wallets/public-wallets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Provide a signature and a wallet registration message to register a public wallet"
+        },
+        {
+          "info": {
+            "name": "List wallet onboarding requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/wallets/onboarding-requests/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "0x123456789abcdef",
+                "type": "path",
+                "description": "The wallet address to list onboarding requests for."
+              },
+              {
+                "name": "status",
+                "value": "pending",
+                "type": "query",
+                "description": "Optional status filter."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Lists onboarding requests for a public wallet address, optionally filtered by status."
+        },
+        {
+          "info": {
+            "name": "Cancel Public Wallet Onboarding Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://openapi.n3xt.io/wallets/onboarding-requests/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the onboarding request to cancel."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Cancels a given public wallet onboarding request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

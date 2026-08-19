@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Approvals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Approval by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/approvals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a specific approval request by its ID."
+        },
+        {
+          "info": {
+            "name": "Update Approval Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://openapi.n3xt.io/approvals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the approval to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the status of an approval request by its ID."
+        },
+        {
+          "info": {
+            "name": "List Approval Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/approvals",
+            "params": [
+              {
+                "name": "workflowType",
+                "value": "",
+                "type": "query",
+                "description": "Optional filter for the type of workflow."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Optional filter for approval status (comma-separated values)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of approval requests to return (optional)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for pagination (optional)."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort payments by a field. Available fields: createdAt, updatedAt (optional)."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Available values: asc, desc. (optional)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of approval requests associated with the authenticated user, each containing details such as the request ID, sender ID, recipient ID, amount, status, and timestamps.\n- The status can be one of the following: requested, approved, declined, or cancelled.\n- The list of approval requests is filtered based on the user's permissions and roles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,14 +2,11 @@ generated: '2026-07-20'
 method: searched
 status: published
 source: https://n3xt.io/llms.txt
-notes: >-
-  N3XT operates a hosted, remote MCP server at mcp.n3xt.io. The /mcp endpoint
-  responds 401 (OAuth-protected) and the N3XT authorization server publishes
-  dedicated `mcp:read` and `mcp:write` OAuth scopes, confirming a first-party
-  MCP surface over the banking API. Access is via OAuth 2.0 (authorization_code
-  / client_credentials) at authn.n3xt.io. The tool list below is a candidate
-  mapping derived from the public OpenAPI operations; N3XT does not publish a
-  verbatim tool manifest.
+notes: N3XT operates a hosted, remote MCP server at mcp.n3xt.io. The /mcp endpoint responds 401 (OAuth-protected)
+  and the N3XT authorization server publishes dedicated `mcp:read` and `mcp:write` OAuth scopes, confirming
+  a first-party MCP surface over the banking API. Access is via OAuth 2.0 (authorization_code / client_credentials)
+  at authn.n3xt.io. The tool list below is a candidate mapping derived from the public OpenAPI operations;
+  N3XT does not publish a verbatim tool manifest.
 server:
   name: n3xt
   transport: http
@@ -17,7 +14,9 @@ server:
   auth:
     type: oauth2
     issuer: https://authn.n3xt.io
-    scopes: [mcp:read, mcp:write]
+    scopes:
+    - mcp:read
+    - mcp:write
 tools:
 - name: list_wallets
   description: List wallets for the authenticated business.
@@ -61,3 +60,10 @@ tools:
 - name: list_approvals
   description: List pending approvals.
   source_operation: openapi/n3xt-openapi-original.json#List
+deployment:
+  mode: remote
+  endpoint: https://mcp.n3xt.io/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

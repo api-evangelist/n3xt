@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals AuditTrail API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AuditTrail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Audit Trail Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/audit-trail",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query",
+                "description": "Filter audit trail records by actor ID."
+              },
+              {
+                "name": "walletId",
+                "value": "",
+                "type": "query",
+                "description": "Filter audit trail records by wallet ID."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter audit trail records by type (business or wallet)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of audit trail records to return (optional)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for pagination (optional)."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort audit trail records by a field. Available fields: createdAt (optional)."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Available values: asc, desc. (optional)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Lists all audit trail records for the authenticated user's business matching the filter criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

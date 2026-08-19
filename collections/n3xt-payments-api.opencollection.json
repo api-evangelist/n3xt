@@ -1,0 +1,277 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Payments API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Instant Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/payments/instant",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Allows the authenticated user to create an instant payment to a business.\nOptionally provide recipientWalletAddress to send to a specific wallet of that business (address must belong to the business)."
+        },
+        {
+          "info": {
+            "name": "List Payment Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments/request",
+            "params": [
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Filter requests by direction ('incoming' for requests to you, 'outgoing' for requests from you)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of payment requests to return (optional)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for pagination (optional)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the payment requests to filter (optional)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a list of payment requests filtered by direction (incoming or outgoing)."
+        },
+        {
+          "info": {
+            "name": "Request Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/payments/request",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Allows the authenticated user to request a payment from another business."
+        },
+        {
+          "info": {
+            "name": "Get Payment Request by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments/request/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "paymentRequest123",
+                "type": "path",
+                "description": "The ID of the payment request to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a specific payment request by its ID."
+        },
+        {
+          "info": {
+            "name": "Update Payment Request Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://openapi.n3xt.io/payments/request/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the payment request to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the status of a payment request."
+        },
+        {
+          "info": {
+            "name": "List Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of payment statuses to filter by. Available statuses: queued, requested, initiated, lockbox, released, partial, cancelled, declined, completed, failed. Example: \"completed,lockbox\" (optional)."
+              },
+              {
+                "name": "walletId",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments by specific wallet ID. Must be a valid UUID format (optional)."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments created after this date (ISO 8601 format) (optional)."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments created before this date (ISO 8601 format) (optional)."
+              },
+              {
+                "name": "amountGreaterThan",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments with transaction amount greater than or equal to this value (optional)."
+              },
+              {
+                "name": "amountLessThan",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments with transaction amount less than or equal to this value (optional)."
+              },
+              {
+                "name": "senderBusinessId",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments with sender business ID (optional)."
+              },
+              {
+                "name": "recipientBusinessId",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments with recipient business ID (optional)."
+              },
+              {
+                "name": "businessId",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments where sender or recipient matches business ID (optional).. This is a legacy filter that is no longer supported."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments by description (case-insensitive partial match) (optional)."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort payments by a field. Available fields: createdAt, updatedAt. (optional)."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Available values: asc, desc. Example: \"asc\" (optional)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of payments returned. Default: 100. Max: 200.(optional)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "page offset to start from (based on the limit). Default: 0.(optional)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of all payments made by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Payment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "payment123",
+                "type": "path",
+                "description": "The ID of the payment to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the details of a specific payment by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

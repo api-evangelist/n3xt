@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Programmable API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Programmable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Programmable Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments/programmable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the programmable payment (moneyflow)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a programmable payment by its ID."
+        },
+        {
+          "info": {
+            "name": "List Programmable Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.n3xt.io/payments/programmable",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of programmable payments to return (optional)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for pagination (optional)."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort programmable payments by a field. Available fields: createdAt, updatedAt. (optional)."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Available values: asc, desc. (optional)."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Lists all programmable payments for the authenticated user's business."
+        },
+        {
+          "info": {
+            "name": "Create Programmable Payment Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/payments/programmable",
+            "params": [
+              {
+                "name": "initiator",
+                "value": "",
+                "type": "query",
+                "description": "Specifies who initiates the payment: 'recipient' or 'payer'"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a programmable payment request."
+        },
+        {
+          "info": {
+            "name": "Fulfill Programmable Payment Delivery",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.n3xt.io/payments/programmable/:id/fulfillment",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the programmable payment."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Fulfill a programmable payment delivery."
+        },
+        {
+          "info": {
+            "name": "Cancel Programmable Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://openapi.n3xt.io/payments/programmable/:id/cancellation",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the programmable payment to cancel."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Cancel a programmable payment."
+        },
+        {
+          "info": {
+            "name": "Update Request Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://openapi.n3xt.io/payments/programmable/request/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the request to update."
+              },
+              {
+                "name": "requestType",
+                "value": "",
+                "type": "query",
+                "description": "The type of request: 'payment', 'fulfillment', or 'cancellation'."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the status of a payment/fulfillment/cancellation request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

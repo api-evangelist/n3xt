@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "N3XT API Documentation Approvals Ndd Routes API",
+    "version": "v1.0.1-3514-g824039216"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ndd Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "NDD Mint to a specified public wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/ndd/tokenize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Allows the authenticated user to create an NDD mint transaction."
+        },
+        {
+          "info": {
+            "name": "NDD Burn from a specified public wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.n3xt.io/ndd/redeem",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Allows the authenticated user to create an NDD burn transaction."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
