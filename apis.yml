@@ -231,6 +231,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/n3xt-capability-edges.yml
+  name: N3XT Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/n3xt/overview
 # --- identity / link properties (searched) ---
