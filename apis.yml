@@ -52,7 +52,7 @@ tags:
 - Crypto
 - Banking
 - Payments
-- Stablecoin
+- Stablecoins
 - Fintech
 - Blockchain
 - MCP
@@ -87,7 +87,7 @@ apis:
   humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
   baseURL: https://openapi.n3xt.io
   tags:
-  - AuditTrail
+  - Audit Trail
   tags_raw:
   - AuditTrail
   properties:
