@@ -81,22 +81,6 @@ apis:
     url: https://openapi.n3xt.io/docs/
   - type: GettingStarted
     url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
-- aid: n3xt:n3xt-audittrail-api
-  name: N3XT AuditTrail API
-  description: The AuditTrail API from N3XT — 1 operation(s) for audittrail.
-  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
-  baseURL: https://openapi.n3xt.io
-  tags:
-  - Audit Trail
-  tags_raw:
-  - AuditTrail
-  properties:
-  - type: OpenAPI
-    url: openapi/n3xt-audittrail-api-openapi.yml
-  - type: APIReference
-    url: https://openapi.n3xt.io/docs/
-  - type: GettingStarted
-    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
 - aid: n3xt:n3xt-businesses-api
   name: N3XT Businesses API
   description: The Businesses API from N3XT — 2 operation(s) for businesses.
@@ -221,6 +205,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/n3xt-wallets-api-openapi.yml
+  - type: APIReference
+    url: https://openapi.n3xt.io/docs/
+  - type: GettingStarted
+    url: https://helpcenter.n3xt.io/en/articles/12118191-api-getting-started
+- aid: n3xt:n3xt-audit-trail-api
+  name: N3XT Audit Trail API
+  description: The Audit Trail API from N3XT — 1 operation(s) for audit trail.
+  humanURL: https://helpcenter.n3xt.io/en/collections/14976227-api-and-integrations
+  baseURL: https://openapi.n3xt.io
+  tags:
+  - Audit Trail
+  properties:
+  - type: OpenAPI
+    url: openapi/n3xt-audit-trail-api-openapi.yml
   - type: APIReference
     url: https://openapi.n3xt.io/docs/
   - type: GettingStarted
