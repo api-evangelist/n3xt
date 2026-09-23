@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: N3XT API Documentation Approvals AuditTrail API
+  title: N3XT API Documentation Audit Trail API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -17,7 +17,7 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: AuditTrail
+- name: Audit Trail
 paths:
   /audit-trail:
     get:
@@ -87,7 +87,7 @@ paths:
       description: Lists all audit trail records for the authenticated user's business matching the filter criteria.
       summary: List Audit Trail Records
       tags:
-      - AuditTrail
+      - Audit Trail
       security:
       - bearerAuth: []
       parameters:
@@ -158,25 +158,31 @@ components:
         id:
           type: string
         actorType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         actorId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         targetEventType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         targetEventAction:
           type: string
         targetEventId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         businessId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         walletId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         metadata: {}
         createdAt:
           type: string

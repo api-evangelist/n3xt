@@ -1,12 +1,9 @@
-generated: '2026-07-20'
+generated: '2026-09-19'
 method: searched
-notes: >-
-  Probed /.well-known/ discovery endpoints across the N3XT hosts. The website
-  publishes a real RFC 9116 security.txt; the authorization server
-  (authn.n3xt.io) publishes OpenID Connect and OAuth 2.0 authorization-server
-  metadata. The API hosts (api./openapi.n3xt.io) return 403 to unauthenticated
-  well-known probes; app.n3xt.io returns SPA soft-redirects (not real
-  documents) and is excluded.
+notes: Probed /.well-known/ discovery endpoints across the N3XT hosts. The website publishes a real RFC
+  9116 security.txt; the authorization server (authn.n3xt.io) publishes OpenID Connect and OAuth 2.0 authorization-server
+  metadata. The API hosts (api./openapi.n3xt.io) return 403 to unauthenticated well-known probes; app.n3xt.io
+  returns SPA soft-redirects (not real documents) and is excluded.
 hosts:
 - host: https://n3xt.io
   documents:
@@ -41,3 +38,30 @@ hosts:
   documents:
   - path: /.well-known/security.txt
     status: 403
+- host: https://mcp.n3xt.io
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: n3xt-mcp-oauth-protected-resource.json
+    bytes: 156
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: n3xt-mcp-oauth-authorization-server.json
+    bytes: 647
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://mcp.n3xt.io
+    path: /.well-known/oauth-protected-resource
+    file: n3xt-mcp-oauth-protected-resource.json
+  - host: https://mcp.n3xt.io
+    path: /.well-known/oauth-authorization-server
+    file: n3xt-mcp-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

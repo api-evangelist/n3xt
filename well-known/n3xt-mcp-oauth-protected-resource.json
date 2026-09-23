@@ -1,0 +1,1 @@
+{"resource":"https://mcp.n3xt.io/mcp","authorization_servers":["https://mcp.n3xt.io"],"scopes_supported":["openid","offline_access","mcp:read","mcp:write"]}

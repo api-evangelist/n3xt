@@ -1,17 +1,7 @@
 {
   "provider": "n3xt",
   "sources": [
-    "n3xt-approvals-api-openapi.yml",
-    "n3xt-audittrail-api-openapi.yml",
-    "n3xt-businesses-api-openapi.yml",
-    "n3xt-contacts-api-openapi.yml",
-    "n3xt-ndd-routes-api-openapi.yml",
-    "n3xt-payments-api-openapi.yml",
-    "n3xt-programmable-api-openapi.yml",
-    "n3xt-system-api-openapi.yml",
-    "n3xt-transfers-api-openapi.yml",
-    "n3xt-users-api-openapi.yml",
-    "n3xt-wallets-api-openapi.yml"
+    "_original/n3xt-openapi-original.json"
   ],
   "outputs": [
     "n3xt-approvals-api-openapi.yml",
@@ -26,9 +16,39 @@
     "n3xt-users-api-openapi.yml",
     "n3xt-wallets-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "n3xt-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n3xt-openapi-original.json: declared missing tag: Approvals",
+    "n3xt-openapi-original.json: declared missing tag: AuditTrail",
+    "n3xt-openapi-original.json: declared missing tag: Businesses",
+    "n3xt-openapi-original.json: declared missing tag: Contacts",
+    "n3xt-openapi-original.json: declared missing tag: Ndd Routes",
+    "n3xt-openapi-original.json: declared missing tag: Payments",
+    "n3xt-openapi-original.json: declared missing tag: Programmable",
+    "n3xt-openapi-original.json: declared missing tag: System",
+    "n3xt-openapi-original.json: declared missing tag: Transfers",
+    "n3xt-openapi-original.json: declared missing tag: Users",
+    "n3xt-openapi-original.json: declared missing tag: Wallets",
+    "superseded outputs removed: n3xt-audit-trail-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 11 total)"
+  ],
+  "skipped": [
+    "n3xt-approvals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-audit-trail-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-businesses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-ndd-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-programmable-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-system-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n3xt-wallets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

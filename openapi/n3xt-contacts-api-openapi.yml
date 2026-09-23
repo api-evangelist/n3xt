@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: N3XT API Documentation Approvals Contacts API
+  title: N3XT API Documentation Contacts API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -256,11 +256,6 @@ paths:
           type: string
 components:
   schemas:
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
     ErrorResponse:
       properties:
         error:
@@ -298,6 +293,11 @@ components:
       - updatedAt
       type: object
       additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: N3XT API Documentation Approvals Users API
+  title: N3XT API Documentation Users API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -143,6 +143,14 @@ paths:
         example: user123
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     User:
       properties:
         id:
@@ -178,14 +186,6 @@ components:
       - apiUserMetadataId
       - createdAt
       - updatedAt
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
   securitySchemes:

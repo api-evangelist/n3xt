@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: N3XT API Documentation Approvals Wallets API
+  title: N3XT API Documentation Wallets API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -310,6 +310,8 @@ paths:
               - nickname
               - message
               type: object
+      summary: Register public wallet
+      x-summary-source: derived
   /wallets/onboarding-requests/{address}:
     get:
       operationId: List Public Wallet Onboarding Requests
@@ -443,6 +445,8 @@ paths:
         required: true
         schema:
           type: string
+      summary: Cancel public wallet onboarding request
+      x-summary-source: derived
 components:
   schemas:
     ErrorResponse:
@@ -451,6 +455,41 @@ components:
           type: string
       required:
       - error
+      type: object
+      additionalProperties: false
+    WalletResponse:
+      properties:
+        balance:
+          type: string
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        status:
+          type:
+          - string
+          - 'null'
+        ownerId:
+          type: string
+        address:
+          type: string
+        privateKey:
+          type: string
+        ownerType:
+          type: string
+        isApproverEnabled:
+          type: boolean
+        nickname:
+          type:
+          - string
+          - 'null'
+      required:
+      - isApproverEnabled
+      - nickname
       type: object
       additionalProperties: false
     OnboardingRequestResponseApi:
@@ -538,7 +577,6 @@ components:
           type: string
           enum:
           - WalletRegistration
-          nullable: false
         message:
           properties:
             issuedAt:
@@ -573,39 +611,6 @@ components:
       - types
       - primaryType
       - message
-      type: object
-      additionalProperties: false
-    WalletResponse:
-      properties:
-        balance:
-          type: string
-        id:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        status:
-          type: string
-          nullable: true
-        ownerId:
-          type: string
-        address:
-          type: string
-        privateKey:
-          type: string
-        ownerType:
-          type: string
-        isApproverEnabled:
-          type: boolean
-        nickname:
-          type: string
-          nullable: true
-      required:
-      - isApproverEnabled
-      - nickname
       type: object
       additionalProperties: false
   securitySchemes:

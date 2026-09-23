@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: N3XT API Documentation Approvals API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -300,11 +300,6 @@ components:
       - error
       type: object
       additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
     ApprovalResponse:
       properties:
         approvable:
@@ -352,16 +347,19 @@ components:
               authorId:
                 type: string
               status:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               amount:
                 type: string
               recipientWalletId:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               senderWalletId:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               moneyFlowId:
                 type: string
             type: object
@@ -394,6 +392,11 @@ components:
       - data
       type: object
       additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
   securitySchemes:
     bearerAuth:
       type: http

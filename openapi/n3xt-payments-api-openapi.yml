@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: N3XT API Documentation Approvals Payments API
+  title: N3XT API Documentation Payments API
   version: v1.0.1-3514-g824039216
   description: 'A holistic banking API for businesses.
 
 
-    Find the swagger definition file at <a href="/docs/swagger.json">/docs/swagger.json.</a>'
+    Find the swagger definition file at /docs/swagger.json.'
   license:
     name: ISC
   contact:
@@ -658,23 +658,6 @@ paths:
         example: payment123
 components:
   schemas:
-    RequestPaymentRequest:
-      properties:
-        amount:
-          type: string
-        senderBusinessId:
-          type: string
-        recipientWalletId:
-          type: string
-        description:
-          type: string
-      required:
-      - amount
-      - senderBusinessId
-      - recipientWalletId
-      - description
-      type: object
-      additionalProperties: false
     Payment:
       properties:
         id:
@@ -703,7 +686,6 @@ components:
         status:
           allOf:
           - $ref: '#/components/schemas/PaymentStatusEnum'
-          nullable: true
         description:
           type: string
         createdAt:
@@ -726,6 +708,45 @@ components:
       - updatedAt
       type: object
       additionalProperties: false
+    RequestPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderBusinessId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderBusinessId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
+    PaymentStatusEnum:
+      type: string
+      enum:
+      - queued
+      - requested
+      - initiated
+      - lockbox
+      - released
+      - cancelled
+      - declined
+      - completed
+      - failed
+      - burned
+      - minted
+      - transferred
+      - confirmed
+      - reverted
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
     InstantPaymentRequest:
       properties:
         amount:
@@ -753,28 +774,6 @@ components:
       - error
       type: object
       additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-    PaymentStatusEnum:
-      type: string
-      enum:
-      - queued
-      - requested
-      - initiated
-      - lockbox
-      - released
-      - cancelled
-      - declined
-      - completed
-      - failed
-      - burned
-      - minted
-      - transferred
-      - confirmed
-      - reverted
   securitySchemes:
     bearerAuth:
       type: http
