@@ -292,14 +292,6 @@ paths:
           - desc
 components:
   schemas:
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
     ApprovalResponse:
       properties:
         approvable:
@@ -390,6 +382,14 @@ components:
       required:
       - approvable
       - data
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
       type: object
       additionalProperties: false
     ApiWrapperOrderBy:

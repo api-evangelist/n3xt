@@ -21,7 +21,7 @@ tags:
 paths:
   /payments/instant:
     post:
-      operationId: Instant Payment
+      operationId: InstantPayment
       responses:
         '202':
           description: The payment was created successfully.
@@ -107,9 +107,11 @@ paths:
                   recipientBusinessId: business1234
                   recipientWalletAddress: 0x...
                   description: Payment to specific wallet
+      x-operation-id-source: normalized
+      x-operation-id-original: Instant Payment
   /payments/request:
     post:
-      operationId: Create Payment Request
+      operationId: CreatePaymentRequest
       responses:
         '202':
           description: The payment request was created successfully.
@@ -170,8 +172,10 @@ paths:
               senderBusinessId: business123
               recipientWalletId: wallet456
               description: Payment for services
+      x-operation-id-source: normalized
+      x-operation-id-original: Create Payment Request
     get:
-      operationId: List Payment Requests
+      operationId: ListPaymentRequests
       responses:
         '200':
           description: The list of payment requests was retrieved successfully.
@@ -251,9 +255,11 @@ paths:
         required: false
         schema:
           type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: List Payment Requests
   /payments/request/{id}:
     patch:
-      operationId: Update Payment Request Status
+      operationId: UpdatePaymentRequestStatus
       responses:
         '202':
           description: The payment request status was updated successfully.
@@ -344,8 +350,10 @@ paths:
               Example 3:
                 value:
                   status: cancelled
+      x-operation-id-source: normalized
+      x-operation-id-original: Update Payment Request Status
     get:
-      operationId: Get Payment Request by Id
+      operationId: GetPaymentRequestById
       responses:
         '200':
           description: The payment request details were retrieved successfully.
@@ -412,9 +420,11 @@ paths:
         schema:
           type: string
         example: paymentRequest123
+      x-operation-id-source: normalized
+      x-operation-id-original: Get Payment Request by Id
   /payments:
     get:
-      operationId: List Payments
+      operationId: ListPayments
       responses:
         '200':
           description: The list of payments was retrieved successfully.
@@ -577,9 +587,11 @@ paths:
         schema:
           format: double
           type: number
+      x-operation-id-source: normalized
+      x-operation-id-original: List Payments
   /payments/{id}:
     get:
-      operationId: Get Payment by Id
+      operationId: GetPaymentById
       responses:
         '200':
           description: The payment details were retrieved successfully.
@@ -656,8 +668,46 @@ paths:
         schema:
           type: string
         example: payment123
+      x-operation-id-source: normalized
+      x-operation-id-original: Get Payment by Id
 components:
   schemas:
+    InstantPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderWalletId:
+          type: string
+        recipientBusinessId:
+          type: string
+        recipientWalletAddress:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderWalletId
+      - recipientBusinessId
+      - description
+      type: object
+      additionalProperties: false
+    RequestPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderBusinessId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderBusinessId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
     Payment:
       properties:
         id:
@@ -708,23 +758,19 @@ components:
       - updatedAt
       type: object
       additionalProperties: false
-    RequestPaymentRequest:
+    ErrorResponse:
       properties:
-        amount:
-          type: string
-        senderBusinessId:
-          type: string
-        recipientWalletId:
-          type: string
-        description:
+        error:
           type: string
       required:
-      - amount
-      - senderBusinessId
-      - recipientWalletId
-      - description
+      - error
       type: object
       additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
     PaymentStatusEnum:
       type: string
       enum:
@@ -742,38 +788,6 @@ components:
       - transferred
       - confirmed
       - reverted
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-    InstantPaymentRequest:
-      properties:
-        amount:
-          type: string
-        senderWalletId:
-          type: string
-        recipientBusinessId:
-          type: string
-        recipientWalletAddress:
-          type: string
-        description:
-          type: string
-      required:
-      - amount
-      - senderWalletId
-      - recipientBusinessId
-      - description
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

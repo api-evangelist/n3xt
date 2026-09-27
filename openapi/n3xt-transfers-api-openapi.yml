@@ -21,7 +21,7 @@ tags:
 paths:
   /transfers/internal:
     post:
-      operationId: Internal Transfer
+      operationId: InternalTransfer
       responses:
         '202':
           description: The internal transfer was created successfully.
@@ -96,6 +96,8 @@ paths:
               senderWalletId: wallet123
               recipientWalletId: wallet456
               description: Internal transfer
+      x-operation-id-source: normalized
+      x-operation-id-original: Internal Transfer
 components:
   schemas:
     ErrorResponse:

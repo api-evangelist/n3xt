@@ -21,7 +21,7 @@ tags:
 paths:
   /ndd/tokenize:
     post:
-      operationId: NDD Mint
+      operationId: NDDMint
       responses:
         '202':
           description: The NDD mint was created successfully.
@@ -96,9 +96,11 @@ paths:
               senderWalletId: wallet123
               recipientWalletId: wallet1234
               description: Minting NDD to public wallet
+      x-operation-id-source: normalized
+      x-operation-id-original: NDD Mint
   /ndd/redeem:
     post:
-      operationId: NDD Burn
+      operationId: NDDBurn
       responses:
         '202':
           description: The NDD burn was created successfully.
@@ -173,6 +175,8 @@ paths:
               senderWalletId: wallet123
               recipientWalletId: wallet1234
               description: Burning NDD from public wallet
+      x-operation-id-source: normalized
+      x-operation-id-original: NDD Burn
 components:
   schemas:
     ErrorResponse:

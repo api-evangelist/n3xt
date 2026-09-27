@@ -21,7 +21,7 @@ tags:
 paths:
   /payments/programmable/{id}:
     get:
-      operationId: Get Programmable Payment
+      operationId: GetProgrammablePayment
       responses:
         '200':
           description: Success
@@ -65,9 +65,11 @@ paths:
         required: true
         schema:
           type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Get Programmable Payment
   /payments/programmable:
     get:
-      operationId: List Programmable Payments
+      operationId: ListProgrammablePayments
       responses:
         '200':
           description: Success
@@ -146,8 +148,10 @@ paths:
           enum:
           - asc
           - desc
+      x-operation-id-source: normalized
+      x-operation-id-original: List Programmable Payments
     post:
-      operationId: Create Programmable Payment Request
+      operationId: CreateProgrammablePaymentRequest
       responses:
         '202':
           description: Request Accepted
@@ -225,9 +229,11 @@ paths:
               - $ref: '#/components/schemas/RecipientRequestPayload'
               - $ref: '#/components/schemas/PayerRequestPayload'
               description: The request body.
+      x-operation-id-source: normalized
+      x-operation-id-original: Create Programmable Payment Request
   /payments/programmable/{id}/fulfillment:
     put:
-      operationId: Fulfill Programmable Payment
+      operationId: FulfillProgrammablePayment
       responses:
         '202':
           description: Fulfillment request accepted
@@ -271,9 +277,11 @@ paths:
         required: true
         schema:
           type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Fulfill Programmable Payment
   /payments/programmable/{id}/cancellation:
     put:
-      operationId: Cancel Programmable Payment
+      operationId: CancelProgrammablePayment
       responses:
         '202':
           description: Cancellation request accepted
@@ -317,9 +325,11 @@ paths:
         required: true
         schema:
           type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Cancel Programmable Payment
   /payments/programmable/request/{id}:
     patch:
-      operationId: Update Payment Request Status
+      operationId: UpdatePaymentRequestStatus
       responses:
         '202':
           description: The request status was updated successfully.
@@ -426,8 +436,18 @@ paths:
               Example 3:
                 value:
                   status: cancelled
+      x-operation-id-source: normalized
+      x-operation-id-original: Update Payment Request Status
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     PayerRequestPayload:
       description: Request body for creating a payer-initiated programmable payment.
       properties:
@@ -493,14 +513,6 @@ components:
       enum:
       - createdAt
       - updatedAt
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

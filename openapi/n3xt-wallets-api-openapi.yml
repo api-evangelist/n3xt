@@ -74,7 +74,7 @@ paths:
       parameters: []
   /wallets/{id}:
     get:
-      operationId: Wallet By Id
+      operationId: WalletById
       responses:
         '200':
           description: The wallet details were retrieved successfully.
@@ -148,9 +148,11 @@ paths:
         schema:
           type: string
         example: wallet123
+      x-operation-id-source: normalized
+      x-operation-id-original: Wallet By Id
   /wallets/onboarding-requests/registration-messages:
     post:
-      operationId: Generate Wallet Registration Message
+      operationId: GenerateWalletRegistrationMessage
       responses:
         '200':
           description: The wallet registration message was generated successfully.
@@ -223,9 +225,11 @@ paths:
             example:
               address: '0x123456789abcdef'
               chainId: 1
+      x-operation-id-source: normalized
+      x-operation-id-original: Generate Wallet Registration Message
   /wallets/public-wallets:
     post:
-      operationId: Register Public Wallet
+      operationId: RegisterPublicWallet
       responses:
         '200':
           description: The public wallet was registered successfully.
@@ -312,9 +316,11 @@ paths:
               type: object
       summary: Register public wallet
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Register Public Wallet
   /wallets/onboarding-requests/{address}:
     get:
-      operationId: List Public Wallet Onboarding Requests
+      operationId: ListPublicWalletOnboardingRequests
       responses:
         '200':
           description: The list of onboarding requests was retrieved successfully.
@@ -387,9 +393,11 @@ paths:
           - received
           - cancelled
         example: pending
+      x-operation-id-source: normalized
+      x-operation-id-original: List Public Wallet Onboarding Requests
   /wallets/onboarding-requests/{requestId}:
     delete:
-      operationId: Cancel Public Wallet Onboarding Request
+      operationId: CancelPublicWalletOnboardingRequest
       responses:
         '202':
           description: The request to cancel a public wallet onboarding request was accepted.
@@ -447,6 +455,8 @@ paths:
           type: string
       summary: Cancel public wallet onboarding request
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Cancel Public Wallet Onboarding Request
 components:
   schemas:
     ErrorResponse:
@@ -490,38 +500,6 @@ components:
       required:
       - isApproverEnabled
       - nickname
-      type: object
-      additionalProperties: false
-    OnboardingRequestResponseApi:
-      description: 'Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.
-
-        tsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).'
-      properties:
-        id:
-          type: string
-        address:
-          type: string
-        chainId:
-          type: number
-          format: double
-        status:
-          type: string
-          enum:
-          - pending
-          - received
-          - cancelled
-        createdAt:
-          type: string
-          format: date-time
-        registrationData:
-          $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
-      required:
-      - id
-      - address
-      - chainId
-      - status
-      - createdAt
-      - registrationData
       type: object
       additionalProperties: false
     WalletRegistrationMessageResponseApi:
@@ -611,6 +589,38 @@ components:
       - types
       - primaryType
       - message
+      type: object
+      additionalProperties: false
+    OnboardingRequestResponseApi:
+      description: 'Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.
+
+        tsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).'
+      properties:
+        id:
+          type: string
+        address:
+          type: string
+        chainId:
+          type: number
+          format: double
+        status:
+          type: string
+          enum:
+          - pending
+          - received
+          - cancelled
+        createdAt:
+          type: string
+          format: date-time
+        registrationData:
+          $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
+      required:
+      - id
+      - address
+      - chainId
+      - status
+      - createdAt
+      - registrationData
       type: object
       additionalProperties: false
   securitySchemes:

@@ -21,7 +21,7 @@ tags:
 paths:
   /businesses:
     get:
-      operationId: Get Businesses
+      operationId: GetBusinesses
       responses:
         '200':
           description: A list of businesses was retrieved successfully.
@@ -99,9 +99,11 @@ paths:
           type: number
       summary: Get businesses
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Get Businesses
   /businesses/{id}:
     get:
-      operationId: Get Business by ID
+      operationId: GetBusinessByID
       responses:
         '200':
           description: Business retrieved successfully.
@@ -164,6 +166,8 @@ paths:
           type: string
       summary: Get business by ID
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Get Business by ID
 components:
   schemas:
     ErrorResponse:
