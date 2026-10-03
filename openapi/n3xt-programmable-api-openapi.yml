@@ -478,6 +478,11 @@ components:
       - amount
       type: object
       additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
     RecipientRequestPayload:
       description: Request body for creating a recipient-initiated programmable payment.
       properties:
@@ -508,11 +513,6 @@ components:
       - amount
       type: object
       additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
   securitySchemes:
     bearerAuth:
       type: http

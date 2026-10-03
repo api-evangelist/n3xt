@@ -170,14 +170,6 @@ paths:
       x-operation-id-original: Get Business by ID
 components:
   schemas:
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
     Business:
       properties:
         id:
@@ -186,6 +178,14 @@ components:
           type: string
       required:
       - id
+      type: object
+      additionalProperties: false
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
       type: object
       additionalProperties: false
   securitySchemes:

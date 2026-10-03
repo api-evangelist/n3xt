@@ -143,6 +143,14 @@ paths:
         example: user123
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     User:
       properties:
         id:
@@ -178,14 +186,6 @@ components:
       - apiUserMetadataId
       - createdAt
       - updatedAt
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
   securitySchemes:

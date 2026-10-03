@@ -672,6 +672,53 @@ paths:
       x-operation-id-original: Get Payment by Id
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    PaymentStatusEnum:
+      type: string
+      enum:
+      - queued
+      - requested
+      - initiated
+      - lockbox
+      - released
+      - cancelled
+      - declined
+      - completed
+      - failed
+      - burned
+      - minted
+      - transferred
+      - confirmed
+      - reverted
+    RequestPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderBusinessId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderBusinessId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
     InstantPaymentRequest:
       properties:
         amount:
@@ -688,23 +735,6 @@ components:
       - amount
       - senderWalletId
       - recipientBusinessId
-      - description
-      type: object
-      additionalProperties: false
-    RequestPaymentRequest:
-      properties:
-        amount:
-          type: string
-        senderBusinessId:
-          type: string
-        recipientWalletId:
-          type: string
-        description:
-          type: string
-      required:
-      - amount
-      - senderBusinessId
-      - recipientWalletId
       - description
       type: object
       additionalProperties: false
@@ -758,36 +788,6 @@ components:
       - updatedAt
       type: object
       additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-    PaymentStatusEnum:
-      type: string
-      enum:
-      - queued
-      - requested
-      - initiated
-      - lockbox
-      - released
-      - cancelled
-      - declined
-      - completed
-      - failed
-      - burned
-      - minted
-      - transferred
-      - confirmed
-      - reverted
   securitySchemes:
     bearerAuth:
       type: http
