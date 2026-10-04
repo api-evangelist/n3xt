@@ -440,14 +440,11 @@ paths:
       x-operation-id-original: Update Payment Request Status
 components:
   schemas:
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
     PayerRequestPayload:
       description: Request body for creating a payer-initiated programmable payment.
       properties:
@@ -478,11 +475,14 @@ components:
       - amount
       type: object
       additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     RecipientRequestPayload:
       description: Request body for creating a recipient-initiated programmable payment.
       properties:

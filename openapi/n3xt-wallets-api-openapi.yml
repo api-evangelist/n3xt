@@ -494,6 +494,38 @@ components:
       - nickname
       type: object
       additionalProperties: false
+    OnboardingRequestResponseApi:
+      description: 'Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.
+
+        tsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).'
+      properties:
+        id:
+          type: string
+        address:
+          type: string
+        chainId:
+          type: number
+          format: double
+        status:
+          type: string
+          enum:
+          - pending
+          - received
+          - cancelled
+        createdAt:
+          type: string
+          format: date-time
+        registrationData:
+          $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
+      required:
+      - id
+      - address
+      - chainId
+      - status
+      - createdAt
+      - registrationData
+      type: object
+      additionalProperties: false
     ErrorResponse:
       properties:
         error:
@@ -589,38 +621,6 @@ components:
       - types
       - primaryType
       - message
-      type: object
-      additionalProperties: false
-    OnboardingRequestResponseApi:
-      description: 'Mirrors {@link OnboardingRequestResponse } from `@n3xt/common` for REST/OpenAPI only.
-
-        tsoa cannot resolve Zod-derived types (they reference `zOnboardingRequestResponseSchema`).'
-      properties:
-        id:
-          type: string
-        address:
-          type: string
-        chainId:
-          type: number
-          format: double
-        status:
-          type: string
-          enum:
-          - pending
-          - received
-          - cancelled
-        createdAt:
-          type: string
-          format: date-time
-        registrationData:
-          $ref: '#/components/schemas/WalletRegistrationMessageResponseApi'
-      required:
-      - id
-      - address
-      - chainId
-      - status
-      - createdAt
-      - registrationData
       type: object
       additionalProperties: false
   securitySchemes:

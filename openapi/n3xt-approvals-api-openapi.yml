@@ -292,6 +292,19 @@ paths:
           - desc
 components:
   schemas:
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     ApprovalResponse:
       properties:
         approvable:
@@ -384,19 +397,6 @@ components:
       - data
       type: object
       additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
   securitySchemes:
     bearerAuth:
       type: http

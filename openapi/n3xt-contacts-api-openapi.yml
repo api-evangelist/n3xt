@@ -256,14 +256,6 @@ paths:
           type: string
 components:
   schemas:
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
     Contact:
       properties:
         id:
@@ -298,6 +290,14 @@ components:
       enum:
       - createdAt
       - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

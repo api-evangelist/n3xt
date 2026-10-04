@@ -179,7 +179,7 @@ paths:
       x-operation-id-original: NDD Burn
 components:
   schemas:
-    NddBurnRequest:
+    NddMintRequest:
       properties:
         amount:
           type: string
@@ -204,7 +204,7 @@ components:
       - error
       type: object
       additionalProperties: false
-    NddMintRequest:
+    NddBurnRequest:
       properties:
         amount:
           type: string

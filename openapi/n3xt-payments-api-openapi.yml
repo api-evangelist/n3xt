@@ -672,72 +672,6 @@ paths:
       x-operation-id-original: Get Payment by Id
 components:
   schemas:
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
-      type: object
-      additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-    PaymentStatusEnum:
-      type: string
-      enum:
-      - queued
-      - requested
-      - initiated
-      - lockbox
-      - released
-      - cancelled
-      - declined
-      - completed
-      - failed
-      - burned
-      - minted
-      - transferred
-      - confirmed
-      - reverted
-    RequestPaymentRequest:
-      properties:
-        amount:
-          type: string
-        senderBusinessId:
-          type: string
-        recipientWalletId:
-          type: string
-        description:
-          type: string
-      required:
-      - amount
-      - senderBusinessId
-      - recipientWalletId
-      - description
-      type: object
-      additionalProperties: false
-    InstantPaymentRequest:
-      properties:
-        amount:
-          type: string
-        senderWalletId:
-          type: string
-        recipientBusinessId:
-          type: string
-        recipientWalletAddress:
-          type: string
-        description:
-          type: string
-      required:
-      - amount
-      - senderWalletId
-      - recipientBusinessId
-      - description
-      type: object
-      additionalProperties: false
     Payment:
       properties:
         id:
@@ -786,6 +720,72 @@ components:
       - status
       - createdAt
       - updatedAt
+      type: object
+      additionalProperties: false
+    PaymentStatusEnum:
+      type: string
+      enum:
+      - queued
+      - requested
+      - initiated
+      - lockbox
+      - released
+      - cancelled
+      - declined
+      - completed
+      - failed
+      - burned
+      - minted
+      - transferred
+      - confirmed
+      - reverted
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
+    RequestPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderBusinessId:
+          type: string
+        recipientWalletId:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderBusinessId
+      - recipientWalletId
+      - description
+      type: object
+      additionalProperties: false
+    InstantPaymentRequest:
+      properties:
+        amount:
+          type: string
+        senderWalletId:
+          type: string
+        recipientBusinessId:
+          type: string
+        recipientWalletAddress:
+          type: string
+        description:
+          type: string
+      required:
+      - amount
+      - senderWalletId
+      - recipientBusinessId
+      - description
       type: object
       additionalProperties: false
   securitySchemes:
