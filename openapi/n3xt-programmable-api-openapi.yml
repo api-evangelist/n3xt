@@ -445,6 +445,14 @@ components:
       enum:
       - createdAt
       - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     PayerRequestPayload:
       description: Request body for creating a payer-initiated programmable payment.
       properties:
@@ -473,14 +481,6 @@ components:
       - counterPartyId
       - senderWalletId
       - amount
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
     RecipientRequestPayload:

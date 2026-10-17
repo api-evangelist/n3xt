@@ -145,6 +145,14 @@ paths:
           - desc
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     AuditTrailResponse:
       properties:
         id:
@@ -193,14 +201,6 @@ components:
       - walletId
       - createdAt
       - eventTimestamp
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
   securitySchemes:

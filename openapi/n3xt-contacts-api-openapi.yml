@@ -256,6 +256,19 @@ paths:
           type: string
 components:
   schemas:
+    ApiWrapperOrderBy:
+      type: string
+      enum:
+      - createdAt
+      - updatedAt
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     Contact:
       properties:
         id:
@@ -283,19 +296,6 @@ components:
       - contactId
       - createdAt
       - updatedAt
-      type: object
-      additionalProperties: false
-    ApiWrapperOrderBy:
-      type: string
-      enum:
-      - createdAt
-      - updatedAt
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
   securitySchemes:

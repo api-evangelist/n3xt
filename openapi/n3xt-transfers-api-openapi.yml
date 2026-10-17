@@ -100,6 +100,14 @@ paths:
       x-operation-id-original: Internal Transfer
 components:
   schemas:
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+      additionalProperties: false
     InternalTransferRequest:
       properties:
         amount:
@@ -115,14 +123,6 @@ components:
       - senderWalletId
       - recipientWalletId
       - description
-      type: object
-      additionalProperties: false
-    ErrorResponse:
-      properties:
-        error:
-          type: string
-      required:
-      - error
       type: object
       additionalProperties: false
   securitySchemes:
